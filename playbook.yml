@@ -1,0 +1,7 @@
+---
+- hosts : all
+  tasks :
+  - name: Create dev group
+    group: name=dev
+  - name: Create user drew
+    user: name=drew group=dev
