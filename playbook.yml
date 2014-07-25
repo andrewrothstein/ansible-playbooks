@@ -5,3 +5,10 @@
     group: name=dev
   - name: Create user drew
     user: name=drew group=dev
+  - name: Packages...
+    apt: name={{item}}
+    with_items:
+      - emacs
+      - git
+      - svn
+      - vim
