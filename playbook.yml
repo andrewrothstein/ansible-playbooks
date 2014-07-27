@@ -10,5 +10,6 @@
     with_items:
       - emacs
       - git
-      - svn
+      - subversion
       - vim
+      - maven
