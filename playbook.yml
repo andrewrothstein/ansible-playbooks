@@ -13,3 +13,7 @@
       - subversion
       - vim
       - maven
+      - perl
+      - python-dev
+      - python3-dev
+      - ruby
