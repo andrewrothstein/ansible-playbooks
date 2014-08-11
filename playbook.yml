@@ -13,6 +13,7 @@
       - emacs
       - git
       - subversion
+      - mercurial
       - vim
       - maven
       - perl
