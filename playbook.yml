@@ -8,6 +8,8 @@
   - name: Packages...
     apt: name={{item}}
     with_items:
+      - curl
+      - wget
       - emacs
       - git
       - subversion
