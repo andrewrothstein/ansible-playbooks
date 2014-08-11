@@ -6,3 +6,4 @@ ADD hosts .
 RUN ansible-playbook --connection=local -i hosts playbook.yml
 
 WORKDIR /home/drew
+USER drew
