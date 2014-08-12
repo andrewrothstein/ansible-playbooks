@@ -18,6 +18,20 @@
       - maven
       - perl
       - python-dev
+      - python-pip
       - python3-dev
       - ruby
       - sshfs
+      - g++
+      - gdb
+      - graphviz
+      - valgrind
+      - cmake
+      - libboost-dev
+      - r-base
+      - npm
+
+  - name: Python index packages
+    pip: state=present name={{item}}
+    with_items:
+      - virtualenv
