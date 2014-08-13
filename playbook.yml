@@ -8,6 +8,7 @@
   - name: Packages...
     apt: name={{item}}
     with_items:
+      - traceroute
       - curl
       - wget
       - emacs
