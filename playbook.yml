@@ -11,17 +11,10 @@
       - traceroute
       - curl
       - wget
-      - emacs
       - git
       - subversion
       - mercurial
       - vim
-      - maven
-      - perl
-      - python-dev
-      - python-pip
-      - python3-dev
-      - ruby
       - sshfs
       - g++
       - gdb
@@ -29,8 +22,7 @@
       - valgrind
       - cmake
       - libboost-dev
-      - r-base
-      - npm
+      - automake
 
   - name: Python index packages
     pip: state=present name={{item}}

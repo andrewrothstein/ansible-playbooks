@@ -1,4 +1,4 @@
-FROM andrewrothstein/docker-ansible
+FROM andrewrothstein/docker-emacs
 MAINTAINER "Andrew Rothstein" andrew.rothstein@gmail.com
 
 # Hack for initctl
@@ -7,8 +7,7 @@ RUN dpkg-divert --local --rename --add /sbin/initctl
 RUN ln -sf /bin/true /sbin/initctl
 
 ADD playbook.yml .
-ADD hosts .
-RUN ansible-playbook --connection=local -i hosts playbook.yml
+RUN ansible-playbook playbook.yml
 
 WORKDIR /home/drew
 USER drew
