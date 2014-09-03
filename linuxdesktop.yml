@@ -1,0 +1,61 @@
+---
+- hosts : all
+  tasks :
+  - name: url related packages...
+    apt: name={{item}}
+    with_items:
+      - traceroute
+      - curl
+      - wget
+
+  - name: vcs packages...
+    apt: name={{item}}
+    with_items:
+      - git
+      - subversion
+      - mercurial
+      - tortoisehg
+
+  - name: editors packages...
+    apt: name={{item}}
+    with_items:
+      - vim
+      - emacs
+      - yasnippet
+
+  - name: cpp dev packages...
+    apt: name={{item}}
+    with_items:
+      - g++
+      - gdb
+      - graphviz
+      - valgrind
+      - cmake
+      - libboost-dev
+      - automake
+
+  - name: python packages...
+    apt: name={{item}}
+    with_items:
+      - python
+      - python-dev
+      - python-pip
+      - python-pandas
+
+  - name: pip my ride....
+    pip: state=present name={{item}}
+    with_items:
+      - virtualenv
+      - ansible
+      - awscli
+      - s3cmd
+
+  - name: file system related packages...
+    apt: name={{item}}
+    with_items:
+      - sshfs
+      - cifs-utils
+      - samba
+      - samba-common
+      
+
