@@ -23,3 +23,4 @@
 - include: docker.yml
 - include: java.yml
 - include: virtualbox.yml
+- include: vagrant.yml
