@@ -16,6 +16,13 @@
       - samba
       - samba-common
 
+  - name: web browsers...
+    apt: name={{ item }}
+    with_items:
+      - lynx
+      - firefox
+      - chromium-browser
+
 - include: editors.yml
 - include: vcs.yml
 - include: cpp-dev.yml
