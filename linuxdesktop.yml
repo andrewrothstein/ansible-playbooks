@@ -33,3 +33,4 @@
 - include: vagrant.yml
 - include: go.yml
 - include: julia.yml
+- include: r.yml
