@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+  - name: file system related packages...
+    apt: name={{item}}
+    with_items:
+      - sshfs
+      - cifs-utils
+      - samba
+      - samba-common

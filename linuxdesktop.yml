@@ -1,28 +1,8 @@
 ---
 - hosts : all
-  tasks :
-  - name: url related packages...
-    apt: name={{item}}
-    with_items:
-      - traceroute
-      - curl
-      - wget
-
-  - name: file system related packages...
-    apt: name={{item}}
-    with_items:
-      - sshfs
-      - cifs-utils
-      - samba
-      - samba-common
-
-  - name: web browsers...
-    apt: name={{ item }}
-    with_items:
-      - lynx
-      - firefox
-      - chromium-browser
-
+- include: nettools.yml
+- include: fs.yml
+- include: browsers.yml
 - include: editors.yml
 - include: vcs.yml
 - include: cpp-dev.yml
