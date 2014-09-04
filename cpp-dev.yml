@@ -1,0 +1,14 @@
+---
+- hosts: all
+  tasks:
+  - name: cpp dev packages...
+    apt: name={{item}}
+    with_items:
+      - g++
+      - gdb
+      - graphviz
+      - valgrind
+      - cmake
+      - libboost-dev
+      - automake
+

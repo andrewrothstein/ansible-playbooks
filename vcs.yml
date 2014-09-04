@@ -1,0 +1,11 @@
+---
+- hosts : all
+  tasks :
+    - name: vcs packages...
+      apt: name={{item}}
+      with_items:
+        - git
+        - subversion
+        - mercurial
+        - tortoisehg
+

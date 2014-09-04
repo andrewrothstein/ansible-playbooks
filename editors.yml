@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+  - name: editors packages...
+    apt: name={{item}}
+    with_items:
+      - vim
+      - emacs
+      - yasnippet
+      - yaml-mode
+
