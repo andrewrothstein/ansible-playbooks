@@ -34,6 +34,13 @@
       - libboost-dev
       - automake
 
+  - name: file system related packages...
+    apt: name={{item}}
+    with_items:
+      - sshfs
+      - cifs-utils
+      - samba
+      - samba-common
   - name: python packages...
     apt: name={{item}}
     with_items:
@@ -50,12 +57,5 @@
       - awscli
       - s3cmd
 
-  - name: file system related packages...
-    apt: name={{item}}
-    with_items:
-      - sshfs
-      - cifs-utils
-      - samba
-      - samba-common
       
 

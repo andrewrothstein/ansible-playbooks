@@ -1,0 +1,9 @@
+---
+- hosts : all
+  tasks :
+  - name : install docker.io package...
+    apt: name=docker.io state=present
+  - name : link docker to docker.io
+    file: src=/usr/bin/docker.io dest=/usr/local/bin/docker state=link
+  - name : fix bash auto completion
+    shell : sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
