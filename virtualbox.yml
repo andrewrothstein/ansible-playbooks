@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+  - name: add virtualbox apt repository
+    apt_repository: repo='deb http://download.virtualbox.org/virtualbox/debian trusty contrib'
+  - name : add virtualbox apt key
+    apt_key: key='https://www.virtualbox.org/download/oracle_vbox.asc' id='98AB5139'
+  - name: install virtualbox-4.3
+    apt: name=virtualbox-4.3
