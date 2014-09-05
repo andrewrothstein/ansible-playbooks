@@ -8,9 +8,6 @@
       - python-dev
       - python-pip
       - python-pandas
-      - libaprutil1
-      - libaprutil1-dev
-      - libsvn-dev
 
   - name: pip my ride....
     pip: state=present name={{item}}
@@ -19,4 +16,3 @@
       - ansible
       - awscli
       - s3cmd
-      - hgsubversion
