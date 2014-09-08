@@ -8,6 +8,7 @@
       apt: name={{item}}
       with_items:
         - r-base
+	- libcurl4-openssl-dev
     - name: download R Studio
       get_url: url='http://download1.rstudio.org/{{ rstudio_deb }}' dest='/tmp/{{ rstudio_deb }}'
     - apt: deb='/tmp/{{ rstudio_deb }}'
