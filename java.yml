@@ -16,3 +16,8 @@
       - oracle-java8-installer
   - name : set java7 as the default
     apt: name=oracle-java7-set-default
+  - name : install maven and ant
+    apt: name={{item}}
+    with_items:
+      - maven
+      - ant
