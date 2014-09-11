@@ -14,3 +14,4 @@
 - include: go.yml
 - include: julia.yml
 - include: r.yml
+- include: waf.yml
