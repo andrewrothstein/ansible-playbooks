@@ -1,0 +1,7 @@
+---
+- hosts: all
+  tasks:
+    - name: download bootstrap script
+      get_url: url='https://bootstrap.saltstack.com' dest=/tmp/install_salt.sh
+    - name: install saltstack
+      shell: /bin/sh /tmp/install_salt.sh

@@ -15,3 +15,4 @@
 - include: julia.yml
 - include: r.yml
 - include: waf.yml
+- include: saltstack.yml
