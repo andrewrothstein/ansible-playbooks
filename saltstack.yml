@@ -9,3 +9,4 @@
         - salt-master
         - salt-minion
         - salt-syndic
+        - salt-cloud
