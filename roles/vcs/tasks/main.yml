@@ -1,0 +1,11 @@
+---
+- name: vcs packages...
+  apt: name={{item}}
+  with_items:
+    - git
+    - git-doc
+    - git-svn
+    - subversion
+    - mercurial
+    - tortoisehg
+    - hgsubversion

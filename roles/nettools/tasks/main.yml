@@ -1,0 +1,8 @@
+---
+- name: url related packages...
+  apt: name={{item}}
+  with_items:
+    - traceroute
+    - curl
+    - wget
+    - corkscrew

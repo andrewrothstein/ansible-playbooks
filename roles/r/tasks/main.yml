@@ -1,0 +1,10 @@
+---
+- name: installing R packages...
+  apt: name={{item}}
+  with_items:
+    - r-base
+    - libcurl4-openssl-dev
+- name: download R Studio
+  get_url: url={{rstudio_deb_url}} dest='/tmp/{{ rstudio_deb }}'
+- name: install R Studio
+  apt: deb='/tmp/{{ rstudio_deb }}'

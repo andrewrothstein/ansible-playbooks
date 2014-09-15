@@ -1,18 +1,20 @@
 ---
 - hosts : all
-- include: nettools.yml
-- include: fs.yml
-- include: browsers.yml
-- include: editors.yml
-- include: vcs.yml
-- include: cpp-dev.yml
-- include: python.yml
-- include: docker.yml
-- include: java.yml
-- include: virtualbox.yml
-- include: vagrant.yml
-- include: go.yml
-- include: julia.yml
-- include: r.yml
-- include: waf.yml
-- include: saltstack.yml
+  roles:
+    - nettools
+    - fs
+    - browsers
+    - editors
+    - vcs
+    - cpp-dev
+    - python
+    - docker
+    - java
+    - virtualbox
+    - vagrant
+    - go
+    - julia
+    - r
+    - waf
+    - saltstack
+    - vnc

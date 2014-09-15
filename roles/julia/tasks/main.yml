@@ -1,0 +1,5 @@
+---
+- name: add staticfloat/juliareleases ppa
+  apt_repository: repo='ppa:staticfloat/juliareleases'
+- name: install julia
+  apt: name=julia

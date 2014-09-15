@@ -1,0 +1,10 @@
+---
+- name: install saltstack ppa
+  apt_repository: repo='ppa:saltstack/salt'
+- name: install saltstack packages
+  apt: name={{item}}
+  with_items:
+    - salt-master
+    - salt-minion
+    - salt-syndic
+    - salt-cloud
