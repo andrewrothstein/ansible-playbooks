@@ -4,4 +4,4 @@
 - name: install vagrant deb
   apt: deb='/tmp/{{ vagrant_deb }}'
 - name: install vagrant proxyconf plugin
-  cmd: vagrant plugin install vagrant-proxyconf
+  shell: vagrant plugin install vagrant-proxyconf
