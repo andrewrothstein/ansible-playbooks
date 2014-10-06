@@ -3,3 +3,5 @@
   get_url: url={{vagrant_deb_url}} dest='/tmp/{{ vagrant_deb }}'
 - name: install vagrant deb
   apt: deb='/tmp/{{ vagrant_deb }}'
+- name: install vagrant proxyconf plugin
+  cmd: vagrant plugin install vagrant-proxyconf
