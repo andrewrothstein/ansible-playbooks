@@ -6,5 +6,5 @@ MAINTAINER "Andrew Rothstein" andrew.rothstein@gmail.com
 RUN dpkg-divert --local --rename --add /sbin/initctl
 RUN ln -sf /bin/true /sbin/initctl
 
-ADD playbook.yml .
+ADD linuxdesktop.yml .
 RUN ansible-playbook linuxdesktop.yml
