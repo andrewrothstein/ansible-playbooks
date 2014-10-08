@@ -7,4 +7,5 @@ RUN dpkg-divert --local --rename --add /sbin/initctl
 RUN ln -sf /bin/true /sbin/initctl
 
 ADD linuxdesktop.yml .
+ADD roles .
 RUN ansible-playbook linuxdesktop.yml
