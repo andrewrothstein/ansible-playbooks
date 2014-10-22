@@ -11,3 +11,5 @@
     - automake
     - kcachegrind
     - ccache
+    - protobuf-compiler
+    - libprotobuf-dev
