@@ -14,3 +14,6 @@
     - protobuf-compiler
     - libprotobuf-dev
     - doxygen
+    - bison
+    - libbison-dev
+    - libyaml-dev
