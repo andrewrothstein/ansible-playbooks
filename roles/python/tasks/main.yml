@@ -1,11 +1,24 @@
 ---
-- name: python packages...
+- name: python packages Ubuntu...
+  when: ansible_distribution == "Ubuntu"
   apt: name={{item}}
   with_items:
     - python
     - python-dev
     - python-pip
     - python-pandas
+
+- name: python packages...
+  when: ansible_distribution == "Fedora"
+  yum: name={{item}}
+  with_items:
+    - python
+    - python-devel
+    - python-pip
+    - python-pandas
+    - numpy
+    - scipy
+    - ipython
 
 - name: pip my ride....
   pip: state=present name={{item}}

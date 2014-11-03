@@ -1,5 +1,6 @@
 ---
-- name: cpp dev packages...
+- name: cpp dev packages (Ubuntu)...
+  when: ansible_distribution == "Ubuntu"
   apt: name={{item}}
   with_items:
     - g++
@@ -15,5 +16,30 @@
     - libprotobuf-dev
     - doxygen
     - bison
+    - flex
     - libbison-dev
     - libyaml-dev
+
+- name: cpp dev packages (Fedora)...
+  when: ansible_distribution == "Fedora"
+  yum: name={{item}}
+  with_items:
+    - gcc-c++
+    - gdb
+    - graphviz
+    - valgrind
+    - cmake
+    - boost
+    - boost-devel
+    - automake
+    - kcachegrind
+    - ccache
+    - protobuf
+    - protobuf-compiler
+    - doxygen
+    - bison
+    - bison-devel
+    - flex
+    - flex-devel
+    - libyaml
+    - libyaml-devel

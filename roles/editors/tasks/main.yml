@@ -1,9 +1,16 @@
 ---
-- name: editors packages...
+- name: editors packages (Ubuntu) ...
   apt: name={{item}}
+  when: ansible_distribution == "Ubuntu"
   with_items:
     - vim
     - emacs
     - yasnippet
     - yaml-mode
 
+- name: editors packages (Fedora) ...
+  yum: name={{item}}
+  when: ansible_distribution == "Fedora"
+  with_items:
+    - vim
+    - emacs

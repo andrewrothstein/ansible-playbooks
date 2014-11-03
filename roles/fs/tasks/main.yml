@@ -1,6 +1,16 @@
 ---
-- name: file system related packages...
+- name: file system related packages (Ubuntu)...
   apt: name={{item}}
+  when: ansible_distribution == "Ubuntu"
+  with_items:
+    - sshfs
+    - cifs-utils
+    - samba
+    - samba-common
+
+- name: file system related packaged (Fedora)...
+  yum: name={{item}}
+  when: ansible_distribution == "Fedora"
   with_items:
     - sshfs
     - cifs-utils

@@ -1,5 +1,6 @@
 ---
-- name: vcs packages...
+- name: vcs packages (Ubuntu)...
+  when: ansible_distribution == "Ubuntu"
   apt: name={{item}}
   with_items:
     - git
@@ -9,3 +10,10 @@
     - mercurial
     - tortoisehg
     - hgsubversion
+- name: vcs packages (Fedora)...
+  when: ansible_distribution == "Fedora"
+  yum: name={{item}}
+  with_items:
+    - git
+    - subversion
+    - mercurial
