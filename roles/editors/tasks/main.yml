@@ -8,6 +8,10 @@
     - yasnippet
     - yaml-mode
 
+- name: vim-minimal package upgrade (Fedora) ...
+  yum: name=vim-minimal state=latest
+  when: ansible_distribution == "Fedora"
+
 - name: editors packages (Fedora) ...
   yum: name={{item}}
   when: ansible_distribution == "Fedora"
