@@ -6,6 +6,6 @@ MAINTAINER "Andrew Rothstein" andrew.rothstein@gmail.com
 RUN dpkg-divert --local --rename --add /sbin/initctl
 RUN ln -sf /bin/true /sbin/initctl
 
-ADD linuxdesktop.yml .
+ADD docker-container.yml .
 ADD roles .
-RUN ansible-playbook linuxdesktop.yml
+RUN ansible-playbook docker-container.yml

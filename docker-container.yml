@@ -1,0 +1,17 @@
+---
+- hosts : all
+  roles:
+    - nettools
+    - fs
+    - browsers
+    - editors
+    - vcs
+    - cpp-dev
+    - python
+    - docker
+    - java
+    - go
+    - julia
+    - r
+    - waf
+    - eclipse
