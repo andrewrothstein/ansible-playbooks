@@ -1,0 +1,5 @@
+---
+
+- name: install sbt (Fedora) ...
+  when: ansible_distribution == "Fedora"
+  yum: name=http://repo.scala-sbt.org/scalasbt/sbt-native-packages/org/scala-sbt/sbt/0.13.1/sbt.rpm state=present
