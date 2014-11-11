@@ -1,5 +1,12 @@
 ---
 
+- name: get sbt deb (Ubuntu) ...
+  when: ansible_distribution == "Ubuntu"
+  get_url: url=https://dl.bintray.com/sbt/debian/sbt-0.13.6.deb dest='/tmp/sbt-0.13.6.deb'
+- name: install sbt deb (Ubuntu) ...
+  when: ansible_distribution == "Ubuntu"
+  apt: deb='/tmp/sbt-0.13.6.deb'
+
 - name: install sbt (Fedora) ...
   when: ansible_distribution == "Fedora"
-  yum: name=http://repo.scala-sbt.org/scalasbt/sbt-native-packages/org/scala-sbt/sbt/0.13.1/sbt.rpm state=present
+  yum: name=https://dl.bintray.com/sbt/rpm/sbt-0.13.6.rpm state=present
