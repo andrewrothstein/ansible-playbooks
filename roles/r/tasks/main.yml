@@ -1,4 +1,8 @@
 ---
+- name : add cran apt key
+  apt_key: keyserver='keyserver.ubuntu.com' id='E084DAB9'
+- name: add cran apt repository
+  apt_repository: repo='deb http://lib.stat.cmu.edu/R/CRAN/bin/linux/ubuntu trusty/' update_cache=yes
 - name: installing R packages...
   apt: name={{item}}
   with_items:
