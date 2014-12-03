@@ -1,5 +1,5 @@
 ---
-- name: editors packages (Ubuntu) ...
+- name: (Ubuntu) editors packages  ...
   apt: name={{item}}
   when: ansible_distribution == "Ubuntu"
   with_items:
@@ -8,11 +8,11 @@
     - yasnippet
     - yaml-mode
 
-- name: vim-minimal package upgrade (Fedora) ...
+- name: (Fedora) vim-minimal package upgrade  so that vim can be installed) ...
   yum: name=vim-minimal state=latest
   when: ansible_distribution == "Fedora"
 
-- name: editors packages (Fedora) ...
+- name: (Fedora) editors packages ...
   yum: name={{item}}
   when: ansible_distribution == "Fedora"
   with_items:
