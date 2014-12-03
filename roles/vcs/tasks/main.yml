@@ -11,6 +11,7 @@
     - mercurial
     - tortoisehg
     - hgsubversion
+    - svnkit
 - name: vcs packages (Fedora)...
   when: ansible_distribution == "Fedora"
   yum: name={{item}}
@@ -19,3 +20,4 @@
     - gitflow
     - subversion
     - mercurial
+    - svnkit-cli
