@@ -6,6 +6,7 @@
     - git
     - git-doc
     - git-svn
+    - git-flow
     - subversion
     - mercurial
     - tortoisehg
@@ -15,5 +16,6 @@
   yum: name={{item}}
   with_items:
     - git
+    - gitflow
     - subversion
     - mercurial
