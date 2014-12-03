@@ -1,0 +1,2 @@
+[ar-cloud]
+142.105.56.149 ansible_ssh_user=root
