@@ -1,5 +1,6 @@
 ---
 - hosts : all
+  connection : local
   roles:
     - nettools
     - fs
@@ -15,3 +16,5 @@
     - r
     - waf
     - eclipse
+    - fleet
+    - etcd

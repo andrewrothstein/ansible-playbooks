@@ -21,5 +21,6 @@
     - vnc
     - eclipse
     - etcd
+    - fleet
     - haskell
     - docker-registry
