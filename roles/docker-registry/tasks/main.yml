@@ -1,3 +1,3 @@
 ---
 - name : launching docker registry...
-  docker : name=registry image=registry ports="{{docker_registry_port}}:5000"
+  docker : name=registry image=registry ports="{{docker_registry_host_port}}:5000"
