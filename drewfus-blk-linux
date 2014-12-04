@@ -1,0 +1,2 @@
+[blk-internal-cloud]
+45.4.88.68 ansible_ssh_user=root
