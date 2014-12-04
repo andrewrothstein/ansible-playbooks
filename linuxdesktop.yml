@@ -24,3 +24,4 @@
     - fleet
     - haskell
     - docker-registry
+    - docker-http-replicator
