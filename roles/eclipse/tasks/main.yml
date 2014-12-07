@@ -1,5 +1,7 @@
 ---
 - name: download eclipse
-  get_url: url={{eclipse_url}} dest='/tmp/{{eclipse_archive}}'
+  environment: proxy_env
+  get_url: url={{ eclipse_url }} dest='/tmp/{{eclipse_archive}}'
+
 - name: install eclipse
   shell: tar -C /opt -zxvf '/tmp/{{eclipse_archive}}'
