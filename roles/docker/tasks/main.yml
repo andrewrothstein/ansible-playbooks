@@ -1,25 +1,28 @@
 ---
-- name : install docker.io package (Ubuntu) ...
+- name : (Ubuntu) install docker.io package...
   when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
   apt: name=docker.io state=present
 
-- name : link docker to docker.io
+- name : (Ubuntu) link docker to docker.io
   when: ansible_distribution == "Ubuntu"
   file: src=/usr/bin/docker.io dest=/usr/local/bin/docker state=link
 
-- name : fix bash auto completion
+- name : (Ubuntu) fix bash auto completion
   when: ansible_distribution == "Ubuntu"
   shell : sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
 
-- name : install docker.io package (Fedora)...
+- name : (Fedora) install docker.io package...
   when: ansible_distribution == "Fedora"
+  environment: proxy_env
   yum: name=docker-io state=present
 
-- name : launch docker (Fedora)...
+- name : (Fedora) launch docker...
   when: ansible_distribution == "Fedora"
   service: name=docker state=started
 
-- name: update SELinux policy for docker (Fedora)
+- name: (Fedora) update SELinux policy for docker
   when: ansible_distribution == "Fedora"
+  environment: proxy_env
   yum: name=selinux-policy state=latest
 
