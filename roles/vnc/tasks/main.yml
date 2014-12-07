@@ -1,0 +1,8 @@
+---
+- name: install vnc4server
+  apt: name={{item}}
+  with_items:
+    - gnome-core
+    - xfce4
+    - firefox
+    - vnc4server

@@ -1,0 +1,25 @@
+---
+- name : install docker.io package (Ubuntu) ...
+  when: ansible_distribution == "Ubuntu"
+  apt: name=docker.io state=present
+
+- name : link docker to docker.io
+  when: ansible_distribution == "Ubuntu"
+  file: src=/usr/bin/docker.io dest=/usr/local/bin/docker state=link
+
+- name : fix bash auto completion
+  when: ansible_distribution == "Ubuntu"
+  shell : sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
+
+- name : install docker.io package (Fedora)...
+  when: ansible_distribution == "Fedora"
+  yum: name=docker-io state=present
+
+- name : launch docker (Fedora)...
+  when: ansible_distribution == "Fedora"
+  service: name=docker state=started
+
+- name: update SELinux policy for docker (Fedora)
+  when: ansible_distribution == "Fedora"
+  yum: name=selinux-policy state=latest
+

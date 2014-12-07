@@ -1,0 +1,5 @@
+---
+- name: download fleet
+  get_url: url=http://github.com/coreos/fleet/releases/download/v0.9.0/fleet-v0.9.0-linux-amd64.tar.gz dest=/tmp/fleet-v0.9.0-linux-amd64.tar.gz
+- name: unachive fleet
+  shell: tar -z -x -v --strip-components 1 -f /tmp/fleet-v0.9.0-linux-amd64.tar.gz -C /usr/local/bin

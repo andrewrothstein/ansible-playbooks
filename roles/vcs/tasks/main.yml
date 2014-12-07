@@ -1,0 +1,23 @@
+---
+- name: vcs packages (Ubuntu)...
+  when: ansible_distribution == "Ubuntu"
+  apt: name={{item}}
+  with_items:
+    - git
+    - git-doc
+    - git-svn
+    - git-flow
+    - subversion
+    - mercurial
+    - tortoisehg
+    - hgsubversion
+    - svnkit
+- name: vcs packages (Fedora)...
+  when: ansible_distribution == "Fedora"
+  yum: name={{item}}
+  with_items:
+    - git
+    - gitflow
+    - subversion
+    - mercurial
+    - svnkit-cli

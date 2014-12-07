@@ -1,0 +1,20 @@
+---
+- hosts : all
+  connection : local
+  roles:
+    - nettools
+    - fs
+    - browsers
+    - editors
+    - vcs
+    - cpp-dev
+    - python
+    - docker
+    - java
+    - go
+    - julia
+    - r
+    - waf
+    - eclipse
+    - fleet
+    - etcd

@@ -1,0 +1,5 @@
+---
+- name: download etd
+  get_url: url=http://github.com/coreos/etcd/releases/download/v0.4.6/etcd-v0.4.6-linux-amd64.tar.gz dest=/tmp/etcd-v0.4.6-linux-amd64.tar.gz
+- name: unachive etcd
+  shell: tar -z -x -v --strip-components 1 -f /tmp/etcd-v0.4.6-linux-amd64.tar.gz -C /usr/local/bin

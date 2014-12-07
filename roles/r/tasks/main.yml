@@ -1,0 +1,17 @@
+---
+- name : add cran apt key
+  apt_key: keyserver='keyserver.ubuntu.com' id='E084DAB9'
+- name: add cran apt repository
+  apt_repository: repo='deb http://lib.stat.cmu.edu/R/CRAN/bin/linux/ubuntu trusty/' update_cache=yes
+- name: installing R...
+  apt: name={{item}}
+  with_items:
+    - r-base
+    - r-base-dev
+    - libcurl4-openssl-dev
+- name: installing R packages...
+  shell: R -e "install.packages(c('shiny', 'rmarkdown', 'dplyr'), repos='http://cran.rstudio.com/')"
+- name: download R Studio
+  get_url: url={{rstudio_deb_url}} dest='/tmp/{{ rstudio_deb }}'
+- name: install R Studio
+  apt: deb='/tmp/{{ rstudio_deb }}'

@@ -1,0 +1,27 @@
+---
+- hosts : all
+  roles:
+    - nettools
+    - fs
+    - browsers
+    - editors
+    - vcs
+    - cpp-dev
+    - python
+    - docker
+    - java
+    - scala
+    - virtualbox
+    - vagrant
+    - go
+    - julia
+    - r
+    - waf
+    - saltstack
+    - vnc
+    - eclipse
+    - etcd
+    - fleet
+    - haskell
+    - docker-registry
+    - docker-http-replicator

@@ -1,0 +1,22 @@
+---
+- name: web browsers (Ubuntu) ...
+  apt: name={{ item }}
+  when: ansible_distribution == "Ubuntu"
+  with_items:
+    - lynx
+    - firefox
+    - chromium-browser
+
+- name: install google chrome (Fedora)
+  when: ansible_distribution == "Fedora"
+  copy: src=google-chrome.repo dest=/etc/yum.repos.d/google-chrome.repo owner=root group=root mode=644
+
+- name: web browsers (Fedora) ...
+  yum: name={{ item }}
+  when: ansible_distribution == "Fedora"
+  with_items:
+    - lynx
+    - firefox
+    - google-chrome-stable
+    - libexif
+    - xauth

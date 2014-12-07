@@ -1,0 +1,6 @@
+---
+- name: install haskell
+  when: ansible_distribution == "Ubuntu"
+  apt: name={{item}}
+  with_items:
+    - haskell-platform

@@ -1,0 +1,6 @@
+[cloud-instances:vars]
+ansible_connection=ssh
+ansible_ssh_user=fedora
+
+[cloud-instances]
+ec2-54-204-152-197.compute-1.amazonaws.com

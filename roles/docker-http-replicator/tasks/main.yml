@@ -1,0 +1,3 @@
+---
+- name : launching docker registry...
+  docker : name=http-proxy image=andrewrothstein/docker-http-replicator ports="{{docker_proxy_host_port}}:8888"
