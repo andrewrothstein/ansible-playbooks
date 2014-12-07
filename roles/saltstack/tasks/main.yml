@@ -1,8 +1,13 @@
 ---
-- name: install saltstack ppa
+- name: (Ubuntu) install saltstack ppa
+  when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
   apt_repository: repo='ppa:saltstack/salt'
+
 - name: install saltstack packages
-  apt: name={{item}}
+  when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
+  apt: name={{ item }}
   with_items:
     - salt-master
     - salt-minion
