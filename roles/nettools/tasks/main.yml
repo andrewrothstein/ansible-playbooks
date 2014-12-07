@@ -1,19 +1,22 @@
 ---
-- name: url related packages (Ubuntu)...
+- name: (Ubuntu) url related packages...
   when: ansible_distribution == "Ubuntu"
-  apt: name={{item}}
+  environment: proxy_env
+  apt: name={{ item }}
   with_items:
     - traceroute
     - curl
     - wget
     - corkscrew
 
-- name: url related packes (Fedora)
+- name: (Fedora) url related packages...
   when: ansible_distribution == "Fedora"
-  yum: name={{item}}
+  environment: proxy_env
+  yum: name={{ item }}
   with_items:
     - traceroute
     - curl
     - wget
     - corkscrew
+  environment: proxy_env
     

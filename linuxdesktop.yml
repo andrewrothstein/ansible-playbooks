@@ -22,6 +22,7 @@
     - eclipse
     - etcd
     - fleet
+    - confd
     - haskell
     - docker-registry
     - docker-http-replicator

@@ -1,18 +1,21 @@
 ---
-- name: file system related packages (Ubuntu)...
-  apt: name={{item}}
+- name: (Ubuntu) file system related packages...
   when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
+  apt: name={{ item }}
   with_items:
     - sshfs
     - cifs-utils
     - samba
     - samba-common
 
-- name: file system related packaged (Fedora)...
-  yum: name={{item}}
+- name: (Fedora) file system related packaged...
   when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name={{ item }}
   with_items:
     - sshfs
     - cifs-utils
     - samba
     - samba-common
+

@@ -6,6 +6,7 @@
     - lynx
     - firefox
     - chromium-browser
+  environment: proxy_env
 
 - name: install google chrome (Fedora)
   when: ansible_distribution == "Fedora"
