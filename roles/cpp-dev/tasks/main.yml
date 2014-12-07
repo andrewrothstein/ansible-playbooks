@@ -1,7 +1,8 @@
 ---
-- name: cpp dev packages (Ubuntu)...
+- name: (Ubuntu) cpp dev packages...
   when: ansible_distribution == "Ubuntu"
-  apt: name={{item}}
+  environment: proxy_env
+  apt: name={{ item }}
   with_items:
     - g++
     - gdb
@@ -20,9 +21,10 @@
     - libbison-dev
     - libyaml-dev
 
-- name: cpp dev packages (Fedora)...
+- name: (Fedora) cpp dev packages...
   when: ansible_distribution == "Fedora"
-  yum: name={{item}}
+  environment: proxy_env
+  yum: name={{ item }}
   with_items:
     - gcc-c++
     - gdb

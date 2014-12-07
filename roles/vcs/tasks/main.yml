@@ -1,7 +1,8 @@
 ---
-- name: vcs packages (Ubuntu)...
+- name: (Ubuntu) vcs packages...
   when: ansible_distribution == "Ubuntu"
-  apt: name={{item}}
+  environment: proxy_env
+  apt: name={{ item }}
   with_items:
     - git
     - git-doc
@@ -12,9 +13,11 @@
     - tortoisehg
     - hgsubversion
     - svnkit
-- name: vcs packages (Fedora)...
+
+- name: (Fedora) vcs packages...
   when: ansible_distribution == "Fedora"
-  yum: name={{item}}
+  environment: proxy_env
+  yum: name={{ item }}
   with_items:
     - git
     - gitflow

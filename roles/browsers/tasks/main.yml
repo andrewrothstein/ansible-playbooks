@@ -1,20 +1,21 @@
 ---
-- name: web browsers (Ubuntu) ...
-  apt: name={{ item }}
+- name: (Ubuntu) web browsers...
   when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
+  apt: name={{ item }}
   with_items:
     - lynx
     - firefox
     - chromium-browser
-  environment: proxy_env
 
-- name: install google chrome (Fedora)
+- name: (Fedora) install google chrome
   when: ansible_distribution == "Fedora"
   copy: src=google-chrome.repo dest=/etc/yum.repos.d/google-chrome.repo owner=root group=root mode=644
 
-- name: web browsers (Fedora) ...
-  yum: name={{ item }}
+- name: (Fedora) web browsers...
   when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name={{ item }}
   with_items:
     - lynx
     - firefox

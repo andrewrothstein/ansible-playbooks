@@ -1,20 +1,23 @@
 ---
-- name: (Ubuntu) editors packages  ...
-  apt: name={{item}}
+- name: (Ubuntu) editors packages...
   when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
+  apt: name={{ item }}
   with_items:
     - vim
     - emacs
     - yasnippet
     - yaml-mode
 
-- name: (Fedora) vim-minimal package upgrade  so that vim can be installed) ...
-  yum: name=vim-minimal state=latest
+- name: (Fedora) vim-minimal package upgrade (so that vim can be installed)...
   when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name=vim-minimal state=latest
 
 - name: (Fedora) editors packages ...
-  yum: name={{item}}
   when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name={{ item }}
   with_items:
     - vim
     - emacs

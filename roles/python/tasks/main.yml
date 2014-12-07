@@ -1,15 +1,17 @@
 ---
-- name: python packages Ubuntu...
+- name: (Ubuntu) python packages...
   when: ansible_distribution == "Ubuntu"
-  apt: name={{item}}
+  environment: proxy_env
+  apt: name={{ item }}
   with_items:
     - python
     - python-dev
     - python-pip
     - python-pandas
 
-- name: python packages...
+- name: (Fedora) python packages...
   when: ansible_distribution == "Fedora"
+  environment: proxy_env
   yum: name={{item}}
   with_items:
     - python
@@ -21,6 +23,7 @@
     - ipython
 
 - name: pip my ride....
+  environment: proxy_env
   pip: state=present name={{item}}
   with_items:
     - virtualenv
@@ -29,4 +32,5 @@
     - s3cmd
 
 - name: pip docker-py
+  environment: proxy_env
   pip: state=present name=docker-py version=0.4.0
