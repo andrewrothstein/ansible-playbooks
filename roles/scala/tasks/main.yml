@@ -1,12 +1,16 @@
 ---
 
-- name: get sbt deb (Ubuntu) ...
+- name: (Ubuntu) get sbt deb...
   when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
   get_url: url=https://dl.bintray.com/sbt/debian/sbt-0.13.6.deb dest='/tmp/sbt-0.13.6.deb'
-- name: install sbt deb (Ubuntu) ...
+
+- name: (Ubuntu) install sbt deb...
   when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
   apt: deb='/tmp/sbt-0.13.6.deb'
 
-- name: install sbt (Fedora) ...
+- name: (Fedora) install sbt...
   when: ansible_distribution == "Fedora"
+  environment: proxy_env
   yum: name=https://dl.bintray.com/sbt/rpm/sbt-0.13.6.rpm state=present
