@@ -1,3 +1,5 @@
+ # roles to pack into a docker container.
+ # e.g. no point in installing virtualbox inside a docker container
 ---
 - hosts : all
   connection : local
@@ -18,3 +20,4 @@
     - eclipse
     - fleet
     - etcd
+    - confd
