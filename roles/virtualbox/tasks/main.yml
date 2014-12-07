@@ -1,13 +1,24 @@
 ---
-- name: virtualbox dependencies
+- name: (Ubuntu) virtualbox dependencies
+  when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
   apt: name={{ item }}
   with_items:
     - dkms
     - libsdl-ttf2.0-0
     - libsdl1.2debian
-- name : add virtualbox apt key
+
+- name : (Ubuntu) add virtualbox apt key
+  when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
   apt_key: url='https://www.virtualbox.org/download/oracle_vbox.asc' id='98AB5139'
-- name: add virtualbox apt repository
+
+- name: (Ubuntu) add virtualbox apt repository
+  when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
   apt_repository: repo='deb http://download.virtualbox.org/virtualbox/debian trusty contrib' update_cache=yes
-- name: install virtualbox
+
+- name: (Ubuntu) install virtualbox
+  when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
   apt: name=virtualbox
