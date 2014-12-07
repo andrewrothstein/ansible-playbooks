@@ -1,5 +1,8 @@
 ---
 - name: add staticfloat/juliareleases ppa
+  environment: proxy_env
   apt_repository: repo='ppa:staticfloat/juliareleases'
+  
 - name: install julia
+  environment: proxy_env
   apt: name=julia
