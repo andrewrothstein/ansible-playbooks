@@ -1,6 +1,8 @@
 ---
-- name: install vnc4server
-  apt: name={{item}}
+- name: (Ubuntu) install vncserver
+  when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
+  apt: name={{ item }}
   with_items:
     - gnome-core
     - xfce4
