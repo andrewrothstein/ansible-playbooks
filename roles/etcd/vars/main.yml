@@ -1,0 +1,4 @@
+---
+etcd_version: v0.4.6
+etcd_pkg : etcd-{{ etcd_version }}-linux-amd64.tar.gz
+etcd_pkg_url : http://github.com/coreos/etcd/releases/download/{{ etcd_pkg }}

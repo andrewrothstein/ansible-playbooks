@@ -1,5 +1,7 @@
 ---
-- name: download etd
-  get_url: url=http://github.com/coreos/etcd/releases/download/v0.4.6/etcd-v0.4.6-linux-amd64.tar.gz dest=/tmp/etcd-v0.4.6-linux-amd64.tar.gz
+- name: download etcd
+  environment: proxy_env
+  get_url: url={{ etcd_pkg_url }} dest=/tmp/{{ etcd_pkg }}
+  
 - name: unachive etcd
-  shell: tar -z -x -v --strip-components 1 -f /tmp/etcd-v0.4.6-linux-amd64.tar.gz -C /usr/local/bin
+  shell: tar -z -x -v --strip-components 1 -f /tmp/{{ etcd_pkg }} -C /usr/local/bin
