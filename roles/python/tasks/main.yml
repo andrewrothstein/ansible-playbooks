@@ -7,7 +7,14 @@
     - python
     - python-dev
     - python-pip
+    - python-numpy
+    - python-scipy
+    - python-matplotlib
+    - ipython
+    - ipython-notebook
     - python-pandas
+    - python-sympy
+    - python-nose
 
 - name: (Fedora) python packages...
   when: ansible_distribution == "Fedora"
@@ -17,10 +24,13 @@
     - python
     - python-devel
     - python-pip
-    - python-pandas
     - numpy
     - scipy
+    - python-matplotlib
     - ipython
+    - python-pandas
+    - sympy
+    - python-nose
 
 - name: pip my ride....
   environment: proxy_env
