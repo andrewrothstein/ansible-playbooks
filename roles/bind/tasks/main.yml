@@ -1,0 +1,18 @@
+---
+- name: (Ubuntu) install bind9
+  environment: proxy_env
+  when: ansible_distribution == "Ubuntu"
+  apt: name={{ item }}
+  with_items:
+    - resolvconf
+    - bind9
+    - bind9-doc
+    - bind9utils
+
+- name: (Ubuntu) install local zones
+  when: ansible_distribution == "Ubuntu"
+  copy: src=named.conf.local dest=/etc/bind/named.conf.local mode=444
+
+- name: (Ubuntu) install deis.dev.zone
+  when: ansible_distribution == "Ubuntu"
+  copy: src=deis.dev.zone dest=/etc/bind/deis.dev.zone mode=444
