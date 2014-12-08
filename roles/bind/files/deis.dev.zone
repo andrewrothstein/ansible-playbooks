@@ -1,0 +1,19 @@
+$ORIGIN .
+$TTL 7D
+deis.dev    IN SOA  ns.deis.dev. admin.deis.dev. (
+        2014112904      ; Serial
+        8H        ; Refresh
+        2H        ; Retry
+        4W        ; Expire
+        1D)       ; Minimum TTL
+
+        NS  ns.deis.dev.
+
+$ORIGIN deis.dev.
+deis-1            A   172.17.8.102
+deis-2            A   172.17.8.101
+deis-3            A   172.17.8.100
+
+*                 A   172.17.8.102
+*                 A   172.17.8.101
+*                 A   172.17.8.100
