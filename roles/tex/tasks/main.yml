@@ -1,0 +1,8 @@
+---
+- name: (Ubuntu) install TeX
+  environment: proxy_env
+  apt: name={{ item }}
+  with_items:
+    - texlive-latex-base
+    - texlive-latex-extra
+    - texlive-math-extra
