@@ -1,0 +1,5 @@
+---
+- name: (Ubuntu) install filezilla...
+  when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
+  apt: name=filezilla
