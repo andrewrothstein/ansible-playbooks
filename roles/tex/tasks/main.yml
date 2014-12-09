@@ -1,5 +1,6 @@
 ---
 - name: (Ubuntu) install TeX
+  when: ansible_distribution == "Ubuntu"
   environment: proxy_env
   apt: name={{ item }}
   with_items:
