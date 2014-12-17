@@ -1,0 +1,10 @@
+---
+- name: download intellij
+  environment: proxy_env
+  get_url: url={{ intellij_url }} dest='/tmp/{{intellij_archive}}'
+
+- name: install intellij
+  shell: tar -C /opt -zxvf '/tmp/{{intellij_archive}}'
+
+- name: link /opt/intellij
+  file: src='/opt/{{ intellij_subdir }}' dest=/opt/intellij state=link
