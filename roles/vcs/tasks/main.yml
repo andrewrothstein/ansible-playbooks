@@ -13,6 +13,8 @@
     - tortoisehg
     - hgsubversion
     - svnkit
+    - cvs
+    - kdiff3
 
 - name: (Fedora) vcs packages...
   when: ansible_distribution == "Fedora"
@@ -24,3 +26,5 @@
     - subversion
     - mercurial
     - svnkit-cli
+    - cvs
+    - kdiff3
