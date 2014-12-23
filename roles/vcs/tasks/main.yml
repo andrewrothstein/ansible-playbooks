@@ -16,6 +16,11 @@
     - cvs
     - kdiff3
 
+- name: (Ubuntu) install magit...
+  when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
+  copy: src=50magit.el dest=/etc/emacs/site-start.d/
+
 - name: (Fedora) vcs packages...
   when: ansible_distribution == "Fedora"
   environment: proxy_env
