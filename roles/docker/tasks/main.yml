@@ -12,6 +12,10 @@
   when: ansible_distribution == "Ubuntu"
   shell : sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
 
+- name : (Ubuntu) proxify
+  when: ansible_distribution == "Ubuntu" and proxy_env.http_proxy is defined
+  template: dest=/etc/default/docker.io src=etc/default/docker.io.j2
+
 - name : (Fedora) install docker.io package...
   when: ansible_distribution == "Fedora"
   environment: proxy_env
