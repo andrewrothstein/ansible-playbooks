@@ -1,0 +1,5 @@
+{% if proxy_env.http_proxy is defined %}
+Acquire::http::proxy "{{ proxy_env.http_proxy }}";
+Acquire::ftp::proxy "{{ proxy_env.ftp_proxy }}";
+Acquire::https::proxy "{{ proxy_env.https_proxy }}";
+{% endif %}
