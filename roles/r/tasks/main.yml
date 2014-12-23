@@ -17,9 +17,13 @@
     - r-base
     - r-base-dev
     - libcurl4-openssl-dev
+
+- name: install r-dynamicy-install.r
+  copy: src=r-dynamic-install.r dest=/usr/local/bin mode=0755
     
 - name: installing R packages...
-  shell: R -e "install.packages(c('shiny', 'rmarkdown', 'dplyr'), repos='http://cran.rstudio.com/')"
+  environment: proxy_env
+  shell: /usr/local/bin/r-dynamic-install.r shiny rmarkdown dplyr ggplot2 Rcpp rJava
   
 - name: (Ubuntu) download R Studio
   when: ansible_distribution == "Ubuntu"
