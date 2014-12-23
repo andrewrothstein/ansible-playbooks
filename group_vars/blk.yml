@@ -1,5 +1,6 @@
 ---
+http_proxy_host : "nyc-proxy.na.blkint.com:8080"
 proxy_env :
-  http_proxy : "http://nyc-proxy.na.blkint.com:8080"
-  https_proxy : "http://nyc-proxy.na.blkint.com:8080"
-  no_proxy : "*.blackrock.com,*.blkint.com,*.bfm.com,localhost,127.0.0.1,localaddress,.localdomain.com,10.254.254.254"
+  http_proxy : "http://{{ http_proxy_host }}/"
+  https_proxy : "http://{{ http_proxy_host }}/"
+  no_proxy : "*.blackrock.com,*.blkint.com,*.bfm.com,localhost,127.0.0.1,localaddress,*.localdomain.com,10.254.254.254"
