@@ -21,6 +21,16 @@
   environment: proxy_env
   copy: src=50magit.el dest=/etc/emacs/site-start.d/
 
+- name: (Ubuntu) download subgit...
+  when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
+  get_url: url={{ subgit_url }} dest='/tmp/{{ subgit_deb }}'
+
+- name: (Ubuntu) install subgit....
+  when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
+  apt: deb='/tmp/{{ subgit_deb }}'
+
 - name: (Fedora) vcs packages...
   when: ansible_distribution == "Fedora"
   environment: proxy_env
