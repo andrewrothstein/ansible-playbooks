@@ -1,8 +1,14 @@
 ---
-- name: add staticfloat/juliareleases ppa
+- name: (Ubuntu) add staticfloat/juliareleases ppa
+  when: ansible_distribution == "Ubuntu"
   environment: proxy_env
   apt_repository: repo='ppa:staticfloat/juliareleases'
   
-- name: install julia
+- name: (Ubuntu) install julia
+  when: ansible_distribution == "Ubuntu"
   environment: proxy_env
   apt: name=julia
+
+- name: (Ubuntu) install julia-mode
+  when: ansible_distribution == "Ubuntu"
+  copy: src=50julia-mode.el dest=/etc/emacs/site-start.d/
