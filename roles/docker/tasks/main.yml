@@ -1,20 +1,29 @@
 ---
-- name : (Ubuntu) install docker.io package...
+- name : (Ubuntu) docker dependencies
   when: ansible_distribution == "Ubuntu"
   environment: proxy_env
-  apt: name=docker.io state=present
+  apt: name={{ item }} state=present
+  with_items:
+    - apt-transport-https
 
-- name : (Ubuntu) link docker to docker.io
+- name : (Ubuntu) add docker apt key
   when: ansible_distribution == "Ubuntu"
-  file: src=/usr/bin/docker.io dest=/usr/local/bin/docker state=link
+  environment: proxy_env
+  apt_key: keyserver=keyserver.ubuntu.com id='36A1D7869245C8950F966E92D8576A8BA88D21E9'
 
-- name : (Ubuntu) fix bash auto completion
+- name: (Ubuntu) add docker apt repository
   when: ansible_distribution == "Ubuntu"
-  shell : sed -i '$acomplete -F _docker docker' /etc/bash_completion.d/docker.io
+  environment: proxy_env
+  apt_repository: repo='deb https://get.docker.com/ubuntu docker main' update_cache=yes
+
+- name: (Ubuntu) install docker
+  when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
+  apt: name=lxc-docker
 
 - name : (Ubuntu) proxify
   when: ansible_distribution == "Ubuntu" and proxy_env.http_proxy is defined
-  template: dest=/etc/default/docker.io src=etc/default/docker.io.j2
+  template: dest=/etc/default/docker src=etc/default/docker.j2
 
 - name : (Fedora) install docker.io package...
   when: ansible_distribution == "Fedora"
