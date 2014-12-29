@@ -18,6 +18,14 @@
     - r-base-dev
     - libcurl4-openssl-dev
 
+- name: (Fedora) installing R...
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name={{ item }}
+  with_items:
+    - R-core
+    - R-core-devel
+
 - name: install r-dynamicy-install.r
   copy: src=r-dynamic-install.r dest=/usr/local/bin mode=0755
     
