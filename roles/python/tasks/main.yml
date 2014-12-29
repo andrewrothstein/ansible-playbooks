@@ -40,6 +40,7 @@
     - ansible
     - awscli
     - s3cmd
+    - boto
 
 - name: pip docker-py
   environment: proxy_env
