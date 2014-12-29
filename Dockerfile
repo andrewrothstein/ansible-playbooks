@@ -6,6 +6,6 @@ MAINTAINER "Andrew Rothstein" andrew.rothstein@gmail.com
 RUN dpkg-divert --local --rename --add /sbin/initctl
 RUN ln -sf /bin/true /sbin/initctl
 
-ADD docker-container.yml .
+ADD docker-devbox.yml .
 ADD roles .
-RUN ansible-playbook docker-container.yml
+RUN ansible-playbook docker-devbox.yml
