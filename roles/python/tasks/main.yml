@@ -41,7 +41,10 @@
     - awscli
     - s3cmd
     - boto
-    - pantsbuild.pants
+
+- name: pants virtualenv
+  environment: proxy_env
+  pip: state=latest name=pantsbuild.pants virtualenv=/python-venvs/pants
 
 - name: pip docker-py
   environment: proxy_env
