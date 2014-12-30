@@ -9,7 +9,7 @@
     - yasnippet
     - yaml-mode
 
-- name: (Ubuntu) install sbt-mode...
+- name: (Ubuntu) install my basic emacs settings
   when: ansible_distribution == "Ubuntu"
   environment: proxy_env
   copy: dest=/etc/emacs/site-start.d/ src=49myemacs.el
