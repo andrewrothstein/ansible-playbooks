@@ -34,13 +34,14 @@
 
 - name: pip my ride....
   environment: proxy_env
-  pip: state=present name={{item}}
+  pip: state=latest name={{item}}
   with_items:
     - virtualenv
     - ansible
     - awscli
     - s3cmd
     - boto
+    - pantsbuild.pants
 
 - name: pip docker-py
   environment: proxy_env
