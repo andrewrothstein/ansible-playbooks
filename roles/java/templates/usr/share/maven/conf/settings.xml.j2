@@ -88,11 +88,17 @@ under the License.
    | specification in this list marked as active will be used.
    |-->
   <proxies>
-{% if proxy_env.http_proxy is defined %}
+{% if http_proxy_hostname is defined %}
     <proxy>
-      <id>optional</id>
       <active>true</active>
       <protocol>http</protocol>
+      <host>{{ http_proxy_hostname }}</host>
+      <port>{{ http_proxy_port }}</port>
+      <nonProxyHosts>{{ proxy_env.no_proxy }}</nonProxyHosts>
+    </proxy>
+    <proxy>
+      <active>true</active>
+      <protocol>https</protocol>
       <host>{{ http_proxy_hostname }}</host>
       <port>{{ http_proxy_port }}</port>
       <nonProxyHosts>{{ proxy_env.no_proxy }}</nonProxyHosts>
