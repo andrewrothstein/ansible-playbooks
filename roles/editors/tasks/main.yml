@@ -9,11 +9,6 @@
     - yasnippet
     - yaml-mode
 
-- name: (Ubuntu) install my basic emacs settings
-  when: ansible_distribution == "Ubuntu"
-  environment: proxy_env
-  copy: dest=/etc/emacs/site-start.d/ src=49myemacs.el
-
 - name: (Fedora) vim-minimal package upgrade (so that vim can be installed)...
   when: ansible_distribution == "Fedora"
   environment: proxy_env
@@ -26,3 +21,12 @@
   with_items:
     - vim
     - emacs
+
+- name: install my basic emacs settings
+  environment: proxy_env
+  copy: dest=/etc/emacs/site-start.d/ src=49myemacs.el
+
+- name: install my emacs json-mode
+  environment: proxy_env
+  copy: dest=/etc/emacs/site-start.d/ src=50json-mode.el
+
