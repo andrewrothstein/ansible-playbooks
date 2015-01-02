@@ -6,6 +6,7 @@
   with_items:
     - vim
     - emacs
+    - emacs-goodies-el
     - yasnippet
     - yaml-mode
 
@@ -21,6 +22,7 @@
   with_items:
     - vim
     - emacs
+    - emacs-goodies
 
 - name: install my basic emacs settings
   environment: proxy_env
@@ -29,4 +31,3 @@
 - name: install my emacs json-mode
   environment: proxy_env
   copy: dest=/etc/emacs/site-start.d/ src=50json-mode.el
-
