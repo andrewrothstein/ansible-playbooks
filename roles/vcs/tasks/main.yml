@@ -16,10 +16,8 @@
     - cvs
     - kdiff3
 
-- name: (Ubuntu) install magit...
-  when: ansible_distribution == "Ubuntu"
-  environment: proxy_env
-  copy: src=50magit.el dest=/etc/emacs/site-start.d/
+- name: install magit...
+  copy: src=50magit.el dest={{ emacs_site_d }}
 
 - name: (Ubuntu) download subgit...
   when: ansible_distribution == "Ubuntu"

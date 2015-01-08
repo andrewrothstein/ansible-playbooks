@@ -21,10 +21,8 @@
     - libbison-dev
     - libyaml-dev
 
-- name: (Ubuntu) install my c++ emacs mode settings...
-  when: ansible_distribution == "Ubuntu"
-  environment: proxy_env
-  copy: dest=/etc/emacs/site-start.d/ src=50mycpp.el
+- name: install my c++ emacs mode settings...
+  copy: dest={{ emacs_site_d }} src=50mycpp.el
 
 - name: (Fedora) cpp dev packages...
   when: ansible_distribution == "Fedora"

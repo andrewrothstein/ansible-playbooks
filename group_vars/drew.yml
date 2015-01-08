@@ -1,3 +1,4 @@
 ---
+emacs_site_d : "/etc/emacs/site-start.d/"
 proxy_env :
   no_proxy: "localhost,127.0.0.1,localaddress,*.localdomain.com,10.254.254.254"

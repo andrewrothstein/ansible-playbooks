@@ -9,15 +9,11 @@
   when: ansible_distribution == "Ubuntu"
   apt: deb=/tmp/sbt-0.13.6.deb state=installed
 
-- name: (Ubuntu) install scala-mode2...
-  when: ansible_distribution == "Ubuntu"
-  environment: proxy_env
-  copy: dest=/etc/emacs/site-start.d/ src=50scala-mode2.el
+- name: install scala-mode2...
+  copy: dest={{ emacs_site_d }} src=50scala-mode2.el
 
-- name: (Ubuntu) install sbt-mode...
-  when: ansible_distribution == "Ubuntu"
-  environment: proxy_env
-  copy: dest=/etc/emacs/site-start.d/ src=50sbt-mode.el
+- name: install sbt-mode...
+  copy: dest={{ emacs_site_d }} src=50sbt-mode.el
 
 - name: (Fedora) install sbt...
   when: ansible_distribution == "Fedora"

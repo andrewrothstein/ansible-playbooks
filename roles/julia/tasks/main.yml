@@ -12,6 +12,5 @@
   environment: proxy_env
   apt: name=julia
 
-- name: (Ubuntu) install julia-mode
-  when: ansible_distribution == "Ubuntu"
-  copy: src=50julia-mode.el dest=/etc/emacs/site-start.d/
+- name: install julia-mode
+  copy: src=50julia-mode.el dest={{ emacs_site_d }}

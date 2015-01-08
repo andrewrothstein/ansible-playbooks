@@ -1,4 +1,5 @@
 ---
+emacs_site_d : "/etc/emacs/site-start.d/"
 http_proxy_hostname : "nyc-proxy.na.blkint.com"
 http_proxy_port : "8080"
 http_proxy_host : "{{ http_proxy_hostname }}:{{ http_proxy_port }}"
