@@ -1,5 +1,28 @@
 ---
-- name: create user arothste in groups admins,developers
-  user: name=arothste state=present shell=/bin/bash groups=admins,developers 
-- name: install arothste public key as authorized
-  template: src=
+- name: create useful groups
+  group: name={{ item }} state=present
+  with_items:
+    - docker
+    - admin
+    - dev
+
+- name: create user arothste
+  user: name=arothste state=present shell=/bin/bash groups=docker,admin,dev
+
+- name: create /home/arothste/.ssh
+  file: >
+    owner=arothste
+    path=/home/arothste/.ssh
+    state=directory
+  
+- name: install /home/arothste/.ssh/authorized_keys
+  copy: >
+    owner=arothste
+    src=home/arothste/.ssh/authorized_keys
+    dest=/home/arothste/.ssh/authorized_keys
+
+- name: install /home/arothstein/.gitconfig
+  copy: >
+    owner=arothste
+    src=home/arothste/.gitconfig
+    dest=/home/arothste/.gitconfig
