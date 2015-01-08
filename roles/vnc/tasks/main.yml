@@ -8,3 +8,10 @@
     - xfce4
     - firefox
     - vnc4server
+
+- name: (Fedora) install vncserver
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name={{ item }}
+  with_items:
+    - tigervnc-server
