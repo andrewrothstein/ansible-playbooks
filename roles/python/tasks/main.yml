@@ -41,6 +41,7 @@
     - awscli
     - s3cmd
     - boto
+    - scikit-learn
 
 - name: pants virtualenv
   environment: proxy_env
