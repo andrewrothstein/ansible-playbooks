@@ -1,0 +1,5 @@
+---
+- name: (Fedora) proxify yum...
+  when: ansible_distribution == "Fedora" and proxy_env.http_proxy is defined
+  environment: proxy_env
+  template: src=yum.conf.j2 dest=/etc/yum.conf
