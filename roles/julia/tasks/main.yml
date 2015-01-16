@@ -12,5 +12,15 @@
   environment: proxy_env
   apt: name=julia
 
+- name: (Fedora) add julia yum repo
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  get_url: url='http://copr.fedoraproject.org/coprs/nalimilan/julia/repo/fedora-21/nalimilan-julia-fedora-21.repo' dest='/etc/yum.repos.d'
+
+- name: (Fedora) install julia
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name=julia state=latest
+  
 - name: install julia-mode
   copy: src=50julia-mode.el dest={{ emacs_site_d }}
