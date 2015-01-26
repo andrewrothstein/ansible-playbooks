@@ -8,17 +8,38 @@
     - libsdl-ttf2.0-0
     - libsdl1.2debian
 
+- name: (Fedora) virtualbox dependensices
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name={{ item }}
+  with_items:
+    - dkms
+    
 - name : (Ubuntu) add virtualbox apt key
   when: ansible_distribution == "Ubuntu"
   environment: proxy_env
   apt_key: url='https://www.virtualbox.org/download/oracle_vbox.asc' id='98AB5139'
 
+- name: (Fedora) add virtualbox rpm key
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  rpm_key: key='http://public-yum.oracle.com/RPM-GPG-KEY-oracle-el5' state=present
+  
 - name: (Ubuntu) add virtualbox apt repository
   when: ansible_distribution == "Ubuntu"
   environment: proxy_env
   apt_repository: repo='deb http://download.virtualbox.org/virtualbox/debian trusty contrib' update_cache=yes
 
+- name: (Fedora) add virtualbox yum repo
+  when: ansible_distribution == "Fedora"
+  copy: src=virtualbox.repo dest=/etc/yum.repos.d/
+
 - name: (Ubuntu) install virtualbox
   when: ansible_distribution == "Ubuntu"
   environment: proxy_env
   apt: name=virtualbox
+
+- name: (Fedora) install virtualbox
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name=VirtualBox-4.3
