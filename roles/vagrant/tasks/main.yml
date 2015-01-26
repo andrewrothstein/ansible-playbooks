@@ -8,6 +8,11 @@
   when: ansible_distribution == "Ubuntu"
   apt: deb='/tmp/{{ vagrant_deb }}'
 
+- name: (Fedora) install vagrant rpm
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name='{{ vagrant_rpm_url }}' state=present
+  
 - name: install vagrant proxyconf plugin
   environment: proxy_env
   shell: vagrant plugin install vagrant-proxyconf
