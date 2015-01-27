@@ -30,3 +30,4 @@
     - docker-http-replicator
     - tex
     - intellij
+    - fail2ban

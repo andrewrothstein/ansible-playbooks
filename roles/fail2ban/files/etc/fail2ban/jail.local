@@ -1,0 +1,8 @@
+[DEFAULT]
+bantime = 3600
+banaction = firewallcmd-ipset
+backend = systemd
+action = %(action_)s
+
+[sshd]
+enabled = true

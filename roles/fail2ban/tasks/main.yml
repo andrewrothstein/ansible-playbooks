@@ -1,0 +1,16 @@
+---
+- name: (Fedora) install fail2ban
+  environment: proxy_env
+  when: ansible_distribution == "Fedora"
+  yum: name={{ item }}
+  with_items:
+    - fail2ban
+    - ipset
+
+- name: (Fedora) install /etc/fail2ban/jail.local
+  copy: src=etc/fail2ban/jail.local dest=/etc/fail2ban/jail.local
+  when: ansible_distribution == "Fedora"
+
+- name: (Fedora) enable and start fail2ban
+  when: ansible_distribution == "Fedora"
+  service: name=fail2ban.service enabled=yes state=started
