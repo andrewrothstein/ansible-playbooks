@@ -14,6 +14,15 @@
   yum: name={{ item }}
   with_items:
     - dkms
+    - binutils
+    - gcc
+    - make
+    - patch
+    - libgomp
+    - glibc-headers
+    - glibc-devel
+    - kernel-headers
+    - kernel-devel
     
 - name : (Ubuntu) add virtualbox apt key
   when: ansible_distribution == "Ubuntu"
