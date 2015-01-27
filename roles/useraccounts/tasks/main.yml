@@ -8,7 +8,7 @@
     - dev
 
 - name: create user arothste
-  user: name=arothste state=present shell=/bin/bash groups=docker,admin,dev,wheel
+  user: name=arothste state=present shell=/bin/bash groups=docker,admin,dev,wheel,vboxusers
 
 - name: create /home/arothste/.ssh
   file: >
