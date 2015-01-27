@@ -1,6 +1,7 @@
 ---
 - hosts : all
   roles:
+    - useraccounts
     - yum-proxify
     - apt-proxify
     - nettools
