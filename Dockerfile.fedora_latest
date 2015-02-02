@@ -1,0 +1,5 @@
+FROM andrewrothstein/docker-ansible:fedora_latest
+MAINTAINER "Andrew Rothstein" andrew.rothstein@gmail.com
+
+ADD roles .
+ADD group_vars .
