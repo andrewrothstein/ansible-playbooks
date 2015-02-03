@@ -1,4 +1,11 @@
 ---
+- name: (Fedora) install dependent packages
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name={{ item }}
+  with_items:
+    - tar
+
 - name: download go archive...
   environment: proxy_env
   get_url: url={{go_archive_url}} dest='/tmp/{{ go_archive }}'
