@@ -6,9 +6,21 @@
     - wheel
     - admin
     - dev
+    - vboxusers
+    - sudo
+
+- name: enable passwordless sudo for the admin and sudo groups
+  copy: >
+    owner=root
+    src=etc/sudoers.d/nopasswd
+    dest=/etc/sudoers.d/nopasswd
 
 - name: create user arothste
-  user: name=arothste state=present shell=/bin/bash groups=docker,admin,dev,wheel,vboxusers
+  user: >
+    name=arothste
+    state=present
+    shell=/bin/bash
+    groups=docker,admin,dev,wheel,vboxusers,sudo
 
 - name: create /home/arothste/.ssh
   file: >
@@ -22,7 +34,7 @@
     src=home/arothste/.ssh/authorized_keys
     dest=/home/arothste/.ssh/authorized_keys
 
-- name: install /home/arothstein/.gitconfig
+- name: install /home/arothste/.gitconfig
   copy: >
     owner=arothste
     src=home/arothste/.gitconfig
