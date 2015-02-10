@@ -25,17 +25,23 @@
 - name: create /home/arothste/.ssh
   file: >
     owner=arothste
+    group="arothste"
+    mode="go-w"
     path=/home/arothste/.ssh
     state=directory
   
 - name: install /home/arothste/.ssh/authorized_keys
   copy: >
-    owner=arothste
+    owner="arothste"
+    group="arothste"
+    mode=600
     src=home/arothste/.ssh/authorized_keys
     dest=/home/arothste/.ssh/authorized_keys
 
 - name: install /home/arothste/.gitconfig
   copy: >
-    owner=arothste
+    owner="arothste"
+    group="arothste"
+    mode=600
     src=home/arothste/.gitconfig
     dest=/home/arothste/.gitconfig

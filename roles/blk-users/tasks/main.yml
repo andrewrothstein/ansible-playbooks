@@ -10,6 +10,8 @@
   with_items: blk_user_list
   file: >
     owner={{ item }}
+    group={{ item }}
+    mode="go-w"
     path="/home/{{ item }}/.ssh"
     state=directory
   
@@ -17,5 +19,7 @@
   with_items: blk_user_list
   copy: >
     owner={{ item }}
+    group={{ item }}
+    mode=600
     src="home/{{ item }}/.ssh/{{ item }}.pub"
     dest="/home/{{ item }}/.ssh/authorized_keys"
