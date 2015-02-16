@@ -27,8 +27,6 @@
     - fleet
     - confd
     - haskell
-    - docker-registry
-    - docker-http-replicator
     - tex
     - intellij
     - fail2ban
