@@ -1,4 +1,4 @@
 ---
-eclipse_archive : "eclipse-java-luna-SR1-linux-gtk-x86_64.tar.gz"
-eclipse_url : "http://carroll.aset.psu.edu/pub/eclipse/technology/epp/downloads/release/luna/SR1/{{eclipse_archive}}"
+eclipse_archive : "eclipse-java-luna-SR1a-linux-gtk-x86_64.tar.gz"
+eclipse_url : "http://carroll.aset.psu.edu/pub/eclipse/technology/epp/downloads/release/luna/SR1a/{{eclipse_archive}}"
 eclipse_target_dir: '/opt/eclipse-4.4.1'
