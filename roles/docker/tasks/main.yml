@@ -30,6 +30,10 @@
   environment: proxy_env
   yum: name=docker-io state=present
 
+- name : (Fedora) proxify
+  when: ansible_distribution == "Fedora" and proxy_env.http_proxy is defined
+  template: dest=/etc/sysconfig/docker src=etc/sysconfig/docker.j2
+
 - name : (Fedora) launch docker...
   when: ansible_distribution == "Fedora"
   service: name=docker state=started
