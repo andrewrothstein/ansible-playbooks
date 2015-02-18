@@ -42,7 +42,6 @@
     - s3cmd
     - boto
     - scikit-learn
-    - luigi
 
 - name: pants virtualenv
   environment: proxy_env
