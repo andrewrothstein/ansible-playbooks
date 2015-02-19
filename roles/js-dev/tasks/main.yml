@@ -1,0 +1,17 @@
+---
+- name: (Ubuntu) install nodejs, npm
+  when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
+  yum: name={{ item }}
+  with_items:
+    - nodejs
+    - npm
+
+- name: (Fedora) install nodejs, npm
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name={{ item }}
+  with_items:
+    - nodejs
+    - npm
+  
