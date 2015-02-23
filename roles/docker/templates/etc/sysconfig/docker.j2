@@ -10,10 +10,17 @@ DOCKER_CERT_PATH=/etc/docker
 
 # If you need Docker to use an HTTP proxy, it can also be specified here.
 {% if proxy_env.http_proxy is defined %}
-export http_proxy="{{ proxy_env.http_proxy }}"
-export https_proxy="{{ proxy_env.https_proxy }}"
+http_proxy="{{ proxy_env.http_proxy }}"
+https_proxy="{{ proxy_env.https_proxy }}"
+HTTP_PROXY="{{ proxy_env.http_proxy }}"
+HTTPS_PROXY="{{ proxy_env.https_proxy }}"
+export http_proxy https_proxy HTTP_PROXY HTTPS_PROXY
 {% else %}
-#export http_proxy="http://127.0.0.1:3128/"
+#http_proxy="http://127.0.0.1:3128/"
+#https_proxy="https://127.0.0.1:3128/"
+#HTTP_PROXY="http://127.0.0.1:3128/"
+#HTTPS_PROXY="https://127.0.0.1:3128/"
+#export http_proxy https_proxy HTTP_PROXY HTTPS_PROXY
 {% endif %}
 
 # Location used for temporary files, such as those created by
