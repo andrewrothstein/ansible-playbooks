@@ -1,0 +1,5 @@
+---
+pig_version : '0.14.0'
+pig_name : 'pig-{{ pig_version }}'
+pig_archive : '{{ pig_name }}.tar.gz'
+pig_url : 'http://mirror.reverse.net/pub/apache/pig/{{ pig_name }}/{{ pig_archive }}'

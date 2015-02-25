@@ -1,0 +1,10 @@
+---
+- name: download apache pig
+  environment: proxy_env
+  get_url: url='{{ pig_url }}' dest='/tmp/{{ pig_archive }}'
+
+- name: unarchive apache pig
+  unarchive: copy=no src='/tmp/{{ pig_archive }}' dest='/opt'
+
+- name: link pig
+  file: src='/opt/{{ pig_name }}' dest='/opt/pig' state=link
