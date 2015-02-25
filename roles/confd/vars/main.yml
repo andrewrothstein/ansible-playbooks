@@ -1,4 +1,4 @@
 ---
-confd_version_sans_v : 0.6.3
-confd_version : v{{ confd_version_sans_v }}
-confd_url : https://github.com/kelseyhightower/confd/releases/download/{{ confd_version }}/confd-{{ confd_version_sans_v }}-linux-amd64
+confd_version : 0.7.1
+confd_name : 'confd-{{ confd_version }}-linux-amd64'
+confd_url : 'https://github.com/kelseyhightower/confd/releases/download/v{{ confd_version }}/{{ confd_name }}'
