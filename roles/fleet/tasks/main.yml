@@ -2,5 +2,12 @@
 - name: download fleet
   environment: proxy_env
   get_url: url={{ fleet_pkg_url }} dest=/tmp/{{ fleet_pkg }}
+
 - name: unachive fleet
-  shell: tar -z -x -v --strip-components 1 -f /tmp/{{ fleet_pkg }} -C /usr/local/bin
+  unarchive: copy=no src='/tmp/{{ fleet_pkg }}' dest=/usr/local/bin
+
+- name: link fleetd and fleetctl
+  file: src='/usr/local/bin/{{ fleet_name }}/{{ item }}' dest=/usr/local/bin/{{ item }} state=link force=yes
+  with_items:
+    - fleetd
+    - fleetctl
