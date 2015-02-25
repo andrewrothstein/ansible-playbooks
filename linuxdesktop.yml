@@ -32,3 +32,4 @@
     - fail2ban
     - js-dev
     - storm
+    - spark
