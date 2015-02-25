@@ -1,0 +1,10 @@
+---
+- name: download storm
+  environment: proxy_env
+  get_url: url='{{ storm_url }}' dest='/tmp/{{ storm_archive }}'
+
+- name: install storm
+  unarchive: copy=no src='/tmp/{{ storm_archive }}' dest='/opt'
+
+- name: link /opt/storm
+  file: src='/opt/{{ storm_name }}' dest=/opt/storm state=link
