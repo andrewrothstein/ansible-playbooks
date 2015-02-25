@@ -8,3 +8,6 @@
 
 - name: link pig
   file: src='/opt/{{ pig_name }}' dest='/opt/pig' state=link
+
+- name: include pig in the default path...
+  copy: src='etc/profile.d/pig.sh' dest='/etc/profile.d/pig.sh' mode=644
