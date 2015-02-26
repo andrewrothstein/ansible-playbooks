@@ -33,5 +33,6 @@
     - js-dev
     - storm
     - spark
+    - hadoop
     - pig
     - filezilla
