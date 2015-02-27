@@ -24,6 +24,12 @@
   when: ansible_distribution == "Ubuntu"
   apt: name=oracle-java7-set-default
 
+- name: (Fedora) install java...
+  when: ansible_distribution == "Fedora"
+  yum: name={{ item }}
+  with_items:
+    - java-1.8.0-openjdk
+  
 - name : (Ubuntu) install maven and ant
   when: ansible_distribution == "Ubuntu"
   environment: proxy_env
