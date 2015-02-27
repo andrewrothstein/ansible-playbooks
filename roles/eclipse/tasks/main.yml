@@ -5,3 +5,6 @@
 
 - name: install eclipse
   unarchive: copy=no src='/tmp/{{eclipse_archive}}' dest='/opt'
+
+- name: include eclipse in the default path...
+  copy: src='etc/profile.d/eclipse.sh' dest='/etc/profile.d/eclipse.sh' mode=644
