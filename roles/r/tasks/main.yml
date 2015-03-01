@@ -36,9 +36,20 @@
 - name: (Ubuntu) download R Studio
   when: ansible_distribution == "Ubuntu"
   environment: proxy_env
-  get_url: url={{rstudio_deb_url}} dest='/tmp/{{ rstudio_deb }}'
-  
+  get_url: url='{{rstudio_deb_url}}' dest='/tmp/{{ rstudio_deb }}'
+
 - name: (Ubuntu) install R Studio
   when: ansible_distribution == "Ubuntu"
   environment: proxy_env
   apt: deb='/tmp/{{ rstudio_deb }}'
+
+- name: (Fedora) download R Studio
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  get_url: url='{{ rstudio_rpm_url }}' dest='/tmp/{{ rstudio_rpm }}'
+
+- name: (Fedora) install R Studio
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name='/tmp/{{ rstudio_rpm }}' state=present
+  

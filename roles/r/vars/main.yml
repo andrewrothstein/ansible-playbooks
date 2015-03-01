@@ -1,4 +1,6 @@
 ---
-rstudio_ver : 0.98.1091
+rstudio_ver : 0.98.1102
 rstudio_deb : 'rstudio-{{ rstudio_ver }}-amd64.deb'
 rstudio_deb_url : 'http://download1.rstudio.org/{{ rstudio_deb }}'
+rstudio_rpm : 'rstudio-{{ rstudio_ver }}-x86_64.rpm'
+rstudio_rpm_url : 'http://download1.rstudio.org/{{ rstudio_rpm }}'
