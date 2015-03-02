@@ -42,6 +42,7 @@
     - s3cmd
     - boto
     - scikit-learn
+    - wheel
 
 - name: pants virtualenv
   environment: proxy_env
