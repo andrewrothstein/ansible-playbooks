@@ -43,6 +43,7 @@
     - boto
     - scikit-learn
     - wheel
+    - twine
 
 - name: pants virtualenv
   environment: proxy_env
