@@ -1,0 +1,21 @@
+---
+- name: download ADS...
+  environment: proxy_env
+  get_url: url='{{ ads_url }}' dest='/tmp/{{ ads_archive }}'
+
+- name: create landing zone for ADS...
+  file: >
+    owner=root
+    group=root
+    mode='go-w'
+    path='/opt/{{ ads_name }}'
+    state=directory
+
+- name: unarchive ADS...
+  unarchive: copy=no src='/tmp/{{ ads_archive }}' dest='/opt/{{ ads_name }}'
+
+- name: link ADS...
+  file: src='/opt/{{ ads_name }}' dest='/opt/ads' state=link
+
+- name: include ADS in the default path...
+  copy: src='etc/profile.d/ads.sh' dest='/etc/profile.d/ads.sh' mode=644

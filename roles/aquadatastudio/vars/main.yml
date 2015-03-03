@@ -1,0 +1,6 @@
+---
+ads_version_family : '15.0.0'
+ads_version : '15.0.14'
+ads_name : 'ads-linux-x64-{{ ads_version }}'
+ads_archive : '{{ ads_name }}.tar.gz'
+ads_url : 'http://www.aquafold.com/download/v{{ ads_version_family }}/linux/{{ ads_archive }}'
