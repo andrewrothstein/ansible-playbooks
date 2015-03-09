@@ -23,3 +23,10 @@
     mode=600
     src="home/{{ item }}/.ssh/{{ item }}.pub"
     dest="/home/{{ item }}/.ssh/authorized_keys"
+
+- name: grant docker perms
+  with_items: blk_docker_user_list
+  user: >
+    name={{ item }}
+    groups=docker
+    

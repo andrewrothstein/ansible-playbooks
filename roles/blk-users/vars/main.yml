@@ -6,3 +6,6 @@ blk_user_list:
   - pdemarti
   - sfang
   - bettbra
+
+blk_docker_user_list:
+  - sfang
