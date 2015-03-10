@@ -1,0 +1,5 @@
+---
+- name: install sh scriptlets
+  copy: src='etc/profile.d/{{ item }}' dest='/etc/profile.d/{{ item }}'
+  with_items:
+    - bash_aliases.sh

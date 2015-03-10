@@ -9,6 +9,7 @@
     - browsers
     - editors
     - vcs
+    - subgit
     - cpp-dev
     - python
     - docker
