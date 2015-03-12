@@ -1,5 +1,5 @@
 ---
-fleet_version : v0.9.0
+fleet_version : v0.9.1
 fleet_name: 'fleet-{{ fleet_version }}-linux-amd64'
 fleet_pkg: '{{ fleet_name }}.tar.gz'
 fleet_pkg_url: 'http://github.com/coreos/fleet/releases/download/{{ fleet_version }}/{{ fleet_pkg }}'
