@@ -1,4 +1,0 @@
----
-subgit_version : "2.0.3"
-subgit_deb : "subgit_{{ subgit_version }}_all.deb"
-subgit_url : "http://old.subgit.com/download/{{ subgit_deb }}"

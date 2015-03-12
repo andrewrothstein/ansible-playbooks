@@ -3,3 +3,8 @@
   when: ansible_distribution == "Ubuntu"
   environment: proxy_env
   apt: name=filezilla
+
+- name: (Fedora) install filezilla...
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name=filezilla

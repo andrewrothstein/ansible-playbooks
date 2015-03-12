@@ -42,6 +42,9 @@
     - s3cmd
     - boto
     - scikit-learn
+    - wheel
+    - twine
+    - fig
 
 - name: pants virtualenv
   environment: proxy_env
@@ -49,4 +52,7 @@
 
 - name: pip docker-py
   environment: proxy_env
-  pip: state=present name=docker-py version=0.4.0
+  pip: state=present name=docker-py
+
+- name: install custom emacs settings for python dev
+  copy: src=50python.el dest='{{ emacs_site_d }}'

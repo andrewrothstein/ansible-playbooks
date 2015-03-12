@@ -31,14 +31,33 @@
     
 - name: installing R packages...
   environment: proxy_env
-  shell: /usr/local/bin/r-dynamic-install.r shiny rmarkdown dplyr ggplot2 Rcpp rJava
+  shell: /usr/local/bin/r-dynamic-install.r {{ item }}
+  with_items:
+    - shiny
+    - rmarkdown
+    - dplyr
+    - ggplot2
+    - Rcpp
+    - rJava
+    - e1071
   
 - name: (Ubuntu) download R Studio
   when: ansible_distribution == "Ubuntu"
   environment: proxy_env
-  get_url: url={{rstudio_deb_url}} dest='/tmp/{{ rstudio_deb }}'
-  
+  get_url: url='{{rstudio_deb_url}}' dest='/tmp/{{ rstudio_deb }}'
+
 - name: (Ubuntu) install R Studio
   when: ansible_distribution == "Ubuntu"
   environment: proxy_env
   apt: deb='/tmp/{{ rstudio_deb }}'
+
+- name: (Fedora) download R Studio
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  get_url: url='{{ rstudio_rpm_url }}' dest='/tmp/{{ rstudio_rpm }}'
+
+- name: (Fedora) install R Studio
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name='/tmp/{{ rstudio_rpm }}' state=present
+  

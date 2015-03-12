@@ -1,0 +1,7 @@
+---
+citrix_version : '13.1.0.285639'
+citrix_name : 'citrix-{{ citrix_version }}'
+citrix_archive : 'linuxx64-{{ citrix_version }}.tar.gz'
+
+citrix_doc_url : 'https://www.citrix.com/downloads/citrix-receiver/linux/receiver-for-linux-131.html'
+citrix_url : 'https://downloads.citrix.com/akdlm/9819/linuxx64-13.1.0.285639.tar.gz?__gda__=1425443213_515fe0d9f7b230d6a8f62070c897b7fb&__dlmgda__=1425526600_d4529ed9f7a64beabb2ba962970e5d62&fileExt=.gz'
