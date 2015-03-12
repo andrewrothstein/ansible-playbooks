@@ -1,0 +1,16 @@
+---
+- hosts: all
+  roles:
+    - nettools
+    - fs
+    - vcs
+    - editors
+    - cpp-dev
+    - python
+    - r
+    - java
+    - scala
+    - go
+    - julia
+    - waf
+    - haskell
