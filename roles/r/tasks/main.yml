@@ -31,7 +31,15 @@
     
 - name: installing R packages...
   environment: proxy_env
-  shell: /usr/local/bin/r-dynamic-install.r shiny rmarkdown dplyr ggplot2 Rcpp rJava
+  shell: /usr/local/bin/r-dynamic-install.r {{ item }}
+  with_items:
+    - shiny
+    - rmarkdown
+    - dplyr
+    - ggplot2
+    - Rcpp
+    - rJava
+    - e1071
   
 - name: (Ubuntu) download R Studio
   when: ansible_distribution == "Ubuntu"
