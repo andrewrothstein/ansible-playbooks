@@ -1,3 +1,7 @@
+;;; terminal
+(load-theme 'tango)
+
+;;; shortcuts
 (global-set-key "\M-g" 'goto-line)
 
 ;;; Also highlight parens
