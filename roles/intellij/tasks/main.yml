@@ -8,3 +8,6 @@
 
 - name: link /opt/intellij
   file: src='/opt/{{ intellij_subdir }}' dest=/opt/intellij state=link
+
+- name: include eclipse in the default path...
+  copy: src='etc/profile.d/intellij.sh' dest='/etc/profile.d/intellij.sh' mode=644
