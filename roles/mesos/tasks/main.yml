@@ -1,0 +1,10 @@
+---
+- name: download mesos...
+  environment: proxy_env
+  get_url: url='{{ mesos_url }}' dest='/tmp/{{ mesos_archive }}'
+
+- name: unarchive mesos...
+  unarchive: copy=no src='/tmp/{{ mesos_archive }}' dest='/opt'
+
+- name: link /opt/mesos...
+  file: src='/opt/{{ mesos_name }}' dest='/opt/mesos' state=link
