@@ -11,3 +11,7 @@
 
 - name: include intellij in the default path...
   copy: src='etc/profile.d/intellij.sh' dest='/etc/profile.d/intellij.sh' mode=644
+
+- name: download intellij scala plugin...
+  environment: proxy_env
+  get_url: url={{ intellij_scala_plugin_url }} dest='/opt/{{ intellij_subdir }}/{{ intellij_scala_plugin_archive }}'
