@@ -1,4 +1,13 @@
 ---
+- name: download mesos dependencies...
+  environment: proxy_env
+  when: ansible_distribution == "Fedora"
+  yum: name={{item}}
+  with_items:
+    - libcurl-devel
+    - apt-devel
+    - subversion-devel
+    
 - name: download mesos...
   environment: proxy_env
   get_url: url='{{ mesos_url }}' dest='/tmp/{{ mesos_archive }}'
