@@ -40,7 +40,7 @@
     state=directory
 
 - name: configure mesos for build
-  shell: ../configure --prefix=/opt/{{mesos_name}}
+  shell: ../configure
   args:
     chdir : "/opt/{{mesos_name}}/build"
 
