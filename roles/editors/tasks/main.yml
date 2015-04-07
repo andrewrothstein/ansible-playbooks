@@ -24,6 +24,28 @@
     - emacs
     - emacs-goodies
 
+
+
+- name: get atom (Ubuntu)
+  when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
+  get_url: url='{{atom_deb_url}}' dest='/tmp/{{atom_deb}}'
+    
+- name: install atom (Ubuntu)
+  when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
+  apt: name='/tmp/{{atom_deb}}' state=present
+    
+- name: get atom (Fedora)
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  get_url: url='{{atom_rpm_url}}' dest='/tmp/{{atom_rpm}}'
+    
+- name: install atom (Fedora)
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name='/tmp/{{atom_rpm}}' state=present
+    
 - name: install my basic emacs settings
   copy: dest={{ emacs_site_d }} src=49myemacs.el
 
