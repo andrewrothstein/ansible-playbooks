@@ -9,5 +9,13 @@ blk_user_list:
   - obatori
   - satiwari
 
-blk_docker_user_list:
-  - sfang
+blk_user_groups: {
+  aallen : 'aallen',
+  brosenbe : 'brosenbe',
+  echen : 'echen',
+  pdemarti : 'pdemarti',
+  sfang : 'sfang,docker,ada',
+  bettbra : 'bettbra',
+  obatori : 'obatori,ada',
+  satiwari : 'satiwari,ada'
+}
