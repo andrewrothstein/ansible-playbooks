@@ -7,3 +7,7 @@
     - texlive-latex-base
     - texlive-latex-extra
     - texlive-math-extra
+    - texlive-tufte-latex
+    - texlive-titlesec
+    - texlive-units
+    - texlive-lipsum

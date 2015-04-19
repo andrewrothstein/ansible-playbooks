@@ -28,6 +28,7 @@
     - etcd
     - fleet
     - confd
+    - flannel
     - haskell
     - tex
     - intellij
@@ -37,6 +38,7 @@
     - spark
     - hadoop
     - pig
+    - flink
     - filezilla
     - jython
     - zookeeper
