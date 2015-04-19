@@ -1,0 +1,7 @@
+---
+- name: install rdp client packages
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name={{item}}
+  with_items:
+    - xfreerdp
