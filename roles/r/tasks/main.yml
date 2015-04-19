@@ -41,6 +41,7 @@
     - Rcpp
     - rJava
     - e1071
+    - packrat
   
 - name: (Ubuntu) download R Studio
   when: ansible_distribution == "Ubuntu"
