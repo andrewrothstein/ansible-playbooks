@@ -31,7 +31,6 @@
     - flannel
     - haskell
     - tex
-    - intellij
     - fail2ban
     - js-dev
     - storm
@@ -45,3 +44,4 @@
     - drill
     - aquadatastudio
     - terraform
+    - consul
