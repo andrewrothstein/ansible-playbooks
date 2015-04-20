@@ -4,10 +4,20 @@
   environment: proxy_env
   apt_repository: repo='ppa:saltstack/salt'
 
-- name: install saltstack packages
+- name: (Ubuntu) install saltstack packages
   when: ansible_distribution == "Ubuntu"
   environment: proxy_env
   apt: name={{ item }}
+  with_items:
+    - salt-master
+    - salt-minion
+    - salt-syndic
+    - salt-cloud
+
+- name: (Fedora) install saltstack packages
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name='{{item}}' state=present
   with_items:
     - salt-master
     - salt-minion
