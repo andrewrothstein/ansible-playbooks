@@ -5,6 +5,7 @@
     - proxify
     - yum-proxify
     - apt-proxify
+    - compression
     - nettools
     - fs
     - browsers
