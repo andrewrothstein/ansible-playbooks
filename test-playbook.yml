@@ -1,5 +1,6 @@
 ---
 - hosts : all
   roles:
-    - cpp-dev
+    - ruby
+    - fluentd
 
