@@ -5,6 +5,7 @@
     - proxify
     - yum-proxify
     - apt-proxify
+    - compression
     - nettools
     - fs
     - browsers
@@ -28,17 +29,20 @@
     - etcd
     - fleet
     - confd
+    - flannel
     - haskell
     - tex
-    - intellij
     - fail2ban
     - js-dev
     - storm
     - spark
     - hadoop
     - pig
+    - flink
     - filezilla
     - jython
     - zookeeper
     - drill
     - aquadatastudio
+    - terraform
+    - consul

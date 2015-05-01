@@ -1,0 +1,64 @@
+---
+- name: download mesos dependencies (Fedora)...
+  environment: proxy_env
+  when: ansible_distribution == "Fedora"
+  yum: name={{item}}
+  with_items:
+    - libcurl-devel
+    - apt-devel
+    - subversion-devel
+
+- name: download mesos dependencies (Ubuntu)...
+  environment: proxy_env
+  when: ansible_distribution == "Ubuntu"
+  apt: name={{item}}
+  with_items:
+    - build-essential
+    - python-setuptools
+    - python-dev
+    - python-boto
+    - python-protobuf
+    - libcurl4-nss-dev
+    - libsvn-dev
+    - libsasl2-dev
+    - libapr1-dev
+    - maven
+    
+- name: download mesos...
+  environment: proxy_env
+  get_url: url='{{ mesos_url }}' dest='/tmp/{{ mesos_archive }}'
+
+- name: unarchive mesos...
+  unarchive: copy=no src='/tmp/{{ mesos_archive }}' dest='/opt'
+
+- name: create /opt/mesos/build
+  file: >
+    owner=root
+    group="root"
+    mode="go-w"
+    path="/opt/{{mesos_name}}/build"
+    state=directory
+
+- name: configure mesos for build
+  shell: ../configure
+  args:
+    chdir : "/opt/{{mesos_name}}/build"
+
+- name: build mesos
+  shell: make
+  args:
+    chdir : "/opt/{{mesos_name}}/build"
+
+- name: check mesos
+  shell: make check
+  args:
+    chdir : "/opt/{{mesos_name}}/build"
+
+- name: install mesos
+  shell: make install
+  args:
+    chdir : "/opt/{{mesos_name}}/build"
+
+- name: link /opt/mesos...
+  file: src='/opt/{{ mesos_name }}' dest='/opt/mesos' state=link
+

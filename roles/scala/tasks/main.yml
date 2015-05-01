@@ -3,11 +3,11 @@
 - name: (Ubuntu) get sbt deb...
   when: ansible_distribution == "Ubuntu"
   environment: proxy_env
-  get_url: url=http://dl.bintray.com/sbt/debian/sbt-0.13.6.deb dest='/tmp/sbt-0.13.6.deb'
+  get_url: url='{{sbt_deb_url}}' dest='/tmp/{{sbt_deb_name}}'
 
 - name: (Ubuntu) install sbt deb...
   when: ansible_distribution == "Ubuntu"
-  apt: deb=/tmp/sbt-0.13.6.deb state=installed
+  apt: deb='/tmp/{{sbt_deb_name}}' state=installed
 
 - name: install scala-mode2...
   copy: dest={{ emacs_site_d }} src=50scala-mode2.el
@@ -18,7 +18,7 @@
 - name: (Fedora) install sbt...
   when: ansible_distribution == "Fedora"
   environment: proxy_env
-  yum: name=https://dl.bintray.com/sbt/rpm/sbt-0.13.6.rpm state=present
+  yum: name='{{sbt_rpm_url}}' state=present
 
 - name: Download Typesafe Activator
   environment: proxy_env

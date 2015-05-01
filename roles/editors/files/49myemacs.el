@@ -18,3 +18,5 @@
 
 (global-set-key "%" 'match-paren)
 
+;;; dark colors bad for my eyes. tango is brighter
+(load-theme 'tango)

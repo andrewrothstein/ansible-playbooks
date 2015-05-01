@@ -1,0 +1,20 @@
+---
+- name: (Fedora) install compression programs
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name={{item}} state=present
+  with_items:
+    - bzip2
+    - p7zip
+    - p7zip-plugins
+
+- name: (Ubuntu) install compression programs
+  when: ansible_distribution == "Ubuntu"
+  environment: proxy_env
+  apt: name={{item}} state=present
+  with_items:
+    - bzip2
+    - p7zip
+    - p7zip-full
+    - p7zip-rar
+

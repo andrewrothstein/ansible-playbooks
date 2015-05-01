@@ -45,6 +45,7 @@
     - wheel
     - twine
     - fig
+    - j2cli
 
 - name: pants virtualenv
   environment: proxy_env

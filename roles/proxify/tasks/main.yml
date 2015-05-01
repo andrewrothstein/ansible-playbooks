@@ -3,3 +3,8 @@
   environment: proxy_env
   when: proxy_env.http_proxy is defined
   template: src='etc/environment.j2' dest='/etc/environment'
+
+- name: bash consumes /etc/environment by default
+  environment: proxy_env
+  when: proxy_env.http_proxy is defined
+  copy: src='etc/profile.d/proxyenv.sh' dest='/etc/profile.d/proxyenv.sh' mode=644

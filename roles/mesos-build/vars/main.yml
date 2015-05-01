@@ -1,0 +1,5 @@
+---
+mesos_ver : '0.22.0'
+mesos_name : 'mesos-{{ mesos_ver }}'
+mesos_archive : '{{ mesos_name }}.tar.gz'
+mesos_url : 'http://www.apache.org/dist/mesos/{{ mesos_ver }}/{{ mesos_archive }}'

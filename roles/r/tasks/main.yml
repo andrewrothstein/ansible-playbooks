@@ -25,6 +25,7 @@
   with_items:
     - R-core
     - R-core-devel
+    - libcurl-devel
 
 - name: install r-dynamicy-install.r
   copy: src=r-dynamic-install.r dest=/usr/local/bin mode=0755
@@ -40,6 +41,7 @@
     - Rcpp
     - rJava
     - e1071
+    - packrat
   
 - name: (Ubuntu) download R Studio
   when: ansible_distribution == "Ubuntu"
