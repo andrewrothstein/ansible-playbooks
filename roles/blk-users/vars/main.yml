@@ -8,14 +8,16 @@ blk_user_list:
   - bettbra
   - obatori
   - satiwari
+  - hgautam
 
 blk_user_groups: {
-  aallen : 'aallen',
-  brosenbe : 'brosenbe',
-  echen : 'echen',
-  pdemarti : 'pdemarti',
-  sfang : 'sfang,docker,ada',
-  bettbra : 'bettbra',
-  obatori : 'obatori,ada',
-  satiwari : 'satiwari,ada'
+  aallen : '',
+  brosenbe : '',
+  echen : '',
+  pdemarti : '',
+  sfang : 'docker,ada',
+  bettbra : '',
+  obatori : 'ada',
+  satiwari : 'ada',
+  hgautam : 'ada'
 }
