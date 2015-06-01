@@ -2,7 +2,3 @@
 intellij_archive: "ideaIC-14.1.3.tar.gz"
 intellij_url: "http://download.jetbrains.com/idea/{{intellij_archive}}"
 intellij_subdir: "idea-IC-141.1010.3"
-
-intellij_scala_plugin_ver: '1.4.15'
-intellij_scala_plugin_archive: 'scala-intellij-bin-{{ intellij_scala_plugin_ver }}.zip'
-intellij_scala_plugin_url: 'http://plugins.jetbrains.com/files/1347/19130/{{ intellij_scala_plugin_archive }}'
