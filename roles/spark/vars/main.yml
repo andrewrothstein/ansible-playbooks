@@ -1,5 +1,5 @@
 ---
-spark_ver : '1.3.0'
+spark_ver : '1.3.1'
 spark_hadoop_ver : 'hadoop2.4'
 spark_tgz : 'spark-{{ spark_ver }}-bin-{{ spark_hadoop_ver }}.tgz'
 spark_mirror : 'mirrors.ibiblio.org/apache/spark'
