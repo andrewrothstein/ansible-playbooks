@@ -11,3 +11,11 @@
     - texlive-titlesec
     - texlive-units
     - texlive-lipsum
+
+- name: (Fedora) install Tex
+  when: ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name={{ item }}
+  with_items:
+    - texlive
+    - texlive-scheme-full
