@@ -24,7 +24,13 @@
     - emacs
     - emacs-goodies
 
-
+- name: (RedHat) editors packages ...
+  when: ansible_distribution == "RedHat"
+  environment: proxy_env
+  yum: name={{ item }}
+  with_items:
+    - vim
+    - emacs
 
 - name: get atom (Ubuntu)
   when: ansible_distribution == "Ubuntu"

@@ -1,0 +1,10 @@
+---
+- hosts : all
+  roles:
+    - useraccounts
+    - elrepo
+    - compression
+    - editors
+    - vcs
+
+
