@@ -1,15 +1,3 @@
 ---
-- hosts : all
-  roles:
-    - proxify
-    - yum-proxify
-    - useraccounts
-    - elrepo
-    - compression
-    - editors
-    - vcs
-    - virtualbox
-    - vagrant
-    - docker
-    - devstack
-
+- include: openstack-cc.yml
+- include: openstack-cn.yml
