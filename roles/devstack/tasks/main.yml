@@ -23,3 +23,7 @@
     mode=600
     src=opt/stack/.ssh/authorized_keys
     dest=/opt/stack/.ssh/authorized_keys
+
+- name: git checkout of openstack-dev/devstack
+  git: repo=http://github.com/openstack-dev/devstack.git dest=/opt/stack/devstack update=yes
+  
