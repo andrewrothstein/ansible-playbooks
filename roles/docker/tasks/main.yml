@@ -25,6 +25,11 @@
   when: ansible_distribution == "Ubuntu" and proxy_env.http_proxy is defined
   template: dest=/etc/default/docker src=etc/default/docker.j2
 
+- name : (RedHat) install docker.io package...
+  when: ansible_distribution == "RedHat"
+  environment: proxy_env
+  yum: name=docker state=present
+
 - name : (Fedora) install docker.io package...
   when: ansible_distribution == "Fedora"
   environment: proxy_env
@@ -32,10 +37,14 @@
 
 - name : (Fedora) proxify
   when: ansible_distribution == "Fedora" and proxy_env.http_proxy is defined
-  template: dest=/etc/sysconfig/docker src=etc/sysconfig/docker.j2
+  template: dest=/etc/sysconfig/docker src=etc/sysconfig/docker-fedora.j2
 
-- name : (Fedora) launch docker...
-  when: ansible_distribution == "Fedora"
+- name : (RedHat) proxify
+  when: ansible_distribution == "RedHat" and proxy_env.http_proxy is defined
+  template: dest=/etc/sysconfig/docker src=etc/sysconfig/docker-redhat.j2
+
+- name : (Fedora/RedHat) launch docker...
+  when: ansible_distribution == "Fedora" or ansible_distribution == "RedHat"
   service: name=docker state=started
 
 - name: (Fedora) update SELinux policy for docker
