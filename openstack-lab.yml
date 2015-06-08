@@ -1,6 +1,7 @@
 ---
 - hosts : all
   roles:
+    - proxify
     - yum-proxify
     - useraccounts
     - elrepo
