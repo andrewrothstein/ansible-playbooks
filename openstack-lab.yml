@@ -8,5 +8,5 @@
     - vcs
     - virtualbox
     - vagrant
-
+    - devstack
 
