@@ -1,0 +1,16 @@
+---
+- name: (Red Hat, Fedora) install puppet
+  when: ansible_distribution == "Red Hat" or ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name={{item}}
+  with_items:
+    - puppet
+
+- name: (Red Hat, Fedora) install puppetmaster.service systemd unit
+  when: ansible_distribution == "Red Hat" or ansible_distribution == "Fedora"
+  copy: src='etc/systemd/system/puppetmaster.service' dest='/etc/systemd/system/puppetmaster.service'
+
+- name: (Red Hat, Fedora) launch puppetmaster
+  when: ansible_distribution == "Red Hat" or ansible_distribution == "Fedora"
+  service: name=puppetmaster.service enabled=yes state=started
+  
