@@ -10,3 +10,8 @@
   yum: name={{item}}
   with_items:
     - puppet
+
+- name: (Red Hat) install puppet modules
+  when: ansible_distribution == "RedHat"
+  environment: proxy_env
+  shell: puppet module install puppetlabs-openstack
