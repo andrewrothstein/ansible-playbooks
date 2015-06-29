@@ -1,8 +1,8 @@
 ---
 - name: (Red Hat, Fedora) install puppetmaster.service systemd unit
-  when: ansible_distribution == "Red Hat" or ansible_distribution == "Fedora"
+  when: ansible_distribution == "RedHat" or ansible_distribution == "Fedora"
   copy: src='etc/systemd/system/puppet-master.service' dest='/etc/systemd/system/puppet-master.service'
 
 - name: (Red Hat, Fedora) launch puppetmaster
-  when: ansible_distribution == "Red Hat" or ansible_distribution == "Fedora"
+  when: ansible_distribution == "RedHat" or ansible_distribution == "Fedora"
   service: name=puppet-master.service enabled=yes state=started
