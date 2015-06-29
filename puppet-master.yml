@@ -1,0 +1,5 @@
+---
+- hosts: puppet-master
+  roles:
+    - puppet-common
+    - puppet-master
