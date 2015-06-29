@@ -1,0 +1,7 @@
+---
+- name: (Red Hat, Fedora) install puppet
+  when: ansible_distribution == "Red Hat" or ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name={{item}}
+  with_items:
+    - puppet
