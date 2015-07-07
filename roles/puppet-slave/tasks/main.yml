@@ -5,4 +5,4 @@
 
 - name: (Red Hat, Fedora) launch puppet-slave.service systemd unit
   when: ansible_distribution == "RedHat" or ansible_distribution == "Fedora"
-  service: name=puppet-slave.service enabled=yes state=started
+  service: name=puppet-slave.service enabled=yes state=restarted
