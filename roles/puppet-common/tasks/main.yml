@@ -15,3 +15,6 @@
   when: ansible_distribution == "RedHat"
   environment: proxy_env
   shell: puppet module install puppetlabs-openstack
+
+- name: install puppet.conf
+  copy: src=etc/puppet/puppet.conf dest=/etc/puppet/puppet.conf
