@@ -14,9 +14,7 @@ node 'labccld001' {
                 '45.32.103.21',
                 '45.32.103.22',
                 '45.32.103.23',
-                '45.32.103.24'],
-    install_java => true,
-    java_package => 'java-1.8.0-openjdk-headless'
+                '45.32.103.24']
   }
 }
 
@@ -34,9 +32,7 @@ node 'labccld002' {
                 '45.32.103.21',
                 '45.32.103.22',
                 '45.32.103.23',
-                '45.32.103.24'],
-    install_java => true,
-    java_package => 'java-1.8.0-openjdk-headless'
+                '45.32.103.24']
   }
 }
 
@@ -54,9 +50,7 @@ node 'labccld003' {
                 '45.32.103.21',
                 '45.32.103.22',
                 '45.32.103.23',
-                '45.32.103.24'],
-    install_java => true,
-    java_package => 'java-1.8.0-openjdk-headless'
+                '45.32.103.24']
   }
 }
 
@@ -74,9 +68,7 @@ node 'labccld004' {
                 '45.32.103.21',
                 '45.32.103.22',
                 '45.32.103.23',
-                '45.32.103.24'],
-    install_java => true,
-    java_package => 'java-1.8.0-openjdk-headless'
+                '45.32.103.24']
   }
 }
 
@@ -94,8 +86,6 @@ node 'labccld005' {
                 '45.32.103.21',
                 '45.32.103.22',
                 '45.32.103.23',
-                '45.32.103.24'],
-    install_java => true,
-    java_package => 'java-1.8.0-openjdk-headless'
+                '45.32.103.24']
   }
 }
