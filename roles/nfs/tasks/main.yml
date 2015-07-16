@@ -1,0 +1,16 @@
+---
+- name: (Fedora) install nfs pkgs
+  environment: proxy_env
+  when: ansible_distribution == "Fedora"
+  yum: name={{item}} state=present
+  with_items:
+    - nfs-utils
+
+- name: (Fedora) start services
+  when: ansible_distribution == "Fedora"
+  service: name={{item}} enabled=yes state=started
+  with_items:
+    - rpcbind.service
+    - nfs-idmap.service
+    - nfs-server.service
+
