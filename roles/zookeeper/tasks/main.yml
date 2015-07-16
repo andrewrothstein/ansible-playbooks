@@ -8,3 +8,6 @@
 
 - name: link /opt/zookeeper...
   file: src='/opt/{{ zk_name }}' dest='/opt/zookeeper' state=link
+
+- name: include zookeeper scripts in the default path...
+  copy: src='etc/profile.d/zk.sh' dest='/etc/profile.d/zk.sh' mode=644
