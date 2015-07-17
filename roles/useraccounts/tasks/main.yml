@@ -9,6 +9,7 @@
     - vboxusers
     - sudo
     - ada
+    - libvirt
 
 - name: enable passwordless sudo for the admin and sudo groups
   copy: >
