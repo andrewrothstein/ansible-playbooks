@@ -6,6 +6,7 @@
     - kvm
     - qemu-kvm
     - virt-manager
+    - virt-install
     - virt-viewer
     - virt-top
     - libvirt
