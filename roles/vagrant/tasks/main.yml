@@ -12,6 +12,16 @@
   when: ansible_distribution == "Fedora" or ansible_distribution == "RedHat"
   environment: proxy_env
   yum: name='{{ vagrant_rpm_url }}' state=present
+
+- name: (Fedora/RedHat) install vagrant-libvirt dependencies
+  when: ansible_distribution == "Fedora" or ansible_distribution == "RedHat"
+  environment: proxy_env
+  yum: name={{item}} state=present
+  with_items:
+    - libxslt-devel
+    - libxml2-devel
+    - libvirt-devel
+    - libguestfs-tools-c
   
 - name: install vagrant plugins
   environment: proxy_env
@@ -21,6 +31,7 @@
     - vagrant-hostsupdater
     - vagrant-cachier
     - vagrant-mutate
+    - vagrant-libvirt
 
 - name: (Fedora,RedHat) link exportfs into /usr/bin for vagrant
   when: ansible_distribution == "Fedora" or ansible_distribution == "RedHat"
