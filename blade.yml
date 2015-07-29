@@ -4,5 +4,7 @@
     - proxify
     - apt-proxify
     - useraccounts
+    - vcs
+    - editors
 
 - include: gitlab.yml
