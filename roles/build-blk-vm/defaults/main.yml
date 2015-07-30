@@ -1,0 +1,5 @@
+---
+cpus : 2
+mem : 8
+image : "file:///local/virtualmachines/images/ubuntu-14.04-server-cloudimg-amd64-disk1-20150706-blk.img"
+    

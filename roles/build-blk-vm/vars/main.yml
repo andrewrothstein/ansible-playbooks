@@ -1,0 +1,4 @@
+---
+image_hash : {{ image|hash('sha1') }}
+image_file : "/local/virtualmachines/images/{{ image_hash }}.img"
+backing_file : "/local/virtualmachines/backing-files/{{name}}.img

@@ -1,0 +1,3 @@
+---
+- name: launch couchdb
+  docker: name=couchdb image="klaemo/couchdb:1.6.1" ports="{{docker_couchdb_host_port}}:5984"

@@ -1,0 +1,4 @@
+---
+- hosts: blkchst001.bfm.com
+  roles:
+    - { role: build-blk-vm, mac: "02:2A:74:6E:47:5A", name: "arothste-couchdb" }

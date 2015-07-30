@@ -1,0 +1,3 @@
+---
+- name: boot VM
+  debug: msg="image {{image}}, image hash {{image_hash}}, backing file {{backing_file}}"
