@@ -1,19 +1,22 @@
 ---
 blk_user_list:
-  - aallen
-  - brosenbe
-  - echen
-  - pdemarti
-  - sfang
-  - bettbra
-  - obatori
-  - satiwari
-  - hgautam
+#  - aallen
+#  - brosenbe
+#  - echen
+  - mturok
+#  - pdemarti
+#  - sfang
+#  - bettbra
+#  - obatori
+#  - satiwari
+#  - hgautam
+
 
 blk_user_groups: {
   aallen : '',
   brosenbe : '',
   echen : '',
+  mturok : 'docker,admin',
   pdemarti : '',
   sfang : 'docker,ada',
   bettbra : '',

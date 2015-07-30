@@ -4,5 +4,5 @@
     - proxify
     - apt-proxify
     - useraccounts
+    - blk-users
     - docker
-    - docker-couchdb
