@@ -1,39 +1,25 @@
 ---
-- name : (Ubuntu) docker dependencies
-  when: ansible_distribution == "Ubuntu"
-  environment: proxy_env
-  apt: name={{ item }} state=present
-  with_items:
-    - apt-transport-https
+- stat: path='/usr/bin/docker'
+  register: dockerBinary
 
-- name : (Ubuntu) add docker apt key
-  when: ansible_distribution == "Ubuntu"
+- name : download docker install script
+  when: dockerBinary.stat.exists == false
   environment: proxy_env
-  apt_key: keyserver=keyserver.ubuntu.com id='36A1D7869245C8950F966E92D8576A8BA88D21E9'
+  get_url: url='https://get.docker.com/' dest='/tmp/install.docker.sh'
 
-- name: (Ubuntu) add docker apt repository
-  when: ansible_distribution == "Ubuntu"
+- name: make install script executable
+  when: dockerBinary.stat.exists == false
   environment: proxy_env
-  apt_repository: repo='deb https://get.docker.com/ubuntu docker main' update_cache=yes
+  file: path='/tmp/install.docker.sh' owner=root group=root mode=0755
 
-- name: (Ubuntu) install docker
-  when: ansible_distribution == "Ubuntu"
+- name: install docker
+  when: dockerBinary.stat.exists == false
   environment: proxy_env
-  apt: name=lxc-docker
+  shell: /tmp/install.docker.sh
 
 - name : (Ubuntu) proxify
   when: ansible_distribution == "Ubuntu" and proxy_env.http_proxy is defined
   template: dest=/etc/default/docker src=etc/default/docker.j2
-
-- name : (RedHat) install docker.io package...
-  when: ansible_distribution == "RedHat"
-  environment: proxy_env
-  yum: name=docker state=present
-
-- name : (Fedora) install docker.io package...
-  when: ansible_distribution == "Fedora"
-  environment: proxy_env
-  yum: name=docker-io state=present
 
 - name : (Fedora) proxify
   when: ansible_distribution == "Fedora" and proxy_env.http_proxy is defined
@@ -43,12 +29,13 @@
   when: ansible_distribution == "RedHat" and proxy_env.http_proxy is defined
   template: dest=/etc/sysconfig/docker src=etc/sysconfig/docker-redhat.j2
 
-- name : (Fedora/RedHat) launch docker...
-  when: ansible_distribution == "Fedora" or ansible_distribution == "RedHat"
-  service: name=docker state=started
-
 - name: (Fedora) update SELinux policy for docker
   when: ansible_distribution == "Fedora"
   environment: proxy_env
   yum: name=selinux-policy state=latest
+
+- name : launch docker...
+  service: name=docker state=started enabled=yes
+
+
 
