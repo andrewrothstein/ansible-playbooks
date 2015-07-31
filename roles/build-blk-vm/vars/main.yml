@@ -1,4 +1,4 @@
 ---
-image_hash : {{ image|hash('sha1') }}
-image_file : "/local/virtualmachines/images/{{ image_hash }}.img"
-backing_file : "/local/virtualmachines/backing-files/{{name}}.img
+image_file : "/local/virtualmachines/images/{{ image_name }}.img"
+backing_file : "/local/virtualmachines/backing-files/{{name}}.img"
+instance_file : "/local/virtualmachines/conf/{{name}}.xml"
