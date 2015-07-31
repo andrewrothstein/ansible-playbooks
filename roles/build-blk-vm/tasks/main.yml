@@ -7,3 +7,6 @@
 
 - name: create instance definition
   template: src=instance.xml.j2 dest={{instance_file}}
+
+- name: boot instance
+  shell: virsh --connect qemu:///system create {{instance_file}}
