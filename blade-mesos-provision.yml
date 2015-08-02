@@ -1,0 +1,31 @@
+---
+- hosts: blkchst001.bfm.com
+  roles:
+    - {
+    role: build-blk-vm,
+    uuid: "f3ca55e0-38b9-11e5-9c99-8851fb63ec99",
+    mac: "02:2A:74:6E:47:5A",
+    name: "arothste-ubuntu-mesos1",
+    memory: 16,
+    disk: "250G"
+    }
+- hosts: blkchst002.bfm.com
+  roles:
+    - {
+    role: build-blk-vm,
+    uuid: "c85ad14c-38b8-11e5-a334-8851fb63ec99",
+    mac: "02:6F:CD:4E:8D:AC",
+    name: "arothste-ubuntu-mesos2",
+    memory: 16,
+    disk: "250G"
+    }
+- hosts: blkchst003.bfm.com
+  roles:
+    - {
+    role: build-blk-vm,
+    uuid: "1cd3d304-38b9-11e5-ac32-8851fb63ec99",
+    mac: "02:DF:E3:38:49:B1",
+    name: "arothste-ubuntu-mesos3",
+    memory: 16,
+    disk: "250G"
+    }
