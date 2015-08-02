@@ -1,9 +1,9 @@
 ---
-- name: debuggery
-  debug: msg="name {{name}}, image_file {{image_file}}, uuid {{uuid}}, backing file {{backing_file}}"
-
 - name: create backing file from image file
   shell: qemu-img create -f qcow2 -b {{image_file}} -o size={{disk}} {{backing_file}}
+
+- name: authorize root ssh keys
+  shell: virt-copy-in -c qemu:///system -a {{backing_file}} ~/.ssh/authorized_keys /root/.ssh
 
 - name: create instance definition
   template: src=instance.xml.j2 dest={{instance_file}}
