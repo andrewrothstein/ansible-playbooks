@@ -1,0 +1,3 @@
+---
+backing_file : "/local/virtualmachines/backing-files/{{name}}.img"
+instance_file : "/local/virtualmachines/conf/{{name}}.xml"
