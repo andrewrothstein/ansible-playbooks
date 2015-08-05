@@ -1,5 +1,8 @@
 ---
-- hosts: all
+- hosts: apt-cacher-server
   roles:
     - apt-cacher-server
+- hosts: apt-cacher-client
+  roles:
+    - { role: apt-proxify, apt_http_proxy: "http://ansible-ubuntu-aptcacher-server.myapp.dev:3142" }
     

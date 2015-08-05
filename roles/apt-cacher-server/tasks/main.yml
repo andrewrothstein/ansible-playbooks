@@ -1,8 +1,19 @@
 ---
-- name: Ubuntu
-  when: ansible_distribution == 'Ubuntu'
+- name: (Ubuntu) apt-cacher dependencies
+  when: ansible_distribution == "Ubuntu"
+  template: >-
+    src=etc/apt-cacher/apt-cacher.conf.j2
+    dest=/etc/apt-cacher/apt-cacher.conf
+    owner=root
+    group=root
+
+- name: (Ubuntu) apt-cacher dependencies
+  when: ansible_distribution == "Ubuntu"
   apt: name={{item}} state=present
   with_items:
-    - apt-cache
+    - apt-cacher
     - apache2
 
+- name: (Ubuntu) start apt-cacher
+  service: name=apt-cacher state=restarted enabled=true
+>>>>>>> ubuntu vms to test the apt-cacher-server role
