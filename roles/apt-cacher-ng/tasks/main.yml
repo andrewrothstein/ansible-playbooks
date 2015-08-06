@@ -1,0 +1,15 @@
+---
+- name: (Ubuntu) installing apt-cacher-ng dependencies
+  when: ansible_distribution == "Ubuntu"
+  apt: name={{item}} state=present
+  with_items:
+    - apache2
+  
+- name: (Ubuntu) installing apt-cacher-ng
+  when: ansible_distribution == "Ubuntu"
+  apt: name={{item}} state=present
+  with_items:
+    - apt-cacher-ng
+
+- name: (Ubuntu) start apt-cacher-ng service
+  service: name=apt-cacher-ng state=restarted enabled=true
