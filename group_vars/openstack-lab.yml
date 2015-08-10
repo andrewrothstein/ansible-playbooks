@@ -1,0 +1,9 @@
+---
+http_proxy_hostname : "69.52.32.39"
+http_proxy_port : "8080"
+http_proxy_host : "{{ http_proxy_hostname }}:{{ http_proxy_port }}"
+proxy_env :
+  http_proxy : "http://{{ http_proxy_host }}/"
+  https_proxy : "http://{{ http_proxy_host }}/"
+  ftp_proxy : "ftp://{{ http_proxy_host }}/"
+  no_proxy : "*.blackrock.com,*.blkint.com,*.bfm.com,localhost,127.0.0.1,localaddress,*.localdomain.com,10.254.254.254,/var/run/docker.sock"

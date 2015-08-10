@@ -1,0 +1,4 @@
+---
+- hosts: puppet-slave
+  roles:
+    - puppet-slave

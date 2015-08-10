@@ -1,0 +1,19 @@
+---
+- hosts: blkchst001.bfm.com
+  roles:
+    - {
+    role: abc-destroy-vm,
+    name: "arothste-ubuntu-mesos1"
+    }
+- hosts: blkchst002.bfm.com
+  roles:
+    - {
+    role: abc-destroy-vm,
+    name: "arothste-ubuntu-mesos2"
+    }
+- hosts: blkchst003.bfm.com
+  roles:
+    - {
+    role: abc-destroy-vm,
+    name: "arothste-ubuntu-mesos3"
+    }

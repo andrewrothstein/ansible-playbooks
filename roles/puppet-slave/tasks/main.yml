@@ -1,0 +1,8 @@
+---
+- name: (Red Hat, Fedora) install puppet-slave.service systemd unit
+  when: ansible_distribution == "RedHat" or ansible_distribution == "Fedora"
+  copy: src='etc/systemd/system/puppet-slave.service' dest='/etc/systemd/system/puppet-slave.service'
+
+- name: (Red Hat, Fedora) launch puppet-slave.service systemd unit
+  when: ansible_distribution == "RedHat" or ansible_distribution == "Fedora"
+  service: name=puppet-slave.service enabled=yes state=restarted

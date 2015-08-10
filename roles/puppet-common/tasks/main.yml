@@ -1,0 +1,20 @@
+---
+- name: (Red Hat) install puppetlabs repo
+  when: ansible_distribution == "RedHat"
+  environment: proxy_env
+  yum: name='http://yum.puppetlabs.com/puppetlabs-release-el-7.noarch.rpm' state=present
+
+- name: (Red Hat, Fedora) install puppet
+  when: ansible_distribution == "RedHat" or ansible_distribution == "Fedora"
+  environment: proxy_env
+  yum: name={{item}}
+  with_items:
+    - puppet
+
+- name: install puppet.conf
+  copy: src=etc/puppet/puppet.conf dest=/etc/puppet/puppet.conf
+
+- name: (Red Hat) install puppet modules
+  when: ansible_distribution == "RedHat"
+  environment: proxy_env
+  shell: puppet module install puppetlabs-openstack

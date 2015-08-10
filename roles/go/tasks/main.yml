@@ -15,3 +15,6 @@
   
 - name: set go environment variables
   copy: src=go.sh dest=/etc/profile.d/go.sh mode=644
+
+- name: install emacs go-mode
+  copy: dest={{ emacs_site_d }} src=51go-mode.el

@@ -24,11 +24,13 @@
   when: ansible_distribution == "Ubuntu"
   apt: name=oracle-java7-set-default
 
-- name: (Fedora) install java...
-  when: ansible_distribution == "Fedora"
+- name: (Fedora, RedHat) install java...
+  when: ansible_distribution == "Fedora" or ansible_distribution == "RedHat"
   yum: name={{ item }}
   with_items:
     - java-1.8.0-openjdk
+    - java-1.8.0-openjdk-devel
+    - java-1.8.0-openjdk-javadoc
   
 - name : (Ubuntu) install maven and ant
   when: ansible_distribution == "Ubuntu"
@@ -38,8 +40,8 @@
     - maven
     - ant
 
-- name : (Fedora) install maven and ant
-  when: ansible_distribution == "Fedora"
+- name : (Fedora, RedHat) install maven and ant
+  when: ansible_distribution == "Fedora" or ansible_distribution == "RedHat"
   environment: proxy_env
   yum: name={{ item }}
   with_items:
@@ -50,8 +52,8 @@
   when: ansible_distribution == "Ubuntu" and proxy_env.http_proxy is defined
   template: dest=/usr/share/maven/conf/settings.xml src=usr/share/maven/conf/settings.xml.j2
 
-- name : (Fedora) proxify maven
-  when: ansible_distribution == "Fedora" and proxy_env.http_proxy is defined
+- name : (Fedora, RedHat) proxify maven
+  when: (ansible_distribution == "Fedora" or ansible_distribution == "RedHat") and proxy_env.http_proxy is defined
   template: dest=/etc/maven/settings.xml src=usr/share/maven/conf/settings.xml.j2
 
 - name: set JAVA_HOME...

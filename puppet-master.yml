@@ -1,0 +1,4 @@
+---
+- hosts: puppet-master
+  roles:
+    - puppet-master

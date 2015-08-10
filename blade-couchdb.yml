@@ -1,0 +1,4 @@
+---
+- hosts : couchdb
+  roles:
+    - docker-couchdb

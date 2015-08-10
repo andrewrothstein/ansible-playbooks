@@ -1,21 +1,26 @@
 ---
 blk_user_list:
-  - aallen
-  - brosenbe
-  - echen
-  - pdemarti
-  - sfang
-  - bettbra
-  - obatori
-  - satiwari
+#  - aallen
+#  - brosenbe
+#  - echen
+  - mturok
+#  - pdemarti
+#  - sfang
+#  - bettbra
+#  - obatori
+#  - satiwari
+#  - hgautam
+
 
 blk_user_groups: {
-  aallen : 'aallen',
-  brosenbe : 'brosenbe',
-  echen : 'echen',
-  pdemarti : 'pdemarti',
-  sfang : 'sfang,docker,ada',
-  bettbra : 'bettbra',
-  obatori : 'obatori,ada',
-  satiwari : 'satiwari,ada'
+  aallen : '',
+  brosenbe : '',
+  echen : '',
+  mturok : 'docker,admin',
+  pdemarti : '',
+  sfang : 'docker,ada',
+  bettbra : '',
+  obatori : 'ada',
+  satiwari : 'ada',
+  hgautam : 'ada'
 }

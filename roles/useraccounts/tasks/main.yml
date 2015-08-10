@@ -9,6 +9,7 @@
     - vboxusers
     - sudo
     - ada
+    - libvirt
 
 - name: enable passwordless sudo for the admin and sudo groups
   copy: >
@@ -21,7 +22,7 @@
     name=arothste
     state=present
     shell=/bin/bash
-    groups=docker,admin,dev,wheel,vboxusers,sudo,ada
+    groups=docker,admin,dev,wheel,vboxusers,sudo,ada,libvirt
 
 - name: create /home/arothste/.ssh
   file: >

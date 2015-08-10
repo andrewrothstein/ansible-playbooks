@@ -1,0 +1,12 @@
+---
+- name: (Red Hat, Fedora) install puppetmaster.service systemd unit
+  when: ansible_distribution == "RedHat" or ansible_distribution == "Fedora"
+  copy: src='etc/systemd/system/puppet-master.service' dest='/etc/systemd/system/puppet-master.service'
+
+- name: (Red Hat, Fedora) install  manifest/site.pp
+  when: ansible_distribution == "RedHat" or ansible_distribution == "Fedora"
+  copy: src=etc/puppet/manifests/site.pp dest=/etc/puppet/manifests/site.pp
+
+- name: (Red Hat, Fedora) launch puppetmaster
+  when: ansible_distribution == "RedHat" or ansible_distribution == "Fedora"
+  service: name=puppet-master.service enabled=yes state=restarted

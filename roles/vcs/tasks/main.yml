@@ -32,4 +32,15 @@
     - cvs
     - kdiff3
 
+- name: (RedHat) vcs packages...
+  when: ansible_distribution == "RedHat"
+  environment: proxy_env
+  yum: name={{ item }}
+  with_items:
+    - git
+    - subversion
+    - mercurial
+    - cvs
+
+
   

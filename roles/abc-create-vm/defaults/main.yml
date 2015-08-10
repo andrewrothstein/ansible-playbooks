@@ -1,0 +1,6 @@
+---
+cpus : 2
+memory : 8
+disk : "2G"
+image_name : "ubuntu-14.04-server-cloudimg-amd64-disk1-20150706-blk"
+    

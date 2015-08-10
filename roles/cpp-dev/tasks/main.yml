@@ -49,3 +49,4 @@
     - libyaml
     - libyaml-devel
     - ddd
+    - clang

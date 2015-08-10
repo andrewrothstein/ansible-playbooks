@@ -15,6 +15,9 @@
 - name: install sbt-mode...
   copy: dest={{ emacs_site_d }} src=50sbt-mode.el
 
+- name: install ensime...
+  copy: dest={{ emacs_site_d }} src=51ensime.el
+  
 - name: (Fedora) install sbt...
   when: ansible_distribution == "Fedora"
   environment: proxy_env
