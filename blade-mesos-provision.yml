@@ -56,7 +56,7 @@
     - {
     role: abc-create-vm,
     uuid: "950db21a-4145-11e5-847c-8851fb63ec99",
-    mac: "02:B1:AD:E3:00:01",
+    mac: "02:B1:AD:E3:00:02",
     name: "arothste-ubuntu-mesos7",
     memory: 16,
     disk: "250G"
