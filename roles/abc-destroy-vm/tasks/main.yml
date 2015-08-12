@@ -2,8 +2,8 @@
 - name: stop instance
   shell: virsh --connect qemu:///system destroy {{name}}
 
-- name: delete instance file
-  file: name={{instance_file}} state=absent
-  
-- name: delete backing file
-  file: name="{{instance_file}}" state=absent
+- name: delete instance and backing files
+  file: name={{item}} state=absent
+  with_items:
+    - "{{instance_file}}"
+    - "{{backing_file}}"

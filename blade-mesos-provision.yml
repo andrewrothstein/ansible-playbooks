@@ -4,8 +4,24 @@
     - {
     role: abc-create-vm,
     uuid: "f3ca55e0-38b9-11e5-9c99-8851fb63ec99",
-    mac: "02:2A:74:6E:47:5A",
+    mac: "02:B1:AD:E1:00:00",
     name: "arothste-ubuntu-mesos1",
+    memory: 16,
+    disk: "250G"
+    }
+    - {
+    role: abc-create-vm,
+    uuid: "3c6690be-4145-11e5-8dea-8851fb63ec99",
+    mac: "02:B1:AD:E1:00:01",
+    name: "arothste-ubuntu-mesos2",
+    memory: 16,
+    disk: "250G"
+    }
+    - {
+    role: abc-create-vm,
+    uuid: "69628208-4145-11e5-a312-8851fb63ec99",
+    mac: "02:B1:AD:E1:00:02",
+    name: "arothste-ubuntu-mesos3",
     memory: 16,
     disk: "250G"
     }
@@ -14,8 +30,16 @@
     - {
     role: abc-create-vm,
     uuid: "c85ad14c-38b8-11e5-a334-8851fb63ec99",
-    mac: "02:6F:CD:4E:8D:AC",
-    name: "arothste-ubuntu-mesos2",
+    mac: "02:B1:AD:E2:00:00",
+    name: "arothste-ubuntu-mesos4",
+    memory: 16,
+    disk: "250G"
+    }
+    - {
+    role: abc-create-vm,
+    uuid: "826edbf2-4145-11e5-89b3-8851fb63ec99",
+    mac: "02:B1:AD:E2:00:01",
+    name: "arothste-ubuntu-mesos5",
     memory: 16,
     disk: "250G"
     }
@@ -24,8 +48,16 @@
     - {
     role: abc-create-vm,
     uuid: "1cd3d304-38b9-11e5-ac32-8851fb63ec99",
-    mac: "02:DF:E3:38:49:B1",
-    name: "arothste-ubuntu-mesos3",
+    mac: "02:B1:AD:E3:00:00",
+    name: "arothste-ubuntu-mesos6",
+    memory: 16,
+    disk: "250G"
+    }
+    - {
+    role: abc-create-vm,
+    uuid: "950db21a-4145-11e5-847c-8851fb63ec99",
+    mac: "02:B1:AD:E3:00:01",
+    name: "arothste-ubuntu-mesos7",
     memory: 16,
     disk: "250G"
     }
