@@ -3,3 +3,9 @@
   when: ansible_distribution == "Ubuntu" and (apt_http_proxy is defined or proxy_env.http_proxy is defined)
   environment: proxy_env
   template: src=95proxies.j2 dest=/etc/apt/apt.conf.d/95proxies
+
+- name: (Ubuntu) post proxify apt-get update
+  when: ansible_distribution == "Ubuntu" and (apt_http_proxy is defined or proxy_env.http_proxy is defined)
+  environment: proxy_env
+  shell: apt-get update
+  
