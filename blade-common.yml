@@ -2,7 +2,7 @@
 - hosts : all
   roles:
     - proxify
-    - { role: apt-proxify, apt_http_proxy: 'http://45.32.79.92:3142/', apt_https_proxy: 'http://45.32.79.92:3142/'}
+    - apt-proxify
     - useraccounts
     - blk-users
     - docker
