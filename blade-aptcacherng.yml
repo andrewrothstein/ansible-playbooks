@@ -1,0 +1,8 @@
+---
+- hosts: all
+  roles:
+    - proxify
+    - apt-proxify
+    - useraccounts
+    - blk-users
+    - apt-cacher-ng

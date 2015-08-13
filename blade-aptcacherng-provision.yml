@@ -1,0 +1,11 @@
+---
+- hosts: blkchst002.bfm.com
+  roles:
+    - {
+    role: abc-create-vm,
+    uuid: "898d6648-414e-11e5-92bd-8851fb63ec99",
+    mac: "02:B1:AD:E2:00:02",
+    name: "arothste-ubuntu-aptcacherng",
+    memory: 2,
+    disk: "250G"
+    }
