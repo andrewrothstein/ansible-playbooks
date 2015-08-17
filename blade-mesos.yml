@@ -5,3 +5,5 @@
     - proxify
     - apt-proxify
     - docker
+    - unarchive-deps
+    - consul
