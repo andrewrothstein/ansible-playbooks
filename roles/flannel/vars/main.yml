@@ -1,5 +1,5 @@
 ---
-flannel_version: 0.5.0
+flannel_version: 0.5.3
 flannel_name : 'flannel-{{ flannel_version }}'
 flannel_pkg : '{{ flannel_name }}-linux-amd64.tar.gz'
 flannel_pkg_url : 'http://github.com/coreos/flannel/releases/download/v{{ flannel_version }}/{{ flannel_pkg }}'
