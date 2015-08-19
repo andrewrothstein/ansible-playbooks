@@ -1,0 +1,15 @@
+---
+- name: create /mnt/blade-share
+  file: >
+    owner=root
+    group=root
+    mode="go-w"
+    path="/mnt/blade-share"
+    state=directory
+
+- name: mount /mnt/blade-share
+  mount: >
+    fstype=nfs
+    name='/mnt/blade-share'
+    src='nycnas003.bfm.com:/vol/vol51/blade-share'
+    state=present

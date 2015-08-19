@@ -6,6 +6,7 @@
     - apt-proxify
     - useraccounts
     - blk-users
+    - blade-nfs
     - docker
     - unarchive-deps
     - consul
