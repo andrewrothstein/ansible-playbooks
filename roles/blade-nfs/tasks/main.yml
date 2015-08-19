@@ -2,8 +2,8 @@
 - name: create /mnt/blade-share
   file: >
     owner=root
-    group=root
-    mode="go-w"
+    group=blade
+    mode="0775"
     path="/mnt/blade-share"
     state=directory
 
@@ -12,4 +12,4 @@
     fstype=nfs
     name='/mnt/blade-share'
     src='nycnas003.bfm.com:/vol/vol51/blade-share'
-    state=present
+    state=mounted
