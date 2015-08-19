@@ -16,7 +16,7 @@ blk_user_groups: {
   aallen : '',
   brosenbe : '',
   echen : '',
-  mturok : 'docker,admin,blade',
+  mturok : 'docker,sudo,admin,blade',
   pdemarti : '',
   sfang : 'docker,ada',
   bettbra : '',
