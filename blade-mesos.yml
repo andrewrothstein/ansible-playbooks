@@ -4,6 +4,8 @@
     - hostnamefrominventory
     - proxify
     - apt-proxify
+    - useraccounts
+    - blk-users
     - docker
     - unarchive-deps
     - consul
