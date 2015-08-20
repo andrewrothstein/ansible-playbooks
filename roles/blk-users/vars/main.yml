@@ -4,6 +4,7 @@ blk_user_list:
 #  - brosenbe
 #  - echen
   - mturok
+  - mifranci
 #  - pdemarti
 #  - sfang
 #  - bettbra
@@ -17,6 +18,7 @@ blk_user_groups: {
   brosenbe : '',
   echen : '',
   mturok : 'docker,sudo,admin,blade',
+  mifranci : 'docker,sudo,admin,blade',
   pdemarti : '',
   sfang : 'docker,ada',
   bettbra : '',

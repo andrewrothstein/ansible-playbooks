@@ -1,0 +1,11 @@
+---
+- hosts: blkchst001.bfm.com
+  roles:
+    - {
+    role: abc-create-vm,
+    uuid: "b25280ba-46e7-11e5-bfc4-8fa95b626dce",
+    mac: "02:B1:AD:E1:00:00",
+    name: "blade-couch",
+    memory: 16,
+    disk: "250G"
+    }

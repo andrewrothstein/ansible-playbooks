@@ -1,0 +1,20 @@
+---
+- name: (Debian) python packages...
+  when: ansible_os_family == 'Debian'
+  apt: name={{item}}
+  with_items:
+    - python
+    - python-dev
+    - python-pip
+
+- name: (RedHat) python packages...
+  when: ansible_os_family == 'RedHat'
+  yum: name={{item}}
+  with_items:
+    - python
+    - python-devel
+    - python-pip
+
+- name: installing docker-py via pip
+  pip: state=present name=docker-py version=1.2.3
+

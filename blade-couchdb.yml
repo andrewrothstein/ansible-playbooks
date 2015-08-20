@@ -1,4 +1,12 @@
 ---
-- hosts : couchdb
+- hosts : all
   roles:
+    - hostnamefrominventory
+    - proxify
+    - apt-proxify
+    - useraccounts
+    - blk-users
+    - blade-nfs
+    - docker
+    - docker-py
     - docker-couchdb
