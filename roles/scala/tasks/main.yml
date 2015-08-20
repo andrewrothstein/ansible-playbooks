@@ -1,13 +1,16 @@
 ---
 
-- name: (Ubuntu) get sbt deb...
-  when: ansible_distribution == "Ubuntu"
-  environment: proxy_env
+- name: (Debian) get sbt deb...
+  when: ansible_os_family == "Debian"
   get_url: url='{{sbt_deb_url}}' dest='/tmp/{{sbt_deb_name}}'
 
-- name: (Ubuntu) install sbt deb...
-  when: ansible_distribution == "Ubuntu"
+- name: (Debian) install sbt deb...
+  when: ansible_os_family == "Debian"
   apt: deb='/tmp/{{sbt_deb_name}}' state=installed
+
+- name: (RedHat) install sbt...
+  when: ansible_os_family == "RedHat"
+  yum: name='{{sbt_rpm_url}}' state=present
 
 - name: install scala-mode2...
   copy: dest={{ emacs_site_d }} src=50scala-mode2.el
@@ -18,21 +21,15 @@
 - name: install ensime...
   copy: dest={{ emacs_site_d }} src=51ensime.el
   
-- name: (Fedora) install sbt...
-  when: ansible_distribution == "Fedora"
-  environment: proxy_env
-  yum: name='{{sbt_rpm_url}}' state=present
-
 - name: Download Typesafe Activator
-  environment: proxy_env
   get_url: url={{ typesafe_activator_url }} dest="/tmp/{{ typesafe_activator_archive }}"
 
-- stat: path='/opt/activator-{{ typesafe_activator_version }}'
+- stat: path='/opt/activator-dist-{{ typesafe_activator_version }}'
   register: activatordir
 
 - name: Unzip Typesafe Activator
   when: activatordir.stat.exists == false
-  shell: unzip '/tmp/{{ typesafe_activator_archive }}' -d /opt
+  unarchive: copy=no src='/tmp/{{ typesafe_activator_archive }}' dest=/opt
 
 - name: Link Typesafe Activator
-  file: src='/opt/activator-{{ typesafe_activator_version }}' dest=/opt/activator state=link
+  file: src='/opt/activator-dist-{{ typesafe_activator_version }}' dest=/opt/activator state=link
