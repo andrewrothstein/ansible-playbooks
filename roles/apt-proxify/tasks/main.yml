@@ -1,11 +1,10 @@
 ---
-- name: (Ubuntu) proxify apt...
-  when: ansible_distribution == "Ubuntu" and (apt_http_proxy is defined or proxy_env.http_proxy is defined)
-  environment: proxy_env
+- name: (Debian) proxify apt...
+  when: ansible_os_family == "Debian" and (apt_http_proxy is defined or proxy_env.http_proxy is defined)
   template: src=95proxies.j2 dest=/etc/apt/apt.conf.d/95proxies
+  register: aptproxified
 
-- name: (Ubuntu) post proxify apt-get update
-  when: ansible_distribution == "Ubuntu" and (apt_http_proxy is defined or proxy_env.http_proxy is defined)
-  environment: proxy_env
-  shell: apt-get update
+- name: (Debian) post proxify apt-get update
+  when: aptproxified.changed
+  apt: update_cache=yes
   

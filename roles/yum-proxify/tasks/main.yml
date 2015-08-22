@@ -1,5 +1,10 @@
 ---
-- name: (Fedora/RedHat) proxify yum...
-  when: (ansible_distribution == "Fedora" or ansible_distribution == "RedHat") and proxy_env.http_proxy is defined
-  environment: proxy_env
+- name: (RedHat) proxify yum...
+  when: ansible_os_family == "RedHat" and proxy_env.http_proxy is defined
   template: src=yum.conf.j2 dest=/etc/yum.conf
+  register: yumproxified
+
+- name: (RedHat) prost proxify yum update...
+  when: yumproxified.changed
+  yum: update_cache=yes
+  
