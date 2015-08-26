@@ -1,3 +1,5 @@
 ---
+- name: launch couchdb-lucene
+  docker: name=couchdb-lucene image="greenlizard/couchdb-lucene:latest" ports="{{docker_couchdb_lucene_host_port}}:5985"
 - name: launch couchdb
-  docker: name=couchdb image="klaemo/couchdb:1.6.1" ports="{{docker_couchdb_host_port}}:5984"
+  docker: name=couchdb image="andrewrothstein/couchdb:latest" ports="{{docker_couchdb_host_port}}:5984"
