@@ -18,10 +18,25 @@
   when: ansible_distribution == "Ubuntu" and proxy_env.http_proxy is defined
   template: dest=/etc/default/docker src=etc/default/docker.j2
 
-- name : (Fedora) proxify
+- name : (Fedora) proxify - create /etc/systemd/system/docker.service.d
   when: ansible_distribution == "Fedora" and proxy_env.http_proxy is defined
-  template: dest=/etc/sysconfig/docker src=etc/sysconfig/docker-fedora.j2
+  file: >
+    owner=root
+    group=docker
+    mode=755
+    path=/etc/systemd/system/docker.service.d
+    state=directory
 
+- name : (Fedora) proxify - install systemd drop-in
+  when: ansible_distribution == "Fedora" and proxy_env.http_proxy is defined
+  template: >
+    dest=/etc/systemd/system/docker.service.d/http-proxy.conf
+    src=etc/systemd/system/docker.service.d/http-proxy.conf.j2
+
+- name : (Fedora) proxify - systemctl daemon-reload
+  when: ansible_distribution == "Fedora" and proxy_env.http_proxy is defined
+  shell: systemctl daemon-reload
+  
 - name : (RedHat) proxify
   when: ansible_distribution == "RedHat" and proxy_env.http_proxy is defined
   template: dest=/etc/sysconfig/docker src=etc/sysconfig/docker-redhat.j2
