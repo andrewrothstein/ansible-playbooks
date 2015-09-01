@@ -1,24 +1,15 @@
 ---
-- name: (Ubuntu) editors packages...
-  when: ansible_distribution == "Ubuntu"
-  environment: proxy_env
-  apt: name={{ item }}
+- name: (Debian) editors packages...
+  when: ansible_os_family == "Debian"
+  apt: name={{item}}
   with_items:
     - vim
     - emacs
     - emacs-goodies-el
-    - yasnippet
-    - yaml-mode
-
-- name: (Fedora) vim-minimal package upgrade (so that vim can be installed)...
-  when: ansible_distribution == "Fedora"
-  environment: proxy_env
-  yum: name=vim-minimal state=latest
 
 - name: (Fedora) editors packages ...
   when: ansible_distribution == "Fedora"
-  environment: proxy_env
-  yum: name={{ item }}
+  yum: name={{item}}
   with_items:
     - vim
     - emacs
@@ -26,32 +17,11 @@
 
 - name: (RedHat) editors packages ...
   when: ansible_distribution == "RedHat"
-  environment: proxy_env
   yum: name={{ item }}
   with_items:
     - vim
     - emacs
 
-- name: get atom (Ubuntu)
-  when: ansible_distribution == "Ubuntu"
-  environment: proxy_env
-  get_url: url='{{atom_deb_url}}' dest='/tmp/{{atom_deb}}'
-    
-- name: install atom (Ubuntu)
-  when: ansible_distribution == "Ubuntu"
-  environment: proxy_env
-  apt: name='/tmp/{{atom_deb}}' state=present
-    
-- name: get atom (Fedora)
-  when: ansible_distribution == "Fedora"
-  environment: proxy_env
-  get_url: url='{{atom_rpm_url}}' dest='/tmp/{{atom_rpm}}'
-    
-- name: install atom (Fedora)
-  when: ansible_distribution == "Fedora"
-  environment: proxy_env
-  yum: name='/tmp/{{atom_rpm}}' state=present
-    
 - name: install my basic emacs settings
   copy: dest={{ emacs_site_d }} src=49myemacs.el
 
