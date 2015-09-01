@@ -1,0 +1,24 @@
+---
+- name: download...
+  get_url: url='{{docker_squash_url}}' dest='/tmp/{{docker_squash_tgz}}'
+
+- name: create target directory
+  file: >
+    owner=root
+    group=root
+    mode=755
+    path='/usr/local/bin/docker-squash-{{docker_squash_version}}'
+    state=directory
+  
+- name: unarchive...
+  unarchive: >
+    copy=no
+    src='/tmp/{{docker_squash_tgz}}'
+    dest='/usr/local/bin/docker-squash-{{docker_squash_version}}'
+
+- name: link...
+  file: >
+    src='/usr/local/bin/docker-squash-{{docker_squash_version}}/docker-squash'
+    dest='/usr/local/bin/docker-squash'
+    state=link
+    

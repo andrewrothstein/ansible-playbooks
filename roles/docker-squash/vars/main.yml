@@ -1,0 +1,5 @@
+---
+docker_squash_platform : 'linux-amd64'
+docker_squash_version : 'v0.1.0'
+docker_squash_tgz : 'docker-squash-{{docker_squash_platform}}-{{docker_squash_version}}.tar.gz'
+docker_squash_url : 'https://github.com/jwilder/docker-squash/releases/download/{{docker_squash_version}}/{{docker_squash_tgz}}'
