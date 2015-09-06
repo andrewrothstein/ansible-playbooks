@@ -3,28 +3,8 @@
   roles:
     - {
     role: abc-destroy-vm,
-    name: "arothste-ubuntu-mesos1"
-    }
-    - {
-    role: abc-destroy-vm,
-    name: "arothste-ubuntu-mesos2"
-    }
-    - {
-    role: abc-destroy-vm,
-    name: "arothste-ubuntu-mesos3"
-    }
-- hosts: blkchst002.bfm.com
-  roles:
-    - {
-    role: abc-destroy-vm,
-    name: "arothste-ubuntu-mesos4"
-    }
-    - {
-    role: abc-destroy-vm,
     name: "arothste-ubuntu-mesos5"
     }
-- hosts: blkchst003.bfm.com
-  roles:
     - {
     role: abc-destroy-vm,
     name: "arothste-ubuntu-mesos6"
@@ -32,4 +12,24 @@
     - {
     role: abc-destroy-vm,
     name: "arothste-ubuntu-mesos7"
+    }
+- hosts: blkchst002.bfm.com
+  roles:
+    - {
+    role: abc-destroy-vm,
+    name: "arothste-ubuntu-mesos1"
+    }
+    - {
+    role: abc-destroy-vm,
+    name: "arothste-ubuntu-mesos2"
+    }
+- hosts: blkchst003.bfm.com
+  roles:
+    - {
+    role: abc-destroy-vm,
+    name: "arothste-ubuntu-mesos3"
+    }
+    - {
+    role: abc-destroy-vm,
+    name: "arothste-ubuntu-mesos4"
     }
