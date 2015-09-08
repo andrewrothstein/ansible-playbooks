@@ -1,6 +1,6 @@
 ---
 cpus : 2
-memory : 8
-disk : "2G"
+memory : 2048
+disk : '2G'
 
     

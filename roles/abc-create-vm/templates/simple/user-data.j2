@@ -2,6 +2,6 @@
 chpasswd: {expire: False}
 ssh_pwauth: False
 ssh_authorized_keys:
-  - {{ lookup('file', '~/.ssh/id_rsa') }}
+  - {{ lookup('file', '~/.ssh/id_rsa.pub') }}
 
   

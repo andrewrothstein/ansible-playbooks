@@ -3,5 +3,5 @@
   roles:
     - {
     role: abc-destroy-vm,
-    name: "blade-git"
+    instance_name: "blade-git.blackrock.com"
     }

@@ -1,9 +1,13 @@
 ---
-- name: stop instance
-  shell: virsh --connect qemu:///system destroy {{name}}
+- name: destroy instance
+  shell: virsh --connect '{{connect_url}}' destroy {{instance_name}}
 
-- name: delete instance and backing files
+- name: undefine instance
+  shell: virsh --connect '{{connect_url}}' undefine {{instance_name}}
+
+- name: delete instance and clouddrive files
   file: name={{item}} state=absent
   with_items:
-    - "{{instance_file}}"
-    - "{{backing_file}}"
+    - '{{instance_disk_file}}'
+    - '{{clouddrive_src_root}}'
+    - '{{clouddrive_iso}}'

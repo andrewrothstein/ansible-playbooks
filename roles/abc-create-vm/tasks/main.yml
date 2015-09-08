@@ -2,15 +2,34 @@
 - name: create backing file from image file
   shell: qemu-img create -b {{image_file}} -o size={{disk}} -f {{instance_disk_fmt}} {{instance_disk_file}}
 
-- name: build clouddrive
-  include: 'clouddrive.yml'
-  delegate_to: 127.0.0.1
+- name: create /tmp/clouddrive_src_root
+  file: >
+    path={{clouddrive_src_root}}
+    mode=700
+    state=directory
   
-- name: authorize root ssh keys
-  shell: virt-copy-in -c qemu:///system -a {{backing_file}} ~/.ssh/authorized_keys /root/.ssh
+- name: resolve the instance data templates
+  with_items:
+    - meta-data
+    - user-data
+  template: >
+    src='{{clouddrive_template}}/{{item}}.j2'
+    dest='{{clouddrive_src_root}}/{{item}}'
 
-- name: create instance definition
-  template: src=instance.xml.j2 dest={{instance_file}}
+- name: build clouddrive
+  shell: genisoimage -output '{{clouddrive_iso}}' -volid cidata -joliet -rock user-data meta-data
+  args:
+    chdir: '{{clouddrive_src_root}}'
 
 - name: boot instance
-  shell: virsh --connect qemu:///system create {{instance_file}}
+  shell: >
+    virt-install
+    --connect {{connect_url}}
+    --name {{instance_name}}
+    --ram {{memory}}
+    --disk path={{image_file}},device=disk,bus=virtio
+    --disk path={{clouddrive_iso}},device=cdrom,bus=virtio,format=iso
+    --network=bridge=br-bond1,mac={{mac}}
+    --import
+    --graphics none
+    --noautoconsole

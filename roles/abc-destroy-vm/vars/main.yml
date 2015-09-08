@@ -1,3 +1,12 @@
 ---
-backing_file : "/local/virtualmachines/backing-files/{{name}}.img"
-instance_file : "/local/virtualmachines/conf/{{name}}.xml"
+connect_url: 'qemu:///system'
+
+image_dir : '/local/virtualmachines/images'
+instance_disk_dir : '/local/virtualmachines/backing-files'
+
+instance_disk_fmt : 'qcow2'
+instance_disk_file : '{{instance_disk_dir}}/{{instance_name}}.{{instance_disk_fmt}}'
+
+clouddrive_disk_dir : '/local/virtualmachines/backing-files'
+clouddrive_src_root : '/tmp/{{instance_name}}'
+clouddrive_iso : '{{clouddrive_disk_dir}}/{{instance_name}}.clouddrive.iso'
