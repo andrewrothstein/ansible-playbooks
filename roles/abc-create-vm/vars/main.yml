@@ -1,4 +1,8 @@
 ---
-image_file : "/local/virtualmachines/images/{{ image_name }}.img"
-backing_file : "/local/virtualmachines/backing-files/{{name}}.img"
-instance_file : "/local/virtualmachines/conf/{{name}}.xml"
+image_dir : '/local/virtualmachines/images'
+instance_disk_dir : '/local/virtualmachines/backing-files'
+
+image_file_fmt: 'qcow2'
+image_file : '{{image_dir}}/{{image_name}}.{{image_file_fmt}}'
+instance_disk_fmt : 'qcow2'
+instance_disk_file : '{{instance_disk_dir}}/{{name}}.{{instance_disk_fmt}}'
