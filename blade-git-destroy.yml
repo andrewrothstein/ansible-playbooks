@@ -1,0 +1,7 @@
+---
+- hosts: blkchst001.bfm.com
+  roles:
+    - {
+    role: abc-destroy-vm,
+    name: "blade-git"
+    }

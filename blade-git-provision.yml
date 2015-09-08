@@ -1,0 +1,11 @@
+---
+- hosts: blkchst001.bfm.com
+  roles:
+    - {
+    role: abc-create-vm,
+    uuid: "2491968e-5444-11e5-8197-8851fb63ec99",
+    mac: "02:B1:AD:E1:00:01",
+    name: "blade-git",
+    memory: 8,
+    disk: "1024G"
+    }
