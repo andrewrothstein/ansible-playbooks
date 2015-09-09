@@ -1,0 +1,11 @@
+---
+- hosts : all
+  roles:
+    - proxify
+    - yum-proxify
+#    - useraccounts
+#    - blk-users
+#    - blade-nfs
+#    - docker
+#    - docker-py
+
