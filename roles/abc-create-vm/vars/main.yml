@@ -13,4 +13,5 @@ instance_disk_file : '{{instance_disk_dir}}/{{instance_name}}.{{instance_disk_fm
 clouddrive_template : 'simple'
 clouddrive_disk_dir : '/local/virtualmachines/backing-files'
 clouddrive_src_root : '/tmp/{{instance_name}}'
-clouddrive_iso : '{{clouddrive_disk_dir}}/{{instance_name}}.clouddrive.iso'
+clouddrive_fmt : 'iso'
+clouddrive_iso : '{{clouddrive_disk_dir}}/{{instance_name}}.clouddrive.{{clouddrive_fmt}}'

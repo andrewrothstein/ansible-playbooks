@@ -6,7 +6,7 @@
     uuid: "2491968e-5444-11e5-8197-8851fb63ec99",
     mac: "02:B1:AD:E1:00:01",
     instance_name: "blade-git.blackrock.com",
-    image_name: "CentOS-7-x86_64-GenericCloud-20150628_01",
+    image_name: "Fedora-Cloud-Base-22-20150521.x86_64",
     memory: '8096',
     disk: '1024G'
     }

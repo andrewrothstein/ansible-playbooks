@@ -28,8 +28,8 @@
     --name {{instance_name}}
     --vcpus={{cpus}}
     --ram {{memory}}
-    --disk path={{instance_disk_file}},device=disk,bus=virtio
-    --disk path={{clouddrive_iso}},device=cdrom,bus=virtio,format=iso
+    --disk path={{instance_disk_file}},device=disk,bus=virtio,format={{instance_disk_fmt}}
+    --disk path={{clouddrive_iso}},device=cdrom,bus=virtio,format={{clouddrive_fmt}}
     --network=bridge=br-bond1,mac={{mac}},model=virtio
     --import
     --graphics none
