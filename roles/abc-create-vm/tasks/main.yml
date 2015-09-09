@@ -17,9 +17,12 @@
   shell: genisoimage -output '{{clouddrive_iso}}' -volid cidata -joliet -rock user-data meta-data
   args:
     chdir: '{{clouddrive_src_root}}'
+    creates: '{{clouddrive_iso}}'
 
 - name: create backing file from image file
   shell: qemu-img create -b {{image_file}} -o size={{disk}} -f {{instance_disk_fmt}} {{instance_disk_file}}
+  args:
+    creates: '{{instance_disk_file}}'
 
 - name: boot instance
   shell: >
