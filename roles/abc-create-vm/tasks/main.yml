@@ -22,6 +22,7 @@
 - name: create backing file from image file
   shell: qemu-img create -b {{image_file}} -o size={{disk}} -f {{instance_disk_fmt}} {{instance_disk_file}}
   args:
+    ignore_errors: yes
     creates: '{{instance_disk_file}}'
 
 - name: boot instance
