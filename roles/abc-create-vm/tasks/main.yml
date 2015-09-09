@@ -1,7 +1,4 @@
 ---
-- name: create backing file from image file
-  shell: qemu-img create -b {{image_file}} -o size={{disk}} -f {{instance_disk_fmt}} {{instance_disk_file}}
-
 - name: create /tmp/clouddrive_src_root
   file: >
     path={{clouddrive_src_root}}
@@ -21,15 +18,19 @@
   args:
     chdir: '{{clouddrive_src_root}}'
 
+- name: create backing file from image file
+  shell: qemu-img create -b {{image_file}} -o size={{disk}} -f {{instance_disk_fmt}} {{instance_disk_file}}
+
 - name: boot instance
   shell: >
     virt-install
     --connect {{connect_url}}
     --name {{instance_name}}
+    --vcpus={{cpus}}
     --ram {{memory}}
-    --disk path={{image_file}},device=disk,bus=virtio
+    --disk path={{instance_disk_file}},device=disk,bus=virtio
     --disk path={{clouddrive_iso}},device=cdrom,bus=virtio,format=iso
-    --network=bridge=br-bond1,mac={{mac}}
+    --network=bridge=br-bond1,mac={{mac}},model=virtio
     --import
     --graphics none
     --noautoconsole
