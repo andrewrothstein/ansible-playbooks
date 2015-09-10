@@ -1,22 +1,24 @@
 ---
-- name: (Ubuntu) url related packages...
-  when: ansible_distribution == "Ubuntu"
-  environment: proxy_env
-  apt: name={{ item }}
+- name: (Debian) url related packages...
+  when: ansible_os_family == "Debian"
+  apt: name={{ item }} state=latest
   with_items:
     - traceroute
     - curl
     - wget
     - corkscrew
 
-- name: (Fedora) url related packages...
-  when: ansible_distribution == "Fedora"
-  environment: proxy_env
-  yum: name={{ item }}
+- name: (RedHat) url related packages...
+  when: ansible_os_family == "RedHat"
+  yum: name={{ item }} state=latest
   with_items:
     - traceroute
     - curl
     - wget
+
+- name: (Fedora) corkscrew
+  when: ansible_distribution == "Fedora"
+  yum: name={{item}} state=latest
     - corkscrew
-  environment: proxy_env
+
     
