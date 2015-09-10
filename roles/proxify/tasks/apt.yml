@@ -7,4 +7,8 @@
 - name: (Debian) post proxify apt-get update
   when: aptproxified.changed
   apt: update_cache=yes
+
+- name: (Debian) post proxify apt-get upgrade
+  when: aptproxified.changed
+  apt: upgrade=yes
   

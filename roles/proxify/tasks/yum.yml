@@ -4,7 +4,7 @@
   template: src=yum.conf.j2 dest=/etc/yum.conf
   register: yumproxified
 
-- name: (RedHat) prost proxify yum update...
+- name: (RedHat) post proxify yum upgrade...
   when: yumproxified.changed
-  yum: update_cache=yes
+  yum: name=* state=latest
   
