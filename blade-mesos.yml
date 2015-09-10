@@ -1,12 +1,7 @@
 ---
+- include: blade-docker.yml
+
 - hosts : all
   roles:
-    - hostnamefrominventory
-    - proxify
-    - apt-proxify
-    - useraccounts
-    - blk-users
-    - blade-nfs
-    - docker
     - unarchive-deps
     - consul
