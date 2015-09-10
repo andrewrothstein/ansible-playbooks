@@ -4,7 +4,7 @@
 
 - name : download docker install script
   when: dockerBinary.stat.exists == false
-  get_url: url='https://get.docker.com/' dest='/tmp/install.docker.sh'
+  shell: wget -O /tmp/install.docker.sh https://get.docker.com/
 
 - name: make install script executable
   when: dockerBinary.stat.exists == false
@@ -14,12 +14,12 @@
   when: dockerBinary.stat.exists == false
   shell: /tmp/install.docker.sh
 
-- name : (Ubuntu) proxify
-  when: ansible_distribution == "Ubuntu" and proxy_env.http_proxy is defined
+- name : (Debian) proxify
+  when: ansible_os_family == "Debian" and proxy_env.http_proxy is defined
   template: dest=/etc/default/docker src=etc/default/docker.j2
 
-- name : (Fedora) proxify - create /etc/systemd/system/docker.service.d
-  when: ansible_distribution == "Fedora" and proxy_env.http_proxy is defined
+- name : (RedHat) proxify - create /etc/systemd/system/docker.service.d
+  when: ansible_os_family == "RedHat" and proxy_env.http_proxy is defined
   file: >
     owner=root
     group=docker
@@ -27,22 +27,18 @@
     path=/etc/systemd/system/docker.service.d
     state=directory
 
-- name : (Fedora) proxify - install systemd drop-in
-  when: ansible_distribution == "Fedora" and proxy_env.http_proxy is defined
+- name : (RedHat) proxify - install systemd drop-in
+  when: ansible_os_family == "RedHat" and proxy_env.http_proxy is defined
   template: >
     dest=/etc/systemd/system/docker.service.d/http-proxy.conf
     src=etc/systemd/system/docker.service.d/http-proxy.conf.j2
 
-- name : (Fedora) proxify - systemctl daemon-reload
-  when: ansible_distribution == "Fedora" and proxy_env.http_proxy is defined
+- name : (RedHat) proxify - systemctl daemon-reload
+  when: ansible_os_family == "RedHat" and proxy_env.http_proxy is defined
   shell: systemctl daemon-reload
   
-- name : (RedHat) proxify
-  when: ansible_distribution == "RedHat" and proxy_env.http_proxy is defined
-  template: dest=/etc/sysconfig/docker src=etc/sysconfig/docker-redhat.j2
-
 - name: (Fedora) update SELinux policy for docker
-  when: ansible_distribution == "Fedora"
+  when: ansible_os_family == "RedHat"
   yum: name=selinux-policy state=latest
 
 - name : launch docker...
