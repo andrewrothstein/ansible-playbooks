@@ -14,15 +14,15 @@
     dest='{{clouddrive_src_root}}/{{item}}'
 
 - name: build clouddrive
-  shell: genisoimage -output '{{clouddrive_iso}}' -volid cidata -joliet -rock user-data meta-data
+  command: genisoimage -output '{{clouddrive_iso}}' -volid cidata -joliet -rock user-data meta-data
   args:
     chdir: '{{clouddrive_src_root}}'
     creates: '{{clouddrive_iso}}'
 
 - name: create backing file from image file
-  shell: qemu-img create -b {{image_file}} -o size={{disk}} -f {{instance_disk_fmt}} {{instance_disk_file}}
+  command: qemu-img create -b {{image_file}} -o size={{disk}} -f {{instance_disk_fmt}} {{instance_disk_file}}
+  ignore_errors: yes
   args:
-    ignore_errors: yes
     creates: '{{instance_disk_file}}'
 
 - name: boot instance
