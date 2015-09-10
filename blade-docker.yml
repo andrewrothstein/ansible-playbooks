@@ -1,0 +1,13 @@
+---
+- hosts: all
+  roles:
+    - proxify
+    - elrepo
+    - epel
+    - useraccounts
+    - blk-users
+    - blade-nfs
+    - nettools
+    - docker
+    - docker-py
+    

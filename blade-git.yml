@@ -1,13 +1,2 @@
 ---
-- hosts : all
-  roles:
-    - proxify
-    - elrepo
-    - epel
-    - useraccounts
-    - blk-users
-    - nettools
-    - blade-nfs
-    - docker
-    - docker-py
-
+- include: blade-docker.yml

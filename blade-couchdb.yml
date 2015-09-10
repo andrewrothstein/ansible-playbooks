@@ -1,9 +1,6 @@
 ---
+- include: blade-docker.yml
+
 - hosts : all
   roles:
-    - proxify
-    - blk-users
-    - blade-nfs
-    - docker
-    - docker-py
     - docker-couchdb
