@@ -3,5 +3,5 @@
   roles:
     - {
     role: abc-destroy-vm,
-    name: "blade-couch"
+    instance_name: "blade-couch.blackrock.com"
     }
