@@ -4,4 +4,14 @@ ssh_pwauth: False
 ssh_authorized_keys:
   - {{ lookup('file', '~/.ssh/id_rsa.pub') }}
 
+{% if sshd_port is defined %}
+
+runcmd:
+  - sed -i -e '/^\#Port/s/^.*$/Port {{sshd_port}}/' etc/ssh/sshd_config
+  - sed -i -e '/^\#PermitRootLogin/s/^.*$/PermitRootLogin no/' /etc/ssh/sshd_config
+  - semanage port -a -t ssh_port_t -p tcp {{sshd_port}}
+  - systemctl restart sshd
+
+{% endif %}
+
   
