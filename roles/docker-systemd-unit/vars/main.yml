@@ -1,0 +1,2 @@
+---
+unit_install_path : '{{unit_install_dir}}/{{unit_name}}'

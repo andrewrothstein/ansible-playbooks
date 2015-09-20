@@ -1,0 +1,6 @@
+---
+container_name : 'busybox:latest'
+docker_run_cmd : '/bin/sh -c "while true; do echo Hello World; sleep 1; done"'
+docker_bin : '/usr/bin/docker'
+unit_install_dir : '/etc/systemd/system'
+unit_name : 'ansible-installed-hello-world.service'

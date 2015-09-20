@@ -1,4 +1,4 @@
 ---
 - hosts : all
   roles:
-    - spark
+    - docker-systemd-unit
