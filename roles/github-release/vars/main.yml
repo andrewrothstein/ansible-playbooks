@@ -1,0 +1,12 @@
+---
+# /usr/local/bin/docker-machine
+target_install_path : '{{target_install_dir}}/{{github_app}}'
+
+# /usr/local/bin/docker-machine-v0.4.1
+target_update_link : '{{target_install_dir}}/{{github_app}}-{{github_ver}}'
+
+# docker-machine_linux-amd64
+src_filename : '{{github_app}}_{{target_platform}}'d
+
+# http://github.com/docker/machine/releases/download/v0.4.1/docker-machine_linux-amd64
+github_url : 'https://github.com/{{github_user}}/{{github_project}}/releases/download/{{github_ver}}/{{srv_filename}}'

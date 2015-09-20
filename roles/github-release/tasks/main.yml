@@ -1,0 +1,12 @@
+---
+- name: installing executable
+  get_url: >
+    url='{{github_url}}'
+    dest='{{target_install_path}}'
+    mode=755
+
+- name: link docker-machine
+  file: >
+    src='{{target_install_path}}'
+    dest='{{target_install_link}}'
+    state=link

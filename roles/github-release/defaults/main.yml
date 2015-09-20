@@ -1,0 +1,9 @@
+---
+github_ver : 'v0.4.1'
+github_user : 'docker'
+github_project : 'machine'
+github_app : 'docker-machine'
+
+target_platform : 'linux-amd64'
+target_install_dir : '/usr/local/bin'
+
