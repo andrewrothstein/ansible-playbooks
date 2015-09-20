@@ -1,6 +1,0 @@
----
-- name: install docker-machine
-  get_url: url='{{docker_machine_url}}' dest='{{docker_machine_install_target}}' mode=755
-
-- name: link docker-machine
-  file: src='{{docker_machine_install_target}}' dest='{{docker_machine_install_link}}' state=link
