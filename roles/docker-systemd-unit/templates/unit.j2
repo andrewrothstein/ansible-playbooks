@@ -5,8 +5,8 @@ Requires=docker.service
 
 [Service]
 TimeoutStartSec=0
-ExecStartPre=-{{docker_bin}} kill {{container_name}}
-ExecStartPre=-{{docker_bin}} rm {{container_name}}
-ExecStartPre={{docker_bin}} pull {{image_name}}
-ExecStart={{docker_bin}} run --name {{container_name}} {{image_name}} {{docker_run_cmd}}
-ExecStop={{docker_bin}} stop {{container_name}}
+ExecStartPre=-/usr/bin/docker kill {{container_name}}
+ExecStartPre=-/usr/bin/docker rm {{container_name}}
+ExecStartPre=/usr/bin/docker pull {{image_name}}
+ExecStart=/usr/local/bin/systemd-docker run --name {{container_name}} {{image_name}} {{docker_run_cmd}}
+ExecStop=/usr/local/bin/systemd-docker stop {{container_name}}
