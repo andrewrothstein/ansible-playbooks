@@ -1,0 +1,10 @@
+---
+dependencies:
+  - {
+  role: 'github-release',
+  github_ver : 'v0.2.1',
+  github_user : 'ibuildthecloud',
+  github_project : 'systemd-docker',
+  github_app : 'systemd-docker',
+  github_binary : 'systemd-docker'
+  }

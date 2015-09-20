@@ -5,8 +5,8 @@
     dest='{{target_install_path}}'
     mode=755
 
-- name: link docker-machine
+- name: link executable
   file: >
     src='{{target_install_path}}'
-    dest='{{target_install_link}}'
+    dest='{{target_update_link}}'
     state=link
