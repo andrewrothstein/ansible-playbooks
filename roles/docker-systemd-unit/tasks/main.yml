@@ -2,5 +2,8 @@
 - name: install unit
   template: src=unit.j2 dest={{unit_install_path}}
 
+- name: systemctl daemon-reload
+  command: systemctl daemon-reload
+  
 - name: launch the unit
   service: name={{unit_name}} enabled=yes state=started
