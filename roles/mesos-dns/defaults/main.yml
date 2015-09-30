@@ -1,0 +1,4 @@
+---
+mesos_dns_ver : 'v0.3.0'
+mesos_dns_platform : 'linux-amd64'
+mesos_dns_target_dir : '/usr/local/bin'
