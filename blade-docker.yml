@@ -10,4 +10,4 @@
     - nettools
     - docker
     - docker-py
-    
+    - ntp
