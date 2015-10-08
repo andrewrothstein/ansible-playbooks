@@ -1,0 +1,7 @@
+---
+# defaults file for mesos-servicerouter
+ssl_keys_dir : '/etc/ssl'
+ssl_certs_dir : '{{ssl_keys_dir}}/certs'
+
+target_ssl_keys_dir : '/etc/ssl'
+target_ssl_certs_dir : '{{target_ssl_keys_dir}}/certs'
