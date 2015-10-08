@@ -7,3 +7,9 @@ proxy_env :
   https_proxy : "http://{{ http_proxy_host }}/"
   ftp_proxy : "ftp://{{ http_proxy_host }}/"
   no_proxy : "*.blackrock.com,*.blkint.com,*.bfm.com,localhost,127.0.0.1,localaddress,*.localdomain.com,10.254.254.254,/var/run/docker.sock"
+ntp_upstream :
+  - time-us-1.blackrock.com
+  - time-us-2.blackrock.com
+  - time-us-3.blackrock.com
+  - time-us-4.blackrock.com
+  - time-us-5.blackrock.com
