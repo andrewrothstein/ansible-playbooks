@@ -12,16 +12,25 @@
   copy: >-
     owner=root
     group=root
-    mode=400
+    mode=444
     src={{ssl_certs_dir}}/{{inventory_hostname}}.crt.pem
     dest={{target_ssl_certs_dir}}/{{inventory_hostname}}.crt.pem
 
 - name: install mesosphere.com.pem
   template: >-
     owner=root
-    group=root
-    mode=444
+    group=docker
+    mode=440
     src=etc/ssl/mesosphere.com.pem.j2
-    dest={{target_ssl_certs_dir}}/mesosphere.com.pem
+    dest={{target_ssl_keys_dir}}/mesosphere.com.pem
 
-    
+- name: launch marathon-servicerouter
+  docker:
+    name: marathon-servicerouter
+    image: andrewrothstein/dockerfile-marathon-servicerouter:latest
+    net: host
+    env:
+      MARATHON_MASTER_IP : '{{ansible_default_ipv4.address}}'
+    volumes:
+      - "/dev/log:/dev/log"
+      - "{{target_ssl_keys_dir}}:/etc/ssl:ro"
