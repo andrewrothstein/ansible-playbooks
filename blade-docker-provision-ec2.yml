@@ -1,0 +1,70 @@
+---
+- hosts: localhost
+  roles:
+    - {
+    role: abc-create-vm,
+    uuid: "f3ca55e0-38b9-11e5-9c99-8851fb63ec99",
+    mac: "02:B1:AD:E1:00:03",
+    instance_name: "blade-calc5.blackrock.com",
+    image_name: 'CentOS-7-x86_64-GenericCloud-20150628_01',
+    memory: '16384',
+    disk: "1024G"
+    }
+    - {
+    role: abc-create-vm,
+    uuid: "3c6690be-4145-11e5-8dea-8851fb63ec99",
+    mac: "02:B1:AD:E1:00:04",
+    instance_name: "blade-calc6.blackrock.com",
+    image_name: 'CentOS-7-x86_64-GenericCloud-20150628_01',
+    memory: '16384',
+    disk: "1024G"
+    }
+    - {
+    role: abc-create-vm,
+    uuid: "69628208-4145-11e5-a312-8851fb63ec99",
+    mac: "02:B1:AD:E1:00:05",
+    instance_name: "blade-calc7.blackrock.com",
+    image_name: 'CentOS-7-x86_64-GenericCloud-20150628_01',
+    memory: '16384',
+    disk: "1024G"
+    }
+- hosts: blkchst002.bfm.com
+  roles:
+    - {
+    role: abc-create-vm,
+    uuid: "c85ad14c-38b8-11e5-a334-8851fb63ec99",
+    mac: "02:B1:AD:E2:00:00",
+    instance_name: "blade-calc1.blackrock.com",
+    image_name: 'CentOS-7-x86_64-GenericCloud-20150628_01',
+    memory: '16384',
+    disk: "1024G"
+    }
+    - {
+    role: abc-create-vm,
+    uuid: "826edbf2-4145-11e5-89b3-8851fb63ec99",
+    mac: "02:B1:AD:E2:00:01",
+    instance_name: "blade-calc2.blackrock.com",
+    image_name: 'CentOS-7-x86_64-GenericCloud-20150628_01',
+    memory: '16384',
+    disk: "1024G"
+    }
+- hosts: blkchst003.bfm.com
+  roles:
+    - {
+    role: abc-create-vm,
+    uuid: "1cd3d304-38b9-11e5-ac32-8851fb63ec99",
+    mac: "02:B1:AD:E3:00:00",
+    instance_name: "blade-calc3.blackrock.com",
+    image_name: 'CentOS-7-x86_64-GenericCloud-20150628_01',
+    memory: '16384',
+    disk: "1024G"
+    }
+    - {
+    role: abc-create-vm,
+    uuid: "950db21a-4145-11e5-847c-8851fb63ec99",
+    mac: "02:B1:AD:E3:00:01",
+    instance_name: "blade-calc4.blackrock.com",
+    image_name: 'CentOS-7-x86_64-GenericCloud-20150628_01',
+    memory: '16384',
+    disk: "1024G"
+    }
