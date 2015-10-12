@@ -1,5 +1,4 @@
 ---
-terraform_ver : '0.4.2'
 terraform_name : 'terraform_{{ terraform_ver }}'
-terraform_zip : '{{ terraform_name }}_linux_amd64.zip'
+terraform_zip : '{{ terraform_name }}_{{ terraform_platform }}.zip'
 terraform_url : 'https://dl.bintray.com/mitchellh/terraform/{{ terraform_zip }}'

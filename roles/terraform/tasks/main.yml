@@ -1,6 +1,5 @@
 ---
 - name: download terraform...
-  environment: proxy_env
   get_url: url='{{ terraform_url }}' dest='/tmp/{{ terraform_zip }}'
 
 - name: create /opt/terraform_version
