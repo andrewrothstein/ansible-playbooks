@@ -1,6 +1,2 @@
 ---
-cpus : 2
-memory : 2048
-disk : '2G'
-
-    
+public_keys : ['~/.ssh/id_rsa.pub']

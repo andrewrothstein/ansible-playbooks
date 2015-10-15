@@ -2,7 +2,9 @@
 chpasswd: {expire: False}
 ssh_pwauth: False
 ssh_authorized_keys:
-  - {{ lookup('file', '~/.ssh/id_rsa.pub') }}
+{% for pk in public_keys %}
+  - {{ lookup('file', pk) }}
+{% endfor %}
 
 {% if sshd_port is defined %}
 
