@@ -1,0 +1,7 @@
+---
+- hosts: blknhst001.bfm.com
+  roles:
+    - {
+    role: abc-destroy-vm,
+    instance_name: "blade-hasenja"
+    }
