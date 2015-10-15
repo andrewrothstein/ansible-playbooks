@@ -6,7 +6,7 @@
     role: abc-create-vm,
     uuid: "1ff7859b-6841-4596-86ca-fd708ad67ebc",
     mac: "02:B3:1F:79:9B:E1",
-    instance_name: "blade-hasenja",
+    instance_name: "blade-hasenja.blackrock.com",
     image_name: 'ubuntu-14.04-server-cloudimg-amd64-disk1-20151014',
     memory: '16384',
     disk: '500G',

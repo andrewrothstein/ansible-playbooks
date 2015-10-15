@@ -1,7 +1,8 @@
 ---
 - hosts: blknhst001.bfm.com
+  gather_facts: no
   roles:
     - {
     role: abc-destroy-vm,
-    instance_name: "blade-hasenja"
+    instance_name: "blade-hasenja.blackrock.com"
     }

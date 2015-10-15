@@ -3,8 +3,7 @@
   roles:
     - useraccounts
     - proxify
-    - yum-proxify
-    - apt-proxify
+    - sudoers
     - compression
     - nettools
     - fs

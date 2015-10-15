@@ -5,6 +5,7 @@ blk_user_list:
 #  - echen
   - mturok
   - mifranci
+  - hasenja
 #  - pdemarti
 #  - sfang
 #  - bettbra
@@ -19,6 +20,7 @@ blk_user_groups: {
   echen : '',
   mturok : 'docker,sudo,admin,blade',
   mifranci : 'docker,sudo,admin,blade',
+  hasenja : 'docker,sudo,admin,blade',
   pdemarti : '',
   sfang : 'docker,ada',
   bettbra : '',

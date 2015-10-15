@@ -14,12 +14,6 @@
     - qemu
     - kvm
 
-- name: enable passwordless sudo for the admin and sudo groups
-  copy: >
-    owner=root
-    src=etc/sudoers.d/nopasswd
-    dest=/etc/sudoers.d/nopasswd
-
 - name: create user arothste
   user: >
     name=arothste
