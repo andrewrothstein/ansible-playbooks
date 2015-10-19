@@ -16,9 +16,6 @@
     - cvs
     - kdiff3
 
-- name: install magit...
-  copy: src=50magit.el dest={{ emacs_site_d }}
-
 - name: (Fedora) vcs packages...
   when: ansible_distribution == "Fedora"
   environment: proxy_env

@@ -54,6 +54,3 @@
 - name: pip docker-py
   environment: proxy_env
   pip: state=present name=docker-py
-
-- name: install custom emacs settings for python dev
-  copy: src=50python.el dest='{{ emacs_site_d }}'

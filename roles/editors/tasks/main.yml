@@ -4,29 +4,15 @@
   apt: name={{item}}
   with_items:
     - vim
-    - emacs
-    - emacs-goodies-el
 
 - name: (Fedora) editors packages ...
   when: ansible_distribution == "Fedora"
   yum: name={{item}}
   with_items:
     - vim
-    - emacs
-    - emacs-goodies
 
 - name: (RedHat) editors packages ...
   when: ansible_distribution == "RedHat"
   yum: name={{ item }}
   with_items:
     - vim
-    - emacs
-
-- name: install my basic emacs settings
-  copy: dest={{ emacs_site_d }} src=49myemacs.el
-
-- name: install emacs json-mode
-  copy: dest={{ emacs_site_d }} src=50json-mode.el
-
-- name: install emacs yaml-mode
-  copy: dest={{ emacs_site_d }} src=50yaml-mode.el

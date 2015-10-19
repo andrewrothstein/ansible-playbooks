@@ -21,9 +21,6 @@
     - libbison-dev
     - libyaml-dev
 
-- name: install my c++ emacs mode settings...
-  copy: dest={{ emacs_site_d }} src=50mycpp.el
-
 - name: (Fedora) cpp dev packages...
   when: ansible_distribution == "Fedora"
   environment: proxy_env

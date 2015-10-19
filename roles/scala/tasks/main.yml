@@ -12,15 +12,6 @@
   when: ansible_os_family == "RedHat"
   yum: name='{{sbt_rpm_url}}' state=present
 
-- name: install scala-mode2...
-  copy: dest={{ emacs_site_d }} src=50scala-mode2.el
-
-- name: install sbt-mode...
-  copy: dest={{ emacs_site_d }} src=50sbt-mode.el
-
-- name: install ensime...
-  copy: dest={{ emacs_site_d }} src=51ensime.el
-  
 - name: Download Typesafe Activator
   get_url: url={{ typesafe_activator_url }} dest="/tmp/{{ typesafe_activator_archive }}"
 
