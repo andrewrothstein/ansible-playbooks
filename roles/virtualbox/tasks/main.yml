@@ -1,73 +1,13 @@
 ---
-- name: (Ubuntu) virtualbox dependencies
-  when: ansible_distribution == "Ubuntu"
-  environment: proxy_env
-  apt: name={{ item }}
-  with_items:
-    - dkms
-    - libsdl-ttf2.0-0
-    - libsdl1.2debian
+- name: Ubuntu-trusty
+  when: ansible_distribution == 'Ubuntu'
+  include: Ubuntu-trusty.yml
 
-- name: (Fedora) virtualbox dependencies
-  when: ansible_distribution == "Fedora"
-  environment: proxy_env
-  yum: name={{ item }}
-  with_items:
-    - dkms
-    - binutils
-    - gcc
-    - make
-    - patch
-    - libgomp
-    - glibc-headers
-    - glibc-devel
-    - kernel-headers
-    - kernel-devel
-    
-- name: (RedHat) virtualbox dependencies
-  when: ansible_distribution == "RedHat"
-  environment: proxy_env
-  yum: name={{ item }}
-  with_items:
-    - binutils
-    - gcc
-    - make
-    - patch
-    - libgomp
-    - glibc-headers
-    - glibc-devel
-    - kernel-headers
-    - kernel-devel
-    
-- name : (Ubuntu) add virtualbox apt key
-  when: ansible_distribution == "Ubuntu"
-  environment: proxy_env
-  apt_key: url='https://www.virtualbox.org/download/oracle_vbox.asc' id='98AB5139'
+- name: Fedora
+  when: ansible_distribution == 'Fedora'
+  include: Fedora.yml
 
-- name: (Fedora/RedHat) add virtualbox rpm key
-  when: ansible_distribution == "Fedora" or ansible_distribution == "RedHat"
-  environment: proxy_env
-  rpm_key: key='https://www.virtualbox.org/download/oracle_vbox.asc' state=present
-  
-- name: (Ubuntu) add virtualbox apt repository
-  when: ansible_distribution == "Ubuntu"
-  environment: proxy_env
-  apt_repository: repo='deb http://download.virtualbox.org/virtualbox/debian trusty contrib' update_cache=yes
+- name: EL (ex-Fedora)
+  when: ansible_os_family == 'RedHat' and ansible_distribution != 'Fedora'
+  include: EL.yml
 
-- name: (Fedora) add virtualbox yum repo
-  when: ansible_distribution == "Fedora"
-  copy: src=fedora-virtualbox.repo dest=/etc/yum.repos.d/virtualbox.repo
-
-- name: (RedHat) add virtualbox yum repo
-  when: ansible_distribution == "RedHat"
-  copy: src=rh7-virtualbox.repo dest=/etc/yum.repos.d/virtualbox.repo
-
-- name: (Ubuntu) install virtualbox
-  when: ansible_distribution == "Ubuntu"
-  environment: proxy_env
-  apt: name=virtualbox
-
-- name: (Fedora/RedHat) install virtualbox
-  when: ansible_distribution == "Fedora" or ansible_distribution == "RedHat"
-  environment: proxy_env
-  yum: name=VirtualBox-4.3
