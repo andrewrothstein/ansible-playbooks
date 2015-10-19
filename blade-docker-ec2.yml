@@ -1,0 +1,12 @@
+---
+- hosts: all
+  roles:
+    - sudoers
+    - elrepo
+    - epel
+    - useraccounts
+    - blk-users
+    - nettools
+    - docker
+    - docker-py
+    - editors
