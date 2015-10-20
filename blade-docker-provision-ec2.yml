@@ -8,5 +8,5 @@
     instance_name: "burner-docker-vm",
 
     key_name: 'arothste',
-    image: 'ami-96a818fe',
+    image: 'ami-76dfc41e',
     }
