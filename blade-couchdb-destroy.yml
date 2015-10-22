@@ -1,7 +1,0 @@
----
-- hosts: blkchst001.bfm.com
-  roles:
-    - {
-    role: abc-destroy-vm,
-    instance_name: "blade-couch.blackrock.com"
-    }

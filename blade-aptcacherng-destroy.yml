@@ -1,7 +1,0 @@
----
-- hosts: blkchst002.bfm.com
-  roles:
-    - {
-    role: abc-destroy-vm,
-    name: "arothste-ubuntu-aptcacherng"
-    }

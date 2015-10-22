@@ -1,6 +1,0 @@
----
-- include: blade-docker.yml
-
-- hosts : all
-  roles:
-    - docker-couchdb

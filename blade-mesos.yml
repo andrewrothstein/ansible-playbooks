@@ -1,7 +1,0 @@
----
-- include: blade-docker.yml
-
-- hosts : all
-  roles:
-    - unarchive-deps
-    - consul
