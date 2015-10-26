@@ -1,3 +1,14 @@
 ---
 - name : launching docker registry...
-  docker : name=registry image=registry:2 ports="{{docker_registry_host_port}}:5000"
+  docker :
+    name: 'registry'
+    image: 'registry:2'
+    ports:
+      - "{{docker_registry_host_port}}:5000"
+    volumes:
+      - /etc/pki/tls/private:/keys
+      - /etc/pki/tls/certs:/certs
+    env:
+      REGISTRY_HTTP_TLS_CERTIFICATE : /certs/{{inventory_hostname}}.crt
+      REGISTRY_HTTP_TLS_KEY : /keys/{{inventory_hostname}}.key
+      
