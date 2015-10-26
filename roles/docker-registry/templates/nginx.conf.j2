@@ -33,20 +33,6 @@ server {
   # required to avoid HTTP 411: see Issue #1486 (https://github.com/docker/docker/issues/1486)
   chunked_transfer_encoding on;
 
-  location = /v2/ {
-    auth_basic off;
-    ## If $docker_distribution_api_version is empty, the header will not be added.
-    ## See the map directive above where this variable is defined.
-    add_header 'Docker-Distribution-Api-Version' $docker_distribution_api_version always;
-
-    proxy_pass http://docker-registry/v2/;
-    proxy_set_header Host \$http_host;   # required for docker client's sake
-    proxy_set_header X-Real-IP \$remote_addr; # pass on real client's IP
-    proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
-    proxy_set_header X-Forwarded-Proto \$scheme;
-    proxy_read_timeout 900;
-  }  
-
   location /v2/ {
     # To add basic authentication to v2 use auth_basic setting.
     auth_basic "Registry realm";
