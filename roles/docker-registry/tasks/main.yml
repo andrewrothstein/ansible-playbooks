@@ -2,27 +2,34 @@
 - name: mkdir -p /etc/docker-registry/auth
   file: dest=/etc/docker-registry/auth owner=root group=root state=directory
 
-- name: build /etc/docker-registry/auth/htpasswd
-  shell: docker run --entrypoint htpasswd registry:2 -Bbn arothste password > /etc/docker-registry/auth/htpasswd
+- name: build /etc/docker-registry/auth/nginx.conf
+  template: owner=root group=root src=nginx.conf.j2 dest=/etc/docker-registry/auth/nginx.conf
+    
+- name: build /etc/docker-registry/auth/nginx.htpasswd
+  shell: docker run --entrypoint htpasswd httpd:2.4 -bn arothste password > /etc/docker-registry/auth/nginx.htpasswd
   args:
-    creates: /etc/docker-registry/auth/htpasswd
+    creates: /etc/docker-registry/auth/nginx.htpasswd
 
-- name : launching docker registry...
+- name : launching docker registry (backend)...
   docker :
     state: restarted
-    name: 'registry'
+    name: registry
     image: 'registry:2'
     ports:
-      - "{{docker_registry_host_port}}:5000"
+      - '127.0.0.1:5000:5000'
+
+- name : launching docker registry (frontend)...
+  docker :
+    state: restarted
+    name: registry-frontend
+    image: 'nginx:1.9'
+    ports:
+      - '5043:443'
+    links:
+      - 'registry:registry'
     volumes:
       - /etc/pki/tls/private:/keys
       - /etc/pki/tls/certs:/certs
-      - /etc/docker-registry/auth:/auth
-    env:
-      REGISTRY_HTTP_TLS_CERTIFICATE : /certs/{{inventory_hostname}}.crt
-      REGISTRY_HTTP_TLS_KEY : /keys/{{inventory_hostname}}.key
-      REGISTRY_AUTH: htpasswd
-      REGISTRY_AUTH_HTPASSWD_REALM : 'BLADE Docker Realm'
-      REGISTRY_AUTH_HTPASSWD_PATH : /auth/htpasswd
+      - /etc/docker-registry/auth:/etc/nginx/conf.d
       
       
