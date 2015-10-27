@@ -61,3 +61,6 @@
 [submodule "roles/docker-py"]
 	path = roles/docker-py
 	url = git://github.com/andrewrothstein/ansible-docker-py.git
+[submodule "roles/docker-registry"]
+	path = roles/docker-registry
+	url = git://github.com/andrewrothstein/ansible-docker-registry.git
