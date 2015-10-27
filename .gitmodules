@@ -100,3 +100,6 @@
 [submodule "roles/fail2ban"]
 	path = roles/fail2ban
 	url = git://github.com/andrewrothstein/ansible-fail2ban.git
+[submodule "roles/filezilla"]
+	path = roles/filezilla
+	url = git://github.com/andrewrothstein/ansible-filezilla.git
