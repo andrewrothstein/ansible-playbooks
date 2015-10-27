@@ -82,3 +82,6 @@
 [submodule "roles/eclipse"]
 	path = roles/eclipse
 	url = git://github.com/andrewrothstein/ansible-eclipse.git
+[submodule "roles/editors"]
+	path = roles/editors
+	url = git://github.com/andrewrothstein/ansible-editors.git
