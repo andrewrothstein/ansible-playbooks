@@ -193,3 +193,6 @@
 [submodule "roles/python"]
 	path = roles/python
 	url = git://github.com/andrewrothstein/ansible-python.git
+[submodule "roles/r"]
+	path = roles/r
+	url = git://github.com/andrewrothstein/ansible-r.git
