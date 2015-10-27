@@ -34,3 +34,6 @@
 [submodule "roles/confd"]
 	path = roles/confd
 	url = git://github.com/andrewrothstein/ansible-confd.git
+[submodule "roles/consul"]
+	path = roles/consul
+	url = git://github.com/andrewrothstein/ansible-consul.git
