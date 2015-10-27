@@ -1,3 +1,6 @@
 [submodule "roles/proxify"]
 	path = roles/proxify
 	url = git://github.com/andrewrothstein/ansible-proxify.git
+[submodule "roles/julia"]
+	path = roles/julia
+	url = git://github.com/andrewrothstein/ansible-julia
