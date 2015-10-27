@@ -58,3 +58,6 @@
 [submodule "roles/docker-machine"]
 	path = roles/docker-machine
 	url = git://github.com/andrewrothstein/ansible-docker-machine.git
+[submodule "roles/docker-py"]
+	path = roles/docker-py
+	url = git://github.com/andrewrothstein/ansible-docker-py.git
