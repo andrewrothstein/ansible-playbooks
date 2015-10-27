@@ -163,3 +163,6 @@
 [submodule "roles/mesos-servicerouter"]
 	path = roles/mesos-servicerouter
 	url = git://github.com/andrewrothstein/ansible-mesos-servicerouter.git
+[submodule "roles/mosh"]
+	path = roles/mosh
+	url = git://github.com/andrewrothstein/ansible-mosh.git
