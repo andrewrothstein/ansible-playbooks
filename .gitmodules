@@ -94,3 +94,6 @@
 [submodule "roles/epel"]
 	path = roles/epel
 	url = git://github.com/andrewrothstein/ansible-epel.git
+[submodule "roles/etcd"]
+	path = roles/etcd
+	url = git://github.com/andrewrothstein/ansible-etcd.git
