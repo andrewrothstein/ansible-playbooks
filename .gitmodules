@@ -136,3 +136,6 @@
 [submodule "roles/hostnamefrominventory"]
 	path = roles/hostnamefrominventory
 	url = git://github.com/andrewrothstein/ansible-hostnamefrominventory.git
+[submodule "roles/intellij"]
+	path = roles/intellij
+	url = git://github.com/andrewrothstein/ansible-intellij.git
