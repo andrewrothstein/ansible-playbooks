@@ -127,3 +127,6 @@
 [submodule "roles/hadoop"]
 	path = roles/hadoop
 	url = git://github.com/andrewrothstein/ansible-hadoop.git
+[submodule "roles/haskell"]
+	path = roles/haskell
+	url = git://github.com/andrewrothstein/ansible-haskell.git
