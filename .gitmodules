@@ -145,3 +145,6 @@
 [submodule "roles/jq"]
 	path = roles/jq
 	url = git://github.com/andrewrothstein/ansible-jq.git
+[submodule "roles/js-dev"]
+	path = roles/js-dev
+	url = git://github.com/andrewrothstein/ansible-js-dev.git
