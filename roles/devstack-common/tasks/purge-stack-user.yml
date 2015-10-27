@@ -1,6 +1,0 @@
----
-- name: remove stack user
-  user: >
-    name=stack
-    state=absent
-    
