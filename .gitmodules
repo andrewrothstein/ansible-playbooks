@@ -64,3 +64,6 @@
 [submodule "roles/docker-registry"]
 	path = roles/docker-registry
 	url = git://github.com/andrewrothstein/ansible-docker-registry.git
+[submodule "roles/docker-squash"]
+	path = roles/docker-squash
+	url = git://github.com/andrewrothstein/ansible-docker-squash.git
