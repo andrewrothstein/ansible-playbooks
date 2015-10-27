@@ -223,3 +223,6 @@
 [submodule "roles/storm"]
 	path = roles/storm
 	url = git://github.com/andrewrothstein/ansible-storm.git
+[submodule "roles/subgit"]
+	path = roles/subgit
+	url = git://github.com/andrewrothstein/ansible-subgit.git
