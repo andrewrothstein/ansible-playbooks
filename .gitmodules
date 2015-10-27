@@ -49,3 +49,6 @@
 [submodule "roles/docker"]
 	path = roles/docker
 	url = git://github.com/andrewrothstein/ansible-docker.git
+[submodule "roles/docker-couchdb"]
+	path = roles/docker-couchdb
+	url = git://github.com/andrewrothstein/ansible-docker-couchdb.git
