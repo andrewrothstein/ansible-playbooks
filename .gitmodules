@@ -103,3 +103,6 @@
 [submodule "roles/filezilla"]
 	path = roles/filezilla
 	url = git://github.com/andrewrothstein/ansible-filezilla.git
+[submodule "roles/flannel"]
+	path = roles/flannel
+	url = git://github.com/andrewrothstein/ansible-flannel.git
