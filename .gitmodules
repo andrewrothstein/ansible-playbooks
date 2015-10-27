@@ -244,3 +244,6 @@
 [submodule "roles/unarchive-deps"]
 	path = roles/unarchive-deps
 	url = git://github.com/andrewrothstein/ansible-unarchive-deps.git
+[submodule "roles/useraccounts"]
+	path = roles/useraccounts
+	url = git://github.com/andrewrothstein/ansible-useraccounts.git
