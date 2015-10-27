@@ -253,3 +253,6 @@
 [submodule "roles/vcs"]
 	path = roles/vcs
 	url = git://github.com/andrewrothstein/ansible-vcs.git
+[submodule "roles/virtualbox"]
+	path = roles/virtualbox
+	url = git://github.com/andrewrothstein/ansible-virtualbox.git
