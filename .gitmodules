@@ -43,3 +43,6 @@
 [submodule "roles/cpp-dev"]
 	path = roles/cpp-dev
 	url = git://github.com/andrewrothstein/ansible-cpp-dev.git
+[submodule "roles/devstack-common"]
+	path = roles/devstack-common
+	url = git://github.com/andrewrothstein/ansible-devstack-common.git
