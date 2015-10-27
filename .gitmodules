@@ -67,3 +67,6 @@
 [submodule "roles/docker-squash"]
 	path = roles/docker-squash
 	url = git://github.com/andrewrothstein/ansible-docker-squash.git
+[submodule "roles/docker-systemd-unit"]
+	path = roles/docker-systemd-unit
+	url = git://github.com/andrewrothstein/ansible-docker-systemd-unit.git
