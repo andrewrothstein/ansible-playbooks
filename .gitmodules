@@ -109,3 +109,6 @@
 [submodule "roles/fleet"]
 	path = roles/fleet
 	url = git://github.com/andrewrothstein/ansible-fleet.git
+[submodule "roles/flink"]
+	path = roles/flink
+	url = git://github.com/andrewrothstein/ansible-flink.git
