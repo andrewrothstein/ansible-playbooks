@@ -91,3 +91,6 @@
 [submodule "roles/emacs"]
 	path = roles/emacs
 	url = git://github.com/andrewrothstein/ansible-emacs.git
+[submodule "roles/epel"]
+	path = roles/epel
+	url = git://github.com/andrewrothstein/ansible-epel.git
