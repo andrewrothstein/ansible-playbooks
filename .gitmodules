@@ -28,3 +28,6 @@
 [submodule "roles/citrix"]
 	path = roles/citrix
 	url = git://github.com/andrewrothstein/ansible-citrix.git
+[submodule "roles/compression"]
+	path = roles/compression
+	url = git://github.com/andrewrothstein/ansible-compression.git
