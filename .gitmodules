@@ -241,3 +241,6 @@
 [submodule "roles/tex"]
 	path = roles/tex
 	url = git://github.com/andrewrothstein/ansible-tex.git
+[submodule "roles/unarchive-deps"]
+	path = roles/unarchive-deps
+	url = git://github.com/andrewrothstein/ansible-unarchive-deps.git
