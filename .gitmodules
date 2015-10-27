@@ -97,3 +97,6 @@
 [submodule "roles/etcd"]
 	path = roles/etcd
 	url = git://github.com/andrewrothstein/ansible-etcd.git
+[submodule "roles/fail2ban"]
+	path = roles/fail2ban
+	url = git://github.com/andrewrothstein/ansible-fail2ban.git
