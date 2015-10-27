@@ -262,3 +262,6 @@
 [submodule "roles/waf"]
 	path = roles/waf
 	url = git://github.com/andrewrothstein/ansible-waf.git
+[submodule "roles/zookeeper"]
+	path = roles/zookeeper
+	url = git://github.com/andrewrothstein/ansible-zookeeper.git
