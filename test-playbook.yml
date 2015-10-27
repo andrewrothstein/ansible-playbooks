@@ -1,6 +1,5 @@
 ---
 - hosts : all
   roles:
-    - ssl-key
-    - docker-registry
+    - proxify
 
