@@ -1,3 +1,0 @@
----
-- name: install pkg
-  yum: name=ansible state=latest
