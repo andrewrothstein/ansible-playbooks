@@ -19,3 +19,6 @@
 [submodule "roles/bind"]
 	path = roles/bind
 	url = git://github.com/andrewrothstein/ansible-bind.git
+[submodule "roles/blade-nfs"]
+	path = roles/blade-nfs
+	url = git://github.com/andrewrothstein/ansible-blade-nfs.git
