@@ -214,3 +214,6 @@
 [submodule "roles/solr"]
 	path = roles/solr
 	url = git://github.com/andrewrothstein/ansible-solr.git
+[submodule "roles/spark"]
+	path = roles/spark
+	url = git://github.com/andrewrothstein/ansible-spark.git
