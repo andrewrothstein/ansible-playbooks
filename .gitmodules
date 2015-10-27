@@ -247,3 +247,6 @@
 [submodule "roles/useraccounts"]
 	path = roles/useraccounts
 	url = git://github.com/andrewrothstein/ansible-useraccounts.git
+[submodule "roles/vagrant"]
+	path = roles/vagrant
+	url = git://github.com/andrewrothstein/ansible-vagrant.git
