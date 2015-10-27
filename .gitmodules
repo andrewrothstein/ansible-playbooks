@@ -259,3 +259,6 @@
 [submodule "roles/vnc"]
 	path = roles/vnc
 	url = git://github.com/andrewrothstein/ansible-vnc.git
+[submodule "roles/waf"]
+	path = roles/waf
+	url = git://github.com/andrewrothstein/ansible-waf.git
