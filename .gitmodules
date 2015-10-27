@@ -37,3 +37,6 @@
 [submodule "roles/consul"]
 	path = roles/consul
 	url = git://github.com/andrewrothstein/ansible-consul.git
+[submodule "roles/corkscrew"]
+	path = roles/corkscrew
+	url = git://github.com/andrewrothstein/ansible-corkscrew.git
