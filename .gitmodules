@@ -235,3 +235,6 @@
 [submodule "roles/tachyon"]
 	path = roles/tachyon
 	url = git://github.com/andrewrothstein/ansible-tachyon.git
+[submodule "roles/terraform"]
+	path = roles/terraform
+	url = git://github.com/andrewrothstein/ansible-terraform.git
