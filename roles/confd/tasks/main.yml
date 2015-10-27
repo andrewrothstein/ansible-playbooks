@@ -1,7 +1,0 @@
----
-- name: download confd
-  environment: proxy_env
-  get_url: url={{ confd_url }} dest=/usr/local/bin/{{ confd_name }} mode=0755
-
-- name: link confd
-  file: src=/usr/local/bin/{{ confd_name }} dest=/usr/local/bin/confd state=link force=yes

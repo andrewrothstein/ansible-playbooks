@@ -1,4 +1,0 @@
----
-confd_version : 0.10.0
-confd_name : 'confd-{{ confd_version }}-linux-amd64'
-confd_url : 'https://github.com/kelseyhightower/confd/releases/download/v{{ confd_version }}/{{ confd_name }}'
