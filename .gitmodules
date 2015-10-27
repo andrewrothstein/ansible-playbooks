@@ -25,3 +25,6 @@
 [submodule "roles/browsers"]
 	path = roles/browsers
 	url = git://github.com/andrewrothstein/ansible-browsers.git
+[submodule "roles/citrix"]
+	path = roles/citrix
+	url = git://github.com/andrewrothstein/ansible-citrix.git
