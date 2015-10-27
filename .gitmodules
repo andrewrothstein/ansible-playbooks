@@ -85,3 +85,6 @@
 [submodule "roles/editors"]
 	path = roles/editors
 	url = git://github.com/andrewrothstein/ansible-editors.git
+[submodule "roles/elrepo"]
+	path = roles/elrepo
+	url = git://github.com/andrewrothstein/ansible-elrepo.git
