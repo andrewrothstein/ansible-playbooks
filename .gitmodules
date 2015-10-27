@@ -238,3 +238,6 @@
 [submodule "roles/terraform"]
 	path = roles/terraform
 	url = git://github.com/andrewrothstein/ansible-terraform.git
+[submodule "roles/tex"]
+	path = roles/tex
+	url = git://github.com/andrewrothstein/ansible-tex.git
