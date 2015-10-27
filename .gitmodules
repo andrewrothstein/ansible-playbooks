@@ -7,3 +7,6 @@
 [submodule "roles/ansible"]
 	path = roles/ansible
 	url = git://github.com/andrewrothstein/ansible-ansible.git
+[submodule "roles/apt-cacher-ng"]
+	path = roles/apt-cacher-ng
+	url = git://github.com/andrewrothstein/ansible-apt-cacher-ng.git
