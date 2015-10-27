@@ -118,3 +118,6 @@
 [submodule "roles/fs"]
 	path = roles/fs
 	url = git://github.com/andrewrothstein/ansible-fs.git
+[submodule "roles/github-release"]
+	path = roles/github-release
+	url = git://github.com/andrewrothstein/ansible-github-release.git
