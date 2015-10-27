@@ -202,3 +202,6 @@
 [submodule "roles/ruby"]
 	path = roles/ruby
 	url = git://github.com/andrewrothstein/ansible-ruby.git
+[submodule "roles/saltstack"]
+	path = roles/saltstack
+	url = git://github.com/andrewrothstein/ansible-saltstack.git
