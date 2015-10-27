@@ -256,3 +256,6 @@
 [submodule "roles/virtualbox"]
 	path = roles/virtualbox
 	url = git://github.com/andrewrothstein/ansible-virtualbox.git
+[submodule "roles/vnc"]
+	path = roles/vnc
+	url = git://github.com/andrewrothstein/ansible-vnc.git
