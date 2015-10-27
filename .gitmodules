@@ -250,3 +250,6 @@
 [submodule "roles/vagrant"]
 	path = roles/vagrant
 	url = git://github.com/andrewrothstein/ansible-vagrant.git
+[submodule "roles/vcs"]
+	path = roles/vcs
+	url = git://github.com/andrewrothstein/ansible-vcs.git
