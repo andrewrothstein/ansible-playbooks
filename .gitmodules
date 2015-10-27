@@ -133,3 +133,6 @@
 [submodule "roles/hbase"]
 	path = roles/hbase
 	url = git://github.com/andrewrothstein/ansible-hbase.git
+[submodule "roles/hostnamefrominventory"]
+	path = roles/hostnamefrominventory
+	url = git://github.com/andrewrothstein/ansible-hostnamefrominventory.git
