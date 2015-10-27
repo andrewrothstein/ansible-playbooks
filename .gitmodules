@@ -166,3 +166,6 @@
 [submodule "roles/mosh"]
 	path = roles/mosh
 	url = git://github.com/andrewrothstein/ansible-mosh.git
+[submodule "roles/nettools"]
+	path = roles/nettools
+	url = git://github.com/andrewrothstein/ansible-nettools.git
