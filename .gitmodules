@@ -115,3 +115,6 @@
 [submodule "roles/fluentd"]
 	path = roles/fluentd
 	url = git://github.com/andrewrothstein/ansible-fluentd.git
+[submodule "roles/fs"]
+	path = roles/fs
+	url = git://github.com/andrewrothstein/ansible-fs.git
