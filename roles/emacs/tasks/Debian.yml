@@ -1,6 +1,0 @@
----
-- name: pkgs...
-  apt: name={{item}} state=latest
-  with_items:
-    - emacs
-    - emacs-goodies-el

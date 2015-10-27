@@ -1,6 +1,0 @@
----
-- name: pkgs...
-  yum: name={{item}} state=latest
-  with_items:
-    - emacs
-    - emacs-goodies
