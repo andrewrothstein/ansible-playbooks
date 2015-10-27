@@ -178,3 +178,6 @@
 [submodule "roles/ntp"]
 	path = roles/ntp
 	url = git://github.com/andrewrothstein/ansible-ntp.git
+[submodule "roles/pig"]
+	path = roles/pig
+	url = git://github.com/andrewrothstein/ansible-pig.git
