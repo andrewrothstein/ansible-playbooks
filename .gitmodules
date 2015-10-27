@@ -112,3 +112,6 @@
 [submodule "roles/flink"]
 	path = roles/flink
 	url = git://github.com/andrewrothstein/ansible-flink.git
+[submodule "roles/fluentd"]
+	path = roles/fluentd
+	url = git://github.com/andrewrothstein/ansible-fluentd.git
