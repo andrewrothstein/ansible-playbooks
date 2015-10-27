@@ -46,3 +46,6 @@
 [submodule "roles/devstack-common"]
 	path = roles/devstack-common
 	url = git://github.com/andrewrothstein/ansible-devstack-common.git
+[submodule "roles/docker"]
+	path = roles/docker
+	url = git://github.com/andrewrothstein/ansible-docker.git
