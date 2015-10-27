@@ -175,3 +175,6 @@
 [submodule "roles/nfs-client"]
 	path = roles/nfs-client
 	url = git://github.com/andrewrothstein/ansible-nfs-client.git
+[submodule "roles/ntp"]
+	path = roles/ntp
+	url = git://github.com/andrewrothstein/ansible-ntp.git
