@@ -220,3 +220,6 @@
 [submodule "roles/ssl-key"]
 	path = roles/ssl-key
 	url = git://github.com/andrewrothstein/ansible-ssl-key.git
+[submodule "roles/storm"]
+	path = roles/storm
+	url = git://github.com/andrewrothstein/ansible-storm.git
