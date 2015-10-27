@@ -16,3 +16,6 @@
 [submodule "roles/atom"]
 	path = roles/atom
 	url = git://github.com/andrewrothstein/ansible-atom.git
+[submodule "roles/bind"]
+	path = roles/bind
+	url = git://github.com/andrewrothstein/ansible-bind.git
