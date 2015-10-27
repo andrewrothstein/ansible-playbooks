@@ -157,3 +157,6 @@
 [submodule "roles/mesos-build"]
 	path = roles/mesos-build
 	url = git://github.com/andrewrothstein/ansible-mesos-build.git
+[submodule "roles/mesos-dns"]
+	path = roles/mesos-dns
+	url = git://github.com/andrewrothstein/ansible-mesos-dns.git
