@@ -55,3 +55,6 @@
 [submodule "roles/docker-http-replicator"]
 	path = roles/docker-http-replicator
 	url = git://github.com/andrewrothstein/ansible-docker-http-replicator.git
+[submodule "roles/docker-machine"]
+	path = roles/docker-machine
+	url = git://github.com/andrewrothstein/ansible-docker-machine.git
