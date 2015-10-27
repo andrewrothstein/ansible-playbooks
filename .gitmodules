@@ -142,3 +142,6 @@
 [submodule "roles/java"]
 	path = roles/java
 	url = git://github.com/andrewrothstein/ansible-java.git
+[submodule "roles/jq"]
+	path = roles/jq
+	url = git://github.com/andrewrothstein/ansible-jq.git
