@@ -205,3 +205,6 @@
 [submodule "roles/saltstack"]
 	path = roles/saltstack
 	url = git://github.com/andrewrothstein/ansible-saltstack.git
+[submodule "roles/scala"]
+	path = roles/scala
+	url = git://github.com/andrewrothstein/ansible-scala.git
