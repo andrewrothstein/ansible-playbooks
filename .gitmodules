@@ -139,3 +139,6 @@
 [submodule "roles/intellij"]
 	path = roles/intellij
 	url = git://github.com/andrewrothstein/ansible-intellij.git
+[submodule "roles/java"]
+	path = roles/java
+	url = git://github.com/andrewrothstein/ansible-java.git
