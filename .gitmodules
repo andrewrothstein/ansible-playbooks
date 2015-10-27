@@ -40,3 +40,6 @@
 [submodule "roles/corkscrew"]
 	path = roles/corkscrew
 	url = git://github.com/andrewrothstein/ansible-corkscrew.git
+[submodule "roles/cpp-dev"]
+	path = roles/cpp-dev
+	url = git://github.com/andrewrothstein/ansible-cpp-dev.git
