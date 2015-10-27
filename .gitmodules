@@ -31,3 +31,6 @@
 [submodule "roles/compression"]
 	path = roles/compression
 	url = git://github.com/andrewrothstein/ansible-compression.git
+[submodule "roles/confd"]
+	path = roles/confd
+	url = git://github.com/andrewrothstein/ansible-confd.git
