@@ -169,3 +169,6 @@
 [submodule "roles/nettools"]
 	path = roles/nettools
 	url = git://github.com/andrewrothstein/ansible-nettools.git
+[submodule "roles/nfs"]
+	path = roles/nfs
+	url = git://github.com/andrewrothstein/ansible-nfs.git
