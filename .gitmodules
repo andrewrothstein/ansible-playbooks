@@ -130,3 +130,6 @@
 [submodule "roles/haskell"]
 	path = roles/haskell
 	url = git://github.com/andrewrothstein/ansible-haskell.git
+[submodule "roles/hbase"]
+	path = roles/hbase
+	url = git://github.com/andrewrothstein/ansible-hbase.git
