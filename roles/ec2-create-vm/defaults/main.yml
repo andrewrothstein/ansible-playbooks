@@ -1,8 +1,0 @@
----
-#key_name: arothste
-instance_type: m3.medium
-security_group: ssh-only
-#cloud_user: centos
-#image: ami-96a818fe
-region: us-east-1
-
