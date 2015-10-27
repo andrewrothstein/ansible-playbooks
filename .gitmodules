@@ -181,3 +181,6 @@
 [submodule "roles/pig"]
 	path = roles/pig
 	url = git://github.com/andrewrothstein/ansible-pig.git
+[submodule "roles/puppet-common"]
+	path = roles/puppet-common
+	url = git://github.com/andrewrothstein/ansible-puppet-common.git
