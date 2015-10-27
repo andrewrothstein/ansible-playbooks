@@ -1,3 +1,0 @@
----
-- name: setting hostname
-  hostname: name="{{inventory_hostname}}"
