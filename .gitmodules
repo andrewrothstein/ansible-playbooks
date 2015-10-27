@@ -160,3 +160,6 @@
 [submodule "roles/mesos-dns"]
 	path = roles/mesos-dns
 	url = git://github.com/andrewrothstein/ansible-mesos-dns.git
+[submodule "roles/mesos-servicerouter"]
+	path = roles/mesos-servicerouter
+	url = git://github.com/andrewrothstein/ansible-mesos-servicerouter.git
