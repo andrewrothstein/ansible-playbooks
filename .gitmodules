@@ -13,3 +13,6 @@
 [submodule "roles/aquadatastudio"]
 	path = roles/aquadatastudio
 	url = git://github.com/andrewrothstein/ansible-aquadatastudio.git
+[submodule "roles/atom"]
+	path = roles/atom
+	url = git://github.com/andrewrothstein/ansible-atom.git
