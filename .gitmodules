@@ -73,3 +73,6 @@
 [submodule "roles/drill"]
 	path = roles/drill
 	url = git://github.com/andrewrothstein/ansible-drill.git
+[submodule "roles/ec2-create-vm"]
+	path = roles/ec2-create-vm
+	url = git://github.com/andrewrothstein/ansible-ec2-create-vm.git
