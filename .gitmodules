@@ -151,3 +151,6 @@
 [submodule "roles/jython"]
 	path = roles/jython
 	url = git://github.com/andrewrothstein/ansible-jython.git
+[submodule "roles/libvirt"]
+	path = roles/libvirt
+	url = git://github.com/andrewrothstein/ansible-libvirt.git
