@@ -79,3 +79,6 @@
 [submodule "roles/ec2-destroy-vm"]
 	path = roles/ec2-destroy-vm
 	url = git://github.com/andrewrothstein/ansible-ec2-destroy-vm.git
+[submodule "roles/eclipse"]
+	path = roles/eclipse
+	url = git://github.com/andrewrothstein/ansible-eclipse.git
