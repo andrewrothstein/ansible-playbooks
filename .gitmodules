@@ -226,3 +226,6 @@
 [submodule "roles/subgit"]
 	path = roles/subgit
 	url = git://github.com/andrewrothstein/ansible-subgit.git
+[submodule "roles/sudoers"]
+	path = roles/sudoers
+	url = git://github.com/andrewrothstein/ansible-sudoers.git
