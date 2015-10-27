@@ -199,3 +199,6 @@
 [submodule "roles/rdp"]
 	path = roles/rdp
 	url = git://github.com/andrewrothstein/ansible-rdp.git
+[submodule "roles/ruby"]
+	path = roles/ruby
+	url = git://github.com/andrewrothstein/ansible-ruby.git
