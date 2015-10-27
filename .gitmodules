@@ -124,3 +124,6 @@
 [submodule "roles/go"]
 	path = roles/go
 	url = git://github.com/andrewrothstein/ansible-go.git
+[submodule "roles/hadoop"]
+	path = roles/hadoop
+	url = git://github.com/andrewrothstein/ansible-hadoop.git
