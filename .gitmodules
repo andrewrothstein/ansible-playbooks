@@ -121,3 +121,6 @@
 [submodule "roles/github-release"]
 	path = roles/github-release
 	url = git://github.com/andrewrothstein/ansible-github-release.git
+[submodule "roles/go"]
+	path = roles/go
+	url = git://github.com/andrewrothstein/ansible-go.git
