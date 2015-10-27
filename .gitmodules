@@ -4,3 +4,6 @@
 [submodule "roles/julia"]
 	path = roles/julia
 	url = git://github.com/andrewrothstein/ansible-julia
+[submodule "roles/ansible"]
+	path = roles/ansible
+	url = git://github.com/andrewrothstein/ansible-ansible.git
