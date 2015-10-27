@@ -232,3 +232,6 @@
 [submodule "roles/systemd-docker"]
 	path = roles/systemd-docker
 	url = git://github.com/andrewrothstein/ansible-systemd-docker.git
+[submodule "roles/tachyon"]
+	path = roles/tachyon
+	url = git://github.com/andrewrothstein/ansible-tachyon.git
