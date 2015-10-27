@@ -211,3 +211,6 @@
 [submodule "roles/shell-ammenities"]
 	path = roles/shell-ammenities
 	url = git://github.com/andrewrothstein/ansible-shell-ammenities.git
+[submodule "roles/solr"]
+	path = roles/solr
+	url = git://github.com/andrewrothstein/ansible-solr.git
