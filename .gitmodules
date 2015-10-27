@@ -190,3 +190,6 @@
 [submodule "roles/puppet-slave"]
 	path = roles/puppet-slave
 	url = git://github.com/andrewrothstein/ansible-puppet-slave.git
+[submodule "roles/python"]
+	path = roles/python
+	url = git://github.com/andrewrothstein/ansible-python.git
