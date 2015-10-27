@@ -52,3 +52,6 @@
 [submodule "roles/docker-couchdb"]
 	path = roles/docker-couchdb
 	url = git://github.com/andrewrothstein/ansible-docker-couchdb.git
+[submodule "roles/docker-http-replicator"]
+	path = roles/docker-http-replicator
+	url = git://github.com/andrewrothstein/ansible-docker-http-replicator.git
