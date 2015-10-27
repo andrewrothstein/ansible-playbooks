@@ -76,3 +76,6 @@
 [submodule "roles/ec2-create-vm"]
 	path = roles/ec2-create-vm
 	url = git://github.com/andrewrothstein/ansible-ec2-create-vm.git
+[submodule "roles/ec2-destroy-vm"]
+	path = roles/ec2-destroy-vm
+	url = git://github.com/andrewrothstein/ansible-ec2-destroy-vm.git
