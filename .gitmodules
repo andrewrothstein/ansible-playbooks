@@ -229,3 +229,6 @@
 [submodule "roles/sudoers"]
 	path = roles/sudoers
 	url = git://github.com/andrewrothstein/ansible-sudoers.git
+[submodule "roles/systemd-docker"]
+	path = roles/systemd-docker
+	url = git://github.com/andrewrothstein/ansible-systemd-docker.git
