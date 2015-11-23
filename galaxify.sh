@@ -5,5 +5,6 @@ DEST=$GIT_ROOT/$1
 
 echo '**~' > $DEST/.gitignore
 mkdir -p $DEST/{defaults,meta}
+cp $SRC/LICENSE $DEST/LICENSE
 cp $SRC/meta/main.yml $DEST/meta/main.yml
 cp $SRC/test.yml $DEST/test.yml
