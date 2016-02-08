@@ -1,0 +1,10 @@
+---
+- src: andrewrothstein.useraccounts
+- src: andrewrothstein.proxify
+- src: andrewrothstein.sudoers
+- src: andrewrothstein.git
+- src: andrewrothstein.emacs
+- src: andrewrothstein.nettools
+- src: andrewrothstein.docker
+- src: andrewrothstein.virtualbox
+- src: andrewrothstein.vagrant

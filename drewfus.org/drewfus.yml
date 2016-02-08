@@ -1,0 +1,12 @@
+---
+- hosts : drewfus.org
+  roles:
+    - andrewrothstein.useraccounts
+    - andrewrothstein.proxify
+    - andrewrothstein.sudoers
+    - andrewrothstein.git
+    - andrewrothstein.emacs
+    - andrewrothstein.nettools
+    - andrewrothstein.docker
+    - andrewrothstein.virtualbox
+    - andrewrothstein.vagrant
