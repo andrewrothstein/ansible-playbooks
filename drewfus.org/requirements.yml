@@ -4,6 +4,8 @@
 - src: andrewrothstein.sudoers
 - src: andrewrothstein.git
 - src: andrewrothstein.emacs
+- src: andrewrothstein.galaxify
+- src: andrewrothstein.hub
 - src: andrewrothstein.nettools
 - src: andrewrothstein.docker
 - src: andrewrothstein.virtualbox
