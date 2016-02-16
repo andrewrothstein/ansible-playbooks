@@ -5,6 +5,7 @@
     - andrewrothstein.proxify
     - andrewrothstein.sudoers
     - andrewrothstein.git
+    - andrewrothstein.go
     - andrewrothstein.emacs
     - andrewrothstein.galaxify
     - andrewrothstein.hub
@@ -12,3 +13,5 @@
     - andrewrothstein.docker
     - andrewrothstein.virtualbox
     - andrewrothstein.vagrant
+    - andrewrothstein.mosh
+    

@@ -3,6 +3,7 @@
 - src: andrewrothstein.proxify
 - src: andrewrothstein.sudoers
 - src: andrewrothstein.git
+- src: andrewrothstein.go
 - src: andrewrothstein.emacs
 - src: andrewrothstein.galaxify
 - src: andrewrothstein.hub
@@ -10,3 +11,5 @@
 - src: andrewrothstein.docker
 - src: andrewrothstein.virtualbox
 - src: andrewrothstein.vagrant
+- src: andrewrothstein.mosh
+
