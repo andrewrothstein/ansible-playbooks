@@ -1,8 +1,0 @@
----
-- hosts: apt-cacher-ng
-  roles:
-    - apt-cacher-ng
-- hosts: apt-cacher-client
-  roles:
-    - { role: proxify, apt_http_proxy: "http://192.168.33.13" }
-    

@@ -1,0 +1,9 @@
+---
+- hosts:
+    - vault
+  tags:
+    - vault-cli
+  vars:
+    vault_ver: 1.12.1
+  roles:
+    - andrewrothstein.vault

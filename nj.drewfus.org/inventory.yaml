@@ -1,0 +1,6 @@
+---
+all:
+  children:
+    vault:
+      hosts:
+        vault.nj.drewfus.org:

@@ -1,3 +1,0 @@
----
-- include: puppet-master.yml
-- include: puppet-slave.yml
