@@ -31,14 +31,6 @@
 - hosts:
     - localhost
   tags:
-    - k8s-ci
-  roles:
-    - andrewrothstein.buildkit
-    - andrewrothstein.go
-    - andrewrothstein.dagger
-- hosts:
-    - localhost
-  tags:
     - go-cicd
   roles:
     - andrewrothstein.buildkit
