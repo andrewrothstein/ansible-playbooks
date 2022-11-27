@@ -1,9 +1,48 @@
 ---
-- hosts:
-    - vault
-  tags:
-    - vault-cli
+- hosts: all
   vars:
     vault_ver: 1.12.1
+  tags:
+    - vault-cli
   roles:
     - andrewrothstein.vault
+- hosts: all
+  tags:
+    - k8s-from-docker
+  roles:
+    - andrewrothstein.sudoers
+    - andrewrothstein.docker_engine
+    - andrewrothstein.git
+    - andrewrothstein.k3d
+    - andrewrothstein.kind
+- hosts:
+  - localhost
+  tags:
+    - k8s-sdn
+  roles:
+    - andrewrothstein.calicoctl
+    - andrewrothstein.istio
+- hosts:
+  - localhost
+  tags:
+  - k8s-ops
+  roles:
+    - andrewrothstein.argocd
+    - andrewrothstein.kubernetes-helm
+    - andrewrothstein.k9s
+- hosts:
+    - localhost
+  tags:
+    - k8s-ci
+  roles:
+    - andrewrothstein.buildkit
+    - andrewrothstein.go
+    - andrewrothstein.dagger
+- hosts:
+    - localhost
+  tags:
+    - go-cicd
+  roles:
+    - andrewrothstein.buildkit
+    - andrewrothstein.go-dev
+    - andrewrothstein.dagger

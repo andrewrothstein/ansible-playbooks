@@ -1,3 +1,16 @@
 ---
 roles:
-  - name: andrewrothstein.vault
+  - andrewrothstein.sudoers
+  - andrewrothstein.docker_engine
+  - andrewrothstein.vault
+  - andrewrothstein.git
+  - andrewrothstein.k3d
+  - andrewrothstein.kind
+  - andrewrothstein.istio
+  - andrewrothstein.calicoctl
+  - andrewrothstein.argocd
+  - andrewrothstein.kubernetes-helm
+  - andrewrothstein.k9s
+  - andrewrothstein.dagger
+  - andrewrothstein.buildkit
+  - andrewrothstein.go-dev
