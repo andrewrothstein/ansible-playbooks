@@ -10,9 +10,6 @@
   tags:
     - k8s-from-docker
   roles:
-    - andrewrothstein.sudoers
-    - andrewrothstein.docker_engine
-    - andrewrothstein.git
     - andrewrothstein.k3d
     - andrewrothstein.kind
 - hosts:
@@ -27,6 +24,7 @@
   tags:
   - k8s-ops
   roles:
+    - andrewrothstein.git
     - andrewrothstein.argocd
     - andrewrothstein.kubernetes-helm
     - andrewrothstein.k9s

@@ -1,0 +1,6 @@
+---
+- hosts:
+    - docker_engine
+  roles:
+    - andrewrothstein.sudoers
+    - andrewrothstein.docker_engine
