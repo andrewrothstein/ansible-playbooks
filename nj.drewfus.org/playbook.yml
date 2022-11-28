@@ -12,6 +12,7 @@
   roles:
     - andrewrothstein.k3d
     - andrewrothstein.kind
+    - andrewrothstein.kubectl
 - hosts:
   - localhost
   tags:
@@ -22,10 +23,14 @@
 - hosts:
   - localhost
   tags:
-  - k8s-ops
+  - k8s-gitops
   roles:
     - andrewrothstein.git
+    - andrewrothstein.jq
+    - andrewrothstein.task
     - andrewrothstein.argocd
+    - andrewrothstein.argo
+    - andrewrothstein.kubeshark
     - andrewrothstein.kubernetes-helm
     - andrewrothstein.k9s
 - hosts:
