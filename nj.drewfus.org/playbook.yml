@@ -1,12 +1,5 @@
 ---
 - hosts: all
-  vars:
-    vault_ver: 1.12.1
-  tags:
-    - vault-cli
-  roles:
-    - andrewrothstein.vault
-- hosts: all
   tags:
     - k8s-from-docker
   roles:
