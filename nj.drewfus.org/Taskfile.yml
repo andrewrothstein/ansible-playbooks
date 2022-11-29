@@ -59,8 +59,23 @@ tasks:
   k3d-delete:
     cmds:
       - sudo k3d cluster delete {{ .CLUSTER_NAME }}
+    preconditions:
+      - sudo k3d cluster list {{ .CLUSTER_NAME }}
+  kind-up:
+    deps:
+      - ansible-playbook-localhost
+    cmds:
+      - sudo kind create cluster -n {{ .CLUSTER_NAME }}
+    status:
+      - sudo kind get clusters | grep {{ .CLUSTER_NAME }}
+  kind-delete:
+    deps:
+      - ansible-playbook-localhost
+    cmds:
+      - sudo kind delete clusters {{ .CLUSTER_NAME }}
   istio-install:
     deps:
+#      - kind-up
       - k3d-up
     cmds:
       - sudo istioctl install -y
@@ -76,76 +91,95 @@ tasks:
       - istio-install
     cmds:
       - sudo kubeshark tap -A --service-mesh
-  kubectl-ns-apply:
+  kubectl-ns-create:
+    deps:
+      - istio-install
+    vars:
+      n: '{{ default "my-project" .n }}'
+    cmds:
+      - sudo kubectl create namespace {{ .n }};
+      - sudo kubectl label namespace {{ .n }} istio-injection=enabled --overwrite
+    status:
+      - sudo kubectl get namespace {{ .n }}
+  kubectl-ns-delete:
+    deps:
+      - istio-install
+    vars:
+      n: '{{ default "my-project" .n }}'
+    preconditions:
+      - sudo kubectl get namespace {{ .n }}
+    cmds:
+      - sudo kubectl delete namespace {{ .n }}
+  kubectl-apply:
     deps:
       - istio-install
     vars:
       n: '{{ default "my-project" .n }}'
       f: '{{ default "https://github.com/me/myproject/releases/download/v1.0.0/install.yaml" .f }}'
     cmds:
-      - |
-        sudo kubectl create namespace {{ .n }};
-        # enable istio sidecar injection on all namespaces
-        sudo kubectl label namespace {{ .n }} istio-injection=enabled --overwrite
-        sudo kubectl \
-          apply \
-          -n {{ .n }} \
-          -f {{ .f }}
-    status:
-      - sudo kubectl get namespace {{ .n }}
-  kubectl-ns-delete:
+      - sudo kubectl apply -n {{ .n }} -f {{ .f }}
+  kubectl-delete:
     vars:
       n: '{{ default "my-project" .n }}'
       f: '{{ default "https://github.com/me/myproject/releases/download/v1.0.0/install.yaml" .f }}'
+    preconditions:
+      - sudo kubectl get namespace {{ .n }}
     cmds:
-      - |
-        ns_count=$(sudo kubectl get ns -o json | jq -r '[.items | .[] | select(.metadata.name=={{ .n | quote }})] | length')
-        if [ "$ns_count" != "0" ];
-        then
-          sudo kubectl \
-            delete \
-            -n {{ .n }} \
-            -f {{ .f }};
-          sudo kubectl \
-            delete \
-            namespace {{ .n }};
-        fi
+      - sudo kubectl delete -n {{ .n }} -f {{ .f }}
   argo-cd-apply:
     cmds:
-      - task: kubectl-ns-apply
+      - task: kubectl-ns-create
+        vars:
+          n: '{{ .ARGO_CD_NS }}'
+      - task: kubectl-apply
         vars:
           n: '{{ .ARGO_CD_NS }}'
           f: https://raw.githubusercontent.com/argoproj/argo-cd/v{{ .ARGO_CD_VER }}/manifests/install.yaml
   argo-cd-delete:
     cmds:
-      - task: kubectl-ns-delete
+      - task: kubectl-delete
         vars:
           n: '{{ .ARGO_CD_NS }}'
           f: https://raw.githubusercontent.com/argoproj/argo-cd/v{{ .ARGO_CD_VER }}/manifests/install.yaml
+      - task: kubectl-ns-delete
+        vars:
+          n: '{{ .ARGO_CD_NS }}'
   argo-workflows-apply:
     cmds:
-      - task: kubectl-ns-apply
+      - task: kubectl-ns-create
+        vars:
+          n: '{{ .ARGO_WORKFLOWS_NS }}'
+      - task: kubectl-apply
         vars:
           n: '{{ .ARGO_WORKFLOWS_NS }}'
           f: https://github.com/argoproj/argo-workflows/releases/download/v{{ .ARGO_WORKFLOWS_VER }}/install.yaml
   argo-workflows-delete:
     cmds:
-      - task: kubectl-ns-delete
+      - task: kubectl-delete
         vars:
           n: '{{ .ARGO_WORKFLOWS_NS }}'
           f: https://github.com/argoproj/argo-workflows/releases/download/v{{ .ARGO_WORKFLOWS_VER }}/install.yaml
+      - task: kubectl-ns-delete
+        vars:
+          n: '{{ .ARGO_WORKFLOWS_NS }}'
   argo-rollouts-apply:
     cmds:
-      - task: kubectl-ns-apply
+      - task: kubectl-ns-create
+        vars:
+          n: '{{ .ARGO_ROLLOUTS_NS }}'
+      - task: kubectl-apply
         vars:
           n: '{{ .ARGO_ROLLOUTS_NS }}'
           f: https://github.com/argoproj/argo-rollouts/releases/download/v{{ .ARGO_ROLLOUTS_VER }}/install.yaml
   argo-rollouts-delete:
     cmds:
-      - task: kubectl-ns-delete
+      - task: kubectl-delete
         vars:
           n: '{{ .ARGO_ROLLOUTS_NS }}'
           f: https://github.com/argoproj/argo-rollouts/releases/download/v{{ .ARGO_ROLLOUTS_VER }}/install.yaml
+      - task: kubectl-ns-delete
+        vars:
+          n: '{{ .ARGO_ROLLOUTS_NS }}'
   apply:
     - task: argo-cd-apply
     - task: argo-workflows-apply
@@ -176,7 +210,10 @@ tasks:
       CHART: '{{ default "helm-chart" .CHART }}'
       CHART_VER: '{{ default "helm-version-constraint" .CHART_VER }}'
     cmds:
-      - sudo helm install --create-namespace -n {{ .NAMESPACE }} {{ .NAME }} {{ .CHART_REPO_NAME }}/{{ .CHART }} --version {{ .CHART_VER }}
+      - task: kubectl-ns-create
+        vars:
+          n: '{{ .NAMESPACE }}'
+      - sudo helm install -n {{ .NAMESPACE }} {{ .NAME }} {{ .CHART_REPO_NAME }}/{{ .CHART }} --version {{ .CHART_VER }}
     status:
       - sudo helm list -n {{ .NAMESPACE }} -o json | jq -e '.[] | select(.name=={{ .NAME | quote }})'
   gitea-helm-install:
@@ -194,13 +231,10 @@ tasks:
     vars:
       NAMESPACE: '{{ default "helm-install-namespace" .NAMESPACE }}'
       NAME: '{{ default "helm-release-name" .NAME }}'
+    preconditions:
+      - sudo helm list -n {{ .NAMESPACE }} -o json | jq -e '.[] | select(.name=={{ .NAME | quote }})'
     cmds:
-      - |
-        release_count=$(sudo helm list -n {{ .NAMESPACE }} -o json | jq -r '[.[] | select(.name=={{ .NAME | quote }})] | length');
-        if [ "${release_count}" != "0" ];
-        then
-          sudo helm delete -n {{ .NAMESPACE }} {{ .NAME }}
-        fi;
+      - sudo helm delete -n {{ .NAMESPACE }} {{ .NAME }}
   gitea-helm-delete:
     cmds:
       - task: helm-delete
