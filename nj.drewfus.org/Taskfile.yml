@@ -180,14 +180,6 @@ tasks:
       - task: kubectl-ns-delete
         vars:
           n: '{{ .ARGO_ROLLOUTS_NS }}'
-  apply:
-    - task: argo-cd-apply
-    - task: argo-workflows-apply
-    - task: argo-rollouts-apply
-  delete:
-    - task: argo-cd-delete
-    - task: argo-workflows-delete
-    - task: argo-rollouts-delete
   helm-repo-add:
     vars:
       CHART_REPO_NAME: '{{ default "my-charts" .CHART_REPO_NAME }}'
@@ -269,6 +261,23 @@ tasks:
   charts-install:
     deps:
       - gitea-helm-install
+      - hashicorp-vault-helm-install
   charts-delete:
     deps:
       - gitea-helm-delete
+      - hashicorp-vault-helm-delete
+  charts-apply:
+    deps:
+      - chart-repos-add
+      - charts-install
+  apply:
+    - task: argo-cd-apply
+    - task: argo-workflows-apply
+    - task: argo-rollouts-apply
+    - task: chart-repos-add
+    - task: charts-install
+  delete:
+    - task: charts-delete
+    - task: argo-rollouts-delete
+    - task: argo-workflows-delete
+    - task: argo-cd-delete
