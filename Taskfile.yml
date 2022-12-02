@@ -19,113 +19,11 @@ vars:
   HASHICORP_CHART_REPO_NAME: hashicorp
   HASHICORP_CHART_REPO_URL: https://helm.releases.hashicorp.com
   HASHICORP_VAULT_CHART: vault
-  HASHICORP_VAULT_CHART_VER: 0.22.1
+  HASHICORP_VAULT_CHART_VER: 0.23.0
+  JETSTACK_CHART_REPO_NAME: jetstack
+  JETSTACK_CHART_REPO_URL: https://charts.jetstack.io
 
 tasks:
-#  ssh-agent:
-#    cmds:
-#      - eval $(ssh-agent)
-#    status:
-#      - ssh-add -l
-#  ssh-keygen-overwrite:
-#    cmds:
-#      - ssh-keygen -t rsa -b 4096 -N '' -f ~/.ssh/bootstrap
-#    generates:
-#      - ~/.ssh/bootstrap.*
-  ansible-galaxy-install:
-    sources:
-      - requirements.yml
-    cmds:
-      - ansible-galaxy install -f -r requirements.yml
-    generates:
-      - .ansible-roles/**/*.yml
-  ansible-playbook-localhost:
-    deps:
-      - ansible-galaxy-install
-    cmds:
-      - ansible-playbook --limit localhost --tag k8s-from-docker --tag k8s-gitops playbook.yml
-      - echo done >> .onetime
-    sources:
-      - playbook.yml
-    generates:
-      - .onetime
-  k3d-up:
-    deps:
-      - ansible-playbook-localhost
-    cmds:
-      - sudo k3d cluster create bootstrap --k3s-arg "--disable=traefik@server:0"
-    status:
-      - sudo k3d cluster list {{ .CLUSTER_NAME }}
-  k3d-delete:
-    cmds:
-      - sudo k3d cluster delete {{ .CLUSTER_NAME }}
-    preconditions:
-      - sudo k3d cluster list {{ .CLUSTER_NAME }}
-  kind-up:
-    deps:
-      - ansible-playbook-localhost
-    cmds:
-      - sudo kind create cluster -n {{ .CLUSTER_NAME }}
-    status:
-      - sudo kind get clusters | grep {{ .CLUSTER_NAME }}
-  kind-delete:
-    deps:
-      - ansible-playbook-localhost
-    cmds:
-      - sudo kind delete clusters {{ .CLUSTER_NAME }}
-  istio-install:
-    deps:
-#      - kind-up
-      - k3d-up
-    cmds:
-      - sudo istioctl install -y
-    status:
-      - sudo istioctl verify-install
-  istio-uninstall:
-    deps:
-      - delete
-    cmds:
-      - sudo istioctl uninstall --purge --force -y
-  kubeshark-tap-all:
-    deps:
-      - istio-install
-    cmds:
-      - sudo kubeshark tap -A --service-mesh
-  kubectl-ns-create:
-    deps:
-      - istio-install
-    vars:
-      n: '{{ default "my-project" .n }}'
-    cmds:
-      - sudo kubectl create namespace {{ .n }};
-      - sudo kubectl label namespace {{ .n }} istio-injection=enabled --overwrite
-    status:
-      - sudo kubectl get namespace {{ .n }}
-  kubectl-ns-delete:
-    deps:
-      - istio-install
-    vars:
-      n: '{{ default "my-project" .n }}'
-    preconditions:
-      - sudo kubectl get namespace {{ .n }}
-    cmds:
-      - sudo kubectl delete namespace {{ .n }}
-  kubectl-apply:
-    deps:
-      - istio-install
-    vars:
-      n: '{{ default "my-project" .n }}'
-      f: '{{ default "https://github.com/me/myproject/releases/download/v1.0.0/install.yaml" .f }}'
-    cmds:
-      - sudo kubectl apply -n {{ .n }} -f {{ .f }}
-  kubectl-delete:
-    vars:
-      n: '{{ default "my-project" .n }}'
-      f: '{{ default "https://github.com/me/myproject/releases/download/v1.0.0/install.yaml" .f }}'
-    preconditions:
-      - sudo kubectl get namespace {{ .n }}
-    cmds:
-      - sudo kubectl delete -n {{ .n }} -f {{ .f }}
   argo-cd-apply:
     cmds:
       - task: kubectl-ns-create
@@ -180,34 +78,12 @@ tasks:
       - task: kubectl-ns-delete
         vars:
           n: '{{ .ARGO_ROLLOUTS_NS }}'
-  helm-repo-add:
-    vars:
-      CHART_REPO_NAME: '{{ default "my-charts" .CHART_REPO_NAME }}'
-      CHART_REPO_URL: '{{ default "https://my-chart-museum/charts/" .CHART_REPO_URL }}'
-    cmds:
-      - sudo helm repo add {{ .CHART_REPO_NAME }} {{ .CHART_REPO_URL }}
-    status:
-      - sudo helm repo list -o json | jq -e '.[] | select(.name=={{ .CHART_REPO_NAME | quote }})'
   gitea-helm-repo-add:
     cmds:
       - task: helm-repo-add
         vars:
           CHART_REPO_NAME: '{{ .GITEA_CHART_REPO_NAME }}'
           CHART_REPO_URL: '{{ .GITEA_CHART_REPO_URL }}'
-  helm-install:
-    vars:
-      NAMESPACE: '{{ default "helm-install-namespace" .NAMESPACE }}'
-      NAME: '{{ default "helm-release-name" .NAME }}'
-      CHART_REPO_NAME: '{{ default "helm-chart-repo-nae" .CHART_REPO_NAME }}'
-      CHART: '{{ default "helm-chart" .CHART }}'
-      CHART_VER: '{{ default "helm-version-constraint" .CHART_VER }}'
-    cmds:
-      - task: kubectl-ns-create
-        vars:
-          n: '{{ .NAMESPACE }}'
-      - sudo helm install -n {{ .NAMESPACE }} {{ .NAME }} {{ .CHART_REPO_NAME }}/{{ .CHART }} --version {{ .CHART_VER }}
-    status:
-      - sudo helm list -n {{ .NAMESPACE }} -o json | jq -e '.[] | select(.name=={{ .NAME | quote }})'
   gitea-helm-install:
     deps:
       - gitea-helm-repo-add
@@ -219,14 +95,6 @@ tasks:
           CHART_REPO_NAME: '{{ .GITEA_CHART_REPO_NAME }}'
           CHART: '{{ .GITEA_CHART }}'
           CHART_VER: '{{ .GITEA_CHART_VER }}'
-  helm-delete:
-    vars:
-      NAMESPACE: '{{ default "helm-install-namespace" .NAMESPACE }}'
-      NAME: '{{ default "helm-release-name" .NAME }}'
-    preconditions:
-      - sudo helm list -n {{ .NAMESPACE }} -o json | jq -e '.[] | select(.name=={{ .NAME | quote }})'
-    cmds:
-      - sudo helm delete -n {{ .NAMESPACE }} {{ .NAME }}
   gitea-helm-delete:
     cmds:
       - task: helm-delete

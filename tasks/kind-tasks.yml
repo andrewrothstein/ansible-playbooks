@@ -1,0 +1,15 @@
+---
+version: '3'
+tasks:
+  kind-up:
+    deps:
+      - ansible-playbook-localhost
+    cmds:
+      - kind create cluster -n {{ .CLUSTER_NAME }}
+    status:
+      - kind get clusters | grep {{ .CLUSTER_NAME }}
+  kind-delete:
+    deps:
+      - ansible-playbook-localhost
+    cmds:
+      - kind delete clusters {{ .CLUSTER_NAME }}
