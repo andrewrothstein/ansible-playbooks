@@ -1,151 +1,58 @@
 ---
 version: '3'
-vars:
-  CLUSTER_NAME: bootstrap
-  ARGO_WORKFLOWS_NS: argo
-  ARGO_WORKFLOWS_VER: 3.4.3
-  ARGO_CD_NS: argocd
-  ARGO_CD_VER: 2.5.2
-  ARGO_ROLLOUTS_NS: argo-rollouts
-  ARGO_ROLLOUTS_VER: 1.3.0
-  GITEA_NS: gitea
-  GITEA_NAME: gitea
-  GITEA_CHART_REPO_NAME: gitea-charts
-  GITEA_CHART_REPO_URL: https://dl.gitea.io/charts/
-  GITEA_CHART: gitea
-  GITEA_CHART_VER: 6.0.3
-  HASHICORP_VAULT_NS: vault
-  HASHICORP_VAULT_NAME: vault
-  HASHICORP_CHART_REPO_NAME: hashicorp
-  HASHICORP_CHART_REPO_URL: https://helm.releases.hashicorp.com
-  HASHICORP_VAULT_CHART: vault
-  HASHICORP_VAULT_CHART_VER: 0.23.0
-  JETSTACK_CHART_REPO_NAME: jetstack
-  JETSTACK_CHART_REPO_URL: https://charts.jetstack.io
-
+includes:
+  ansible: tasks/ansible.yml
+  k8s: tasks/k3d.yml
+  istio: tasks/istio.yml
+  argocd: tasks/argocd.yml
+  argo: tasks/argo.yml
+  argo-rollouts: tasks/argo-rollouts.yml
+  gitea: tasks/gitea.yml
+  hashicorp: tasks/hashicorp.yml
+  jetstack: tasks/jetstack.yml
 tasks:
-  argo-cd-apply:
-    cmds:
-      - task: kubectl-ns-create
-        vars:
-          n: '{{ .ARGO_CD_NS }}'
-      - task: kubectl-apply
-        vars:
-          n: '{{ .ARGO_CD_NS }}'
-          f: https://raw.githubusercontent.com/argoproj/argo-cd/v{{ .ARGO_CD_VER }}/manifests/install.yaml
-  argo-cd-delete:
-    cmds:
-      - task: kubectl-delete
-        vars:
-          n: '{{ .ARGO_CD_NS }}'
-          f: https://raw.githubusercontent.com/argoproj/argo-cd/v{{ .ARGO_CD_VER }}/manifests/install.yaml
-      - task: kubectl-ns-delete
-        vars:
-          n: '{{ .ARGO_CD_NS }}'
-  argo-workflows-apply:
-    cmds:
-      - task: kubectl-ns-create
-        vars:
-          n: '{{ .ARGO_WORKFLOWS_NS }}'
-      - task: kubectl-apply
-        vars:
-          n: '{{ .ARGO_WORKFLOWS_NS }}'
-          f: https://github.com/argoproj/argo-workflows/releases/download/v{{ .ARGO_WORKFLOWS_VER }}/install.yaml
-  argo-workflows-delete:
-    cmds:
-      - task: kubectl-delete
-        vars:
-          n: '{{ .ARGO_WORKFLOWS_NS }}'
-          f: https://github.com/argoproj/argo-workflows/releases/download/v{{ .ARGO_WORKFLOWS_VER }}/install.yaml
-      - task: kubectl-ns-delete
-        vars:
-          n: '{{ .ARGO_WORKFLOWS_NS }}'
-  argo-rollouts-apply:
-    cmds:
-      - task: kubectl-ns-create
-        vars:
-          n: '{{ .ARGO_ROLLOUTS_NS }}'
-      - task: kubectl-apply
-        vars:
-          n: '{{ .ARGO_ROLLOUTS_NS }}'
-          f: https://github.com/argoproj/argo-rollouts/releases/download/v{{ .ARGO_ROLLOUTS_VER }}/install.yaml
-  argo-rollouts-delete:
-    cmds:
-      - task: kubectl-delete
-        vars:
-          n: '{{ .ARGO_ROLLOUTS_NS }}'
-          f: https://github.com/argoproj/argo-rollouts/releases/download/v{{ .ARGO_ROLLOUTS_VER }}/install.yaml
-      - task: kubectl-ns-delete
-        vars:
-          n: '{{ .ARGO_ROLLOUTS_NS }}'
-  gitea-helm-repo-add:
-    cmds:
-      - task: helm-repo-add
-        vars:
-          CHART_REPO_NAME: '{{ .GITEA_CHART_REPO_NAME }}'
-          CHART_REPO_URL: '{{ .GITEA_CHART_REPO_URL }}'
-  gitea-helm-install:
+  default:
     deps:
-      - gitea-helm-repo-add
-    cmds:
-      - task: helm-install
-        vars:
-          NAMESPACE: '{{ .GITEA_NS }}'
-          NAME: '{{ .GITEA_NAME }}'
-          CHART_REPO_NAME: '{{ .GITEA_CHART_REPO_NAME }}'
-          CHART: '{{ .GITEA_CHART }}'
-          CHART_VER: '{{ .GITEA_CHART_VER }}'
-  gitea-helm-delete:
-    cmds:
-      - task: helm-delete
-        vars:
-          NAMESPACE: '{{ .GITEA_NS }}'
-          NAME: '{{ .GITEA_NAME }}'
-  hashicorp-helm-repo-add:
-    cmds:
-      - task: helm-repo-add
-        vars:
-          CHART_REPO_NAME: '{{ .HASHICORP_CHART_REPO_NAME }}'
-          CHART_REPO_URL: '{{ .HASHICORP_CHART_REPO_URL }}'
-  hashicorp-vault-helm-install:
-    cmds:
-      - task: helm-install
-        vars:
-          NAMESPACE: '{{ .HASHICORP_VAULT_NS }}'
-          NAME: '{{ .HASHICORP_VAULT_NAME }}'
-          CHART_REPO_NAME: '{{ .HASHICORP_CHART_REPO_NAME }}'
-          CHART: '{{ .HASHICORP_VAULT_CHART }}'
-          CHART_VER: '{{ .HASHICORP_VAULT_CHART_VER }}'
-  hashicorp-vault-helm-delete:
-    cmds:
-      - task: helm-delete
-        vars:
-          NAMESPACE: '{{ .HASHICORP_VAULT_NS }}'
-          NAME: '{{ .HASHICORP_VAULT_NAME }}'
-  chart-repos-add:
+      - install-local-apps
+  install-local-apps:
+    internal: true
     deps:
-      - gitea-helm-repo-add
-      - hashicorp-helm-repo-add
-  charts-install:
+      - ansible:playbook
+  k8s-up:
     deps:
-      - gitea-helm-install
-      - hashicorp-vault-helm-install
-  charts-delete:
+      - install-local-apps
+    cmds:
+      - task: k8s:up
+  k8s-delete:
     deps:
-      - gitea-helm-delete
-      - hashicorp-vault-helm-delete
-  charts-apply:
+      - install-local-apps
+    cmds:
+      - task: k8s:delete
+  service-mesh-up:
     deps:
-      - chart-repos-add
-      - charts-install
-  apply:
-    - task: argo-cd-apply
-    - task: argo-workflows-apply
-    - task: argo-rollouts-apply
-    - task: chart-repos-add
-    - task: charts-install
+      - k8s-up
+    cmds:
+      - task: istio:up
+  service-mesh-delete:
+    deps:
+      - install-local-apps
+    cmds:
+      - task: istio:delete
+  up:
+    deps:
+      - service-mesh-up
+    cmds:
+      - task: argocd:apply
+      - task: argo:apply
+      - task: argo-rollouts:apply
+      - task: gitea:install
+      - task: hashicorp:vault-install
+      - task: jetstack:install
   delete:
-    - task: charts-delete
-    - task: argo-rollouts-delete
-    - task: argo-workflows-delete
-    - task: argo-cd-delete
+    deps:
+      - jetstack:delete
+      - hashicorp:vault-delete
+      - gitea:delete
+      - argo-rollouts:delete
+      - argo:delete
+      - argocd:delete

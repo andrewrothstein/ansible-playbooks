@@ -1,13 +1,11 @@
 ---
 version: '3'
 tasks:
-  istio-install:
+  up:
     cmds:
       - istioctl install -y
     status:
       - istioctl verify-install
-  istio-uninstall:
-    deps:
-      - delete
+  delete:
     cmds:
       - istioctl uninstall --purge --force -y

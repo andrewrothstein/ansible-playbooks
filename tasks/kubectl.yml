@@ -1,7 +1,7 @@
 ---
 version: '3'
 tasks:
-  kubectl-ns-create:
+  ns-create:
     vars:
       n: '{{ default "my-project" .n }}'
     cmds:
@@ -9,20 +9,20 @@ tasks:
       - kubectl label namespace {{ .n }} istio-injection=enabled --overwrite
     status:
       - kubectl get namespace {{ .n }}
-  kubectl-ns-delete:
+  ns-delete:
     vars:
       n: '{{ default "my-project" .n }}'
     preconditions:
       - kubectl get namespace {{ .n }}
     cmds:
       - kubectl delete namespace {{ .n }}
-  kubectl-apply:
+  apply:
     vars:
       n: '{{ default "my-project" .n }}'
       f: '{{ default "https://github.com/me/myproject/releases/download/v1.0.0/install.yaml" .f }}'
     cmds:
       - kubectl apply -n {{ .n }} -f {{ .f }}
-  kubectl-delete:
+  delete:
     vars:
       n: '{{ default "my-project" .n }}'
       f: '{{ default "https://github.com/me/myproject/releases/download/v1.0.0/install.yaml" .f }}'
