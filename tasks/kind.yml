@@ -1,5 +1,7 @@
 ---
 version: '3'
+vars:
+  CLUSTER_NAME: '{{ .CLUSTER_NAME | default "bootstrap" }}'
 tasks:
   up:
     cmds:

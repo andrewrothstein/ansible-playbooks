@@ -1,12 +1,16 @@
 ---
 version: '3'
 tasks:
+  ns-label:
+    vars:
+      labels: '{{ .labels | default "" }}'
+    cmds:
+      - kubectl label namespace {{ .n }} {{ .labels }} --overwrite
   ns-create:
     vars:
       n: '{{ default "my-project" .n }}'
     cmds:
       - kubectl create namespace {{ .n }};
-      - kubectl label namespace {{ .n }} istio-injection=enabled --overwrite
     status:
       - kubectl get namespace {{ .n }}
   ns-delete:
